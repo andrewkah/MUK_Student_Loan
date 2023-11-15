@@ -1,15 +1,9 @@
-# mak_scholar1
+# Muk_Student_Loan
 
-A new Flutter project.
+A modern mobile application that simplifies the student loan application procedure.
+It is done in Flutter.
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
