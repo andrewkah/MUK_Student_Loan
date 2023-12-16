@@ -1,33 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
-class LogInScreen extends StatefulWidget{
-  const LogInScreen({super.key});
+class LogInScreen extends StatelessWidget{
+  LogInScreen({super.key});
 
-  @override
-  State<LogInScreen> createState() => _LogInScreenState();
-
-}
-
-class _LogInScreenState extends State<LogInScreen>{
   // form key
-  final _formkey = GlobalKey<FormState>();
+  final _formkey = GlobalKey<FormBuilderState>();
+
   // editing controller
   final TextEditingController stdNoController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
 
     // email field
-    final stdNoField = TextFormField( autofocus: false, controller: stdNoController, keyboardType: TextInputType.number,
-      onSaved: (value) {
+    final stdNoField = FormBuilderTextField(name: "stdNo", autofocus: false, controller: stdNoController,
+      onSaved: (value){
         stdNoController.text = value!;
-        },
+      },
       textInputAction: TextInputAction.next,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(errorText: "Please fill out this field"),
+            FormBuilderValidators.numeric(errorText: "Must contain integers only"),
+            FormBuilderValidators.minLength(10, errorText: "At least 10 numbers"),
+            FormBuilderValidators.maxLength(12),
+          ]),
+          decoration: const InputDecoration(
+              labelText: "Student Number",
+              labelStyle: TextStyle(fontSize: 20),
+              contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.primaryGreen),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+              )
+          ),
+    );
+
+    // Password field
+    final passwordField = FormBuilderTextField(name: "password", autofocus: false, obscureText: true, controller: passwordController,
+      onSaved: (value) {
+        passwordController.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.required(errorText: "Please fill out this field"),
+      ]),
       decoration: const InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "STUDENT NUMBER",
-          hintStyle: TextStyle(fontSize: 20),
+          labelText: "College",
+          labelStyle: TextStyle(fontSize: 20),
+          contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.primaryGreen),
           ),
@@ -37,35 +65,20 @@ class _LogInScreenState extends State<LogInScreen>{
       ),
     );
 
-    // Password field
-    final passwordField = TextFormField( autofocus: false, obscureText: true, controller: passwordController,
-      onSaved: (value) {
-        passwordController.text = value!;
-      },
-      textInputAction: TextInputAction.done,
-      decoration: const InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "PASSWORD",
-        hintStyle: TextStyle(fontSize: 20),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.primaryGreen),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-        )
-      ),
-    );
-
     // Login Button
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: Colors.primaryGreen,
       child: MaterialButton(
-        padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
+        padding: const EdgeInsets.fromLTRB(30, 15, 30, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
-        child: Text("Login", textAlign: TextAlign.center,
+        onPressed: () {
+          if(_formkey.currentState!.validate()){
+            return;
+          }
+        },
+        child: const Text("Login", textAlign: TextAlign.center,
         style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),),
       ),
     );
@@ -77,8 +90,8 @@ class _LogInScreenState extends State<LogInScreen>{
         child: SingleChildScrollView(
           child: Container(
             color: Colors.white,
-            child: Padding(padding: const EdgeInsets.all(36.0),
-              child: Form(
+            child: Padding(padding: const EdgeInsets.all(34.0),
+              child: FormBuilder(
                   key: _formkey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -89,13 +102,18 @@ class _LogInScreenState extends State<LogInScreen>{
                         child: Image.asset("assets/images/Mak-Logo.png",
                         fit: BoxFit.contain,)
                       ),
-                      const Text("STUDENT FUND", style: TextStyle(
-                          color: Colors.primaryGreen,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30
-                      ),),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: const Text("STUDENT FUND USER LOGIN", style: TextStyle(
+                            color: Colors.primaryGreen,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30
+                        ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
 
-                      SizedBox(height: 50),
+                      SizedBox(height: 30),
                       stdNoField,
                       SizedBox(height: 30),
 
@@ -118,9 +136,9 @@ class _LogInScreenState extends State<LogInScreen>{
                       SizedBox(height: 20,),
 
                       loginButton,
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Container(
-                        padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                        padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
