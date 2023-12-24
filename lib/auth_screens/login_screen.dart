@@ -89,7 +89,7 @@ class LogInScreen extends StatelessWidget{
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            color: Colors.white,
+              constraints: BoxConstraints(maxWidth: double.infinity),
             child: Padding(padding: const EdgeInsets.all(34.0),
               child: FormBuilder(
                   key: _formkey,
@@ -113,12 +113,12 @@ class LogInScreen extends StatelessWidget{
                         ),
                       ),
 
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       stdNoField,
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
 
                       passwordField,
-                      SizedBox(height: 25),
+                      const SizedBox(height: 25),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -133,16 +133,16 @@ class LogInScreen extends StatelessWidget{
                           )
                         ],
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
 
                       loginButton,
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
-                        padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text("By using this app, you agree to out "),
+                            const Text("By using this app, you agree to out "),
                             GestureDetector(
                               onTap: () {},
                               child: const Text("T&Cs",
