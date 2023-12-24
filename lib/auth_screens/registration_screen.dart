@@ -224,7 +224,7 @@ class RegisterScreen extends StatelessWidget {
       borderRadius: BorderRadius.circular(30),
       color: Colors.primaryGreen,
       child: MaterialButton(
-        padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
+        padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {},
         child: const Text("SIGN UP", textAlign: TextAlign.center,
@@ -237,7 +237,7 @@ class RegisterScreen extends StatelessWidget {
         body: Center(
           child: SingleChildScrollView(
             child: Container(
-              color: Colors.white,
+              constraints: BoxConstraints(maxWidth: double.infinity),
               child: Padding(padding: const EdgeInsets.all(30.0),
                 child: FormBuilder(
                   key: _formkey,
@@ -249,7 +249,7 @@ class RegisterScreen extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: IconButton(onPressed: () {Navigator.pop(context);}, icon: const Icon(Icons.arrow_back_rounded)),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -258,7 +258,7 @@ class RegisterScreen extends StatelessWidget {
                               child: Image.asset("assets/images/Mak-Logo.png",
                                 fit: BoxFit.contain,)
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 200,
                             child: Text("STUDENT FUND USER REGISTRATION", style: TextStyle(
                                 color: Colors.primaryGreen,
@@ -270,37 +270,31 @@ class RegisterScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Divider(color: Colors.black, height: 20, thickness: 2, indent: 3, endIndent: 3,),
-                      SizedBox(height: 22),
+                      const Divider(color: Colors.black, height: 20, thickness: 2, indent: 3, endIndent: 3,),
+                      const SizedBox(height: 22),
                       firstNameField,
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       lastNameField,
-                      SizedBox(height: 20),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Container(
-                          width: double.infinity,
-                          child: collegeField,
-                        ),
-                      ),
+                      const SizedBox(height: 20),
+                      collegeField,
                       // collegeField,
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       stdEmailField,
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       stdNoField,
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       passwordField,
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       confirmPasswordField,
-                      SizedBox(height: 35),
+                      const SizedBox(height: 35),
                       signupButton,
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
-                        padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text("By signing up, you agree to out "),
+                            const Text("By signing up, you agree to out "),
                             GestureDetector(
                               onTap: () {},
                               child: const Text("T&Cs",
