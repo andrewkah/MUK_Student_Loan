@@ -8,10 +8,10 @@ import '../models/bottom_nav.dart';
 
 class MainScreen extends StatefulWidget {
   final List<BottomNav> itemsNav = <BottomNav>[
-    BottomNav('Home', Icons.home, null),
-    BottomNav('Listings', Icons.list_alt_rounded, null),
-    BottomNav('Transactions', Icons.receipt_long, null),
-    BottomNav('Settings', Icons.settings, null),
+    BottomNav('Home', Icons.home),
+    BottomNav('Listings', Icons.list_alt_rounded),
+    BottomNav('Transactions', Icons.receipt_long),
+    BottomNav('Settings', Icons.settings),
   ];
 
   MainScreen({super.key});
@@ -61,11 +61,12 @@ class _MainScreenState extends State<MainScreen>
       body: screens[_currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
+        backgroundColor: Colors.grey[300],
+        type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.primaryGreen,
-        unselectedItemColor: Colors.grey[500],
+        unselectedItemColor: Colors.grey[700],
         currentIndex: _currentIndex,
         iconSize: 40,
         onTap: (int index) {
@@ -75,7 +76,6 @@ class _MainScreenState extends State<MainScreen>
         },
         items: widget.itemsNav.map((BottomNav data) {
           return BottomNavigationBarItem(
-            backgroundColor: Colors.grey[200],
             icon: Icon(data.icon),
             label: data.title,
           );
