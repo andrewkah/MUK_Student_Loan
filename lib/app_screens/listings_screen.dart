@@ -10,14 +10,14 @@ class ListingsScreen extends StatelessWidget {
       child: Container(
         constraints: const BoxConstraints(maxWidth: double.infinity),
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             vertical: 25.0,
             horizontal: 24.0,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
+              const Text(
                 "Research Grants",
                 style: TextStyle(
                   fontSize: 22,
@@ -37,47 +37,61 @@ class ListingsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 15, 10, 15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          const Text(
+                            "RISE Seed Innovations Grant",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "RISE Seed Innovations Grant",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              SizedBox(height: 5,),
-                              Text(
+                              const Text(
                                 "Call 004/2023",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              SizedBox(height: 5,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  RowTextFields(titleText: "Due:  ", subTitleText: "10/01/2024", textColor: Colors.red, textSize: 18,),
-                                  // SizedBox(width: 70,),
-                                  Text("APPLY", style: TextStyle(
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.arrow_drop_down,
+                                    size: 40,
                                     color: Colors.primaryGreen,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                  ),),
-                                ],
-                              )
+                                  )),
                             ],
                           ),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.arrow_drop_down, size: 40, color: Colors.primaryGreen,))
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "10/01/2024",
+                                textColor: Colors.red,
+                                textSize: 18,
+                              ),
+                              // SizedBox(width: 70,),
+                              Text(
+                                "APPLY",
+                                style: TextStyle(
+                                  color: Colors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                            ],
+                          ),
                         ],
                       ),
-
                     ),
                   ],
                 ),
@@ -100,10 +114,10 @@ class ListingsScreen extends StatelessWidget {
                   ),
                 ),
                 color: Colors.white,
-                child: Column(
+                child: const Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 15, 20, 15),
+                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -114,7 +128,9 @@ class ListingsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
                             "Program",
                             style: TextStyle(
@@ -122,16 +138,26 @@ class ListingsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              RowTextFields(titleText: "Due:  ", subTitleText: "31/01/2024", textColor: Colors.red, textSize: 18,),
-                              Text("MORE INFO", style: TextStyle(
-                                color: Colors.primaryGreen,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),),
+                              RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "31/01/2024",
+                                textColor: Colors.red,
+                                textSize: 18,
+                              ),
+                              Text(
+                                "MORE INFO",
+                                style: TextStyle(
+                                  color: Colors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
                             ],
                           )
                         ],
@@ -140,7 +166,9 @@ class ListingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(
+                height: 6,
+              ),
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.0),
@@ -164,7 +192,9 @@ class ListingsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
                             "Scholarship Foundation",
                             style: TextStyle(
@@ -172,16 +202,26 @@ class ListingsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              RowTextFields(titleText: "Due:  ", subTitleText: "05/01/2024", textColor: Colors.red, textSize: 18,),
-                              Text("MORE INFO", style: TextStyle(
-                                color: Colors.primaryGreen,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),),
+                              RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "05/01/2024",
+                                textColor: Colors.red,
+                                textSize: 18,
+                              ),
+                              Text(
+                                "MORE INFO",
+                                style: TextStyle(
+                                  color: Colors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
                             ],
                           )
                         ],
@@ -190,7 +230,9 @@ class ListingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(
+                height: 6,
+              ),
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.0),
@@ -214,16 +256,26 @@ class ListingsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              RowTextFields(titleText: "Due:  ", subTitleText: "05/01/2024", textColor: Colors.red, textSize: 20,),
-                              Text("MORE INFO", style: TextStyle(
-                                color: Colors.primaryGreen,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),),
+                              RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "05/01/2024",
+                                textColor: Colors.red,
+                                textSize: 18,
+                              ),
+                              Text(
+                                "MORE INFO",
+                                style: TextStyle(
+                                  color: Colors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
                             ],
                           )
                         ],
