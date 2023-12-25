@@ -50,19 +50,19 @@ class HomeScreen extends StatelessWidget {
                 textSize: 22,
               ),
               const RowTextFields(
-                titleText: "PROGRAMME:  ",
+                titleText: "PROGRAMME: ",
                 subTitleText: "BSSE",
                 textColor: Colors.primaryGreen,
                 textSize: 22,
               ),
               const RowTextFields(
-                titleText: "CURRENT YR:  ",
+                titleText: "CURRENT YR: ",
                 subTitleText: "2023/2024",
                 textColor: Colors.primaryGreen,
                 textSize: 22,
               ),
               const RowTextFields(
-                titleText: "ACCOUNT BAL:  ",
+                titleText: "ACCOUNT BAL: ",
                 subTitleText: "0.00/=",
                 textColor: Colors.red,
                 textSize: 22,
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 RowTextFields(
-                                  titleText: "Loan Balance:  ",
+                                  titleText: "Loan Balance: ",
                                   subTitleText: "1,977,138/=",
                                   textColor: Colors.primaryGreen,
                                   textSize: 19,
@@ -122,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                                   height: 8,
                                 ),
                                 RowTextFields(
-                                  titleText: "Semester:  ",
+                                  titleText: "Semester: ",
                                   subTitleText: "II",
                                   textColor: Colors.primaryGreen,
                                   textSize: 19,
@@ -131,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                                   height: 8,
                                 ),
                                 RowTextFields(
-                                  titleText: "Academic Year:  ",
+                                  titleText: "Academic Year: ",
                                   subTitleText: "2022/2023",
                                   textColor: Colors.primaryGreen,
                                   textSize: 19,
@@ -140,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                                   height: 8,
                                 ),
                                 RowTextFields(
-                                  titleText: "Date due:  ",
+                                  titleText: "Date due: ",
                                   subTitleText: "06/08/2023",
                                   textColor: Colors.red,
                                   textSize: 19,

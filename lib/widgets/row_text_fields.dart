@@ -11,14 +11,13 @@ class RowTextFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(titleText,
           style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: textSize,
           ),
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.start,
         ),
         Text(subTitleText,
           style: TextStyle(
@@ -26,7 +25,6 @@ class RowTextFields extends StatelessWidget {
               fontWeight: FontWeight.w500,
               fontSize: textSize,
           ),
-          textAlign: TextAlign.center,
         ),
       ],
     );
