@@ -24,7 +24,7 @@ class ListingsScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 6),
+              const SizedBox(height: 6),
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.0),
@@ -37,7 +37,7 @@ class ListingsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
+                      padding: const EdgeInsets.fromLTRB(15, 15, 20, 15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -60,7 +60,7 @@ class ListingsScreen extends StatelessWidget {
                               ),
                               IconButton(
                                   onPressed: () {},
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_drop_down,
                                     size: 40,
                                     color: Colors.primaryGreen,
@@ -166,7 +166,7 @@ class ListingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               Card(
@@ -230,7 +230,7 @@ class ListingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               Card(
