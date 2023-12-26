@@ -8,13 +8,15 @@ import '../models/bottom_nav.dart';
 
 class MainScreen extends StatefulWidget {
   final List<BottomNav> itemsNav = <BottomNav>[
-    BottomNav('Home', Icons.home),
-    BottomNav('Listings', Icons.list_alt_rounded),
-    BottomNav('Transactions', Icons.receipt_long),
-    BottomNav('Settings', Icons.settings),
+    BottomNav('HOME', Icons.home),
+    BottomNav('LISTINGS', Icons.list_alt_rounded),
+    BottomNav('TRANSACTIONS', Icons.receipt_long),
+    BottomNav('SETTINGS', Icons.settings),
   ];
 
-  MainScreen({super.key});
+  final String? appBarTitle;
+
+  MainScreen({super.key, this.appBarTitle});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -23,6 +25,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin<MainScreen> {
   int _currentIndex = 0;
+  late String _appBarTitle;
+  late Icon _backIcon;
+
+  @override
+  void initState() {
+    super.initState();
+    _appBarTitle = 'HOME';
+    _backIcon = const Icon(
+        Icons.notes_rounded,
+        size: 38,
+      );
+  }
 
   final screens = [
     Center(child: HomeScreen()),
@@ -30,15 +44,6 @@ class _MainScreenState extends State<MainScreen>
     Center(child: TransactionsScreen()),
     Center(child: SettingsScreen()),
   ];
-
-  // late BuildContext ctxt;
-
-  // // Change the colors of the nav bar items
-  // void onBackPress() {
-  //   if (Navigator.of(ctxt).canPop()) {
-  //     Navigator.of(ctxt).pop();
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +54,10 @@ class _MainScreenState extends State<MainScreen>
         toolbarHeight: 68.0,
         leading: IconButton(
           padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          icon: const Icon(
-            Icons.notes_rounded,
-            size: 38,
-          ),
+          icon: _backIcon,
           onPressed: () {},
         ),
-        title: const Text("HOME"),
+        title: Text(_appBarTitle),
       ),
 
       body: screens[_currentIndex],
@@ -72,6 +74,8 @@ class _MainScreenState extends State<MainScreen>
         onTap: (int index) {
           setState(() {
             _currentIndex = index;
+            _appBarTitle = widget.itemsNav[index].title; // Set app bar title directly
+            _backIcon = (index == 0 ? const Icon(Icons.notes_rounded, size: 38) : const Icon(Icons.arrow_back_ios_new_rounded, size: 32));
           });
         },
         items: widget.itemsNav.map((BottomNav data) {
