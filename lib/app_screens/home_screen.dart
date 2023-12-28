@@ -151,17 +151,17 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.centerRight,
-                      child: CustomButton(title: "PAY LOAN", titleSize: 16, paddingHorizontal: 25, paddingVertical: 15, elevation: 0.0, borderRadius: 18,),
+                      child: CustomButton(title: "PAY LOAN", titleSize: 16, paddingHorizontal: 25, paddingVertical: 15, borderRadius: 18, onPressed: () {  },),
                     )
                   ],
                 ),
               ),
               const Spacer(),
-              const Align(
+              Align(
                 alignment: Alignment.bottomRight,
-                child: CustomButton(title: "APPLY FOR LOAN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, elevation: 0.0, borderRadius: 30,),
+                child: CustomButton(title: "APPLY FOR LOAN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {  },),
               )
             ],
           ),

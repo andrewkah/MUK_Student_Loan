@@ -10,11 +10,14 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // login button
-    final loginButton = CustomButton(title: "LOGIN", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, elevation: 5, borderRadius: 30,);
+    final loginButton = CustomButton(title: "LOGIN", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LogInScreen()));
+    },);
 
     // register button
-    final registerButton = CustomButton(title: "SIGNUP", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, elevation: 5, borderRadius: 30,);
-
+    final registerButton = CustomButton(title: "SIGNUP", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+    },);
 
     return Scaffold(
       backgroundColor: Colors.white,
