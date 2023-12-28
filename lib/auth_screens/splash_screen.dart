@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mak_scholar1/app_screens/main_screen.dart';
 import 'package:mak_scholar1/auth_screens/on_boarding_screen.dart';
 
 class SplashScreen extends StatefulWidget{
@@ -17,9 +16,9 @@ class _SplashScreenState extends State<SplashScreen>
   void initState(){
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 6), ()=> {
+    Future.delayed(const Duration(seconds: 3), ()=> {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_)=> MainScreen())
+        MaterialPageRoute(builder: (_)=> OnBoardingScreen())
       )
     });
   }

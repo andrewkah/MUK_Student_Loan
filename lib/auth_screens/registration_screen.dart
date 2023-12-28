@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 
 // DropdownMenuEntry labels and values for the first dropdown menu.
 enum CollegeLabel {
@@ -233,82 +234,82 @@ class RegisterScreen extends StatelessWidget {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(onPressed: () {Navigator.pop(context, true);}, icon: const Icon(Icons.arrow_back_rounded), color: Colors.grey.shade700,),
+      ),
         backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
-            child: Container(
-              constraints: BoxConstraints(maxWidth: double.infinity),
-              child: Padding(padding: const EdgeInsets.all(30.0),
-                child: FormBuilder(
-                  key: _formkey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: IconButton(onPressed: () {Navigator.pop(context);}, icon: const Icon(Icons.arrow_back_rounded)),
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
+            child: Padding(padding: const EdgeInsets.fromLTRB(30.0, 5.0, 30.0, 20.0),
+              child: FormBuilder(
+                key: _formkey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 100,
+                            child: Image.asset("assets/images/Mak-Logo.png",
+                              fit: BoxFit.contain,)
+                        ),
+                        const SizedBox(
+                          width: 200,
+                          child: Text("STUDENT FUND USER REGISTRATION", style: TextStyle(
+                              color: Colors.primaryGreen,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22
+                          ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Divider(color: Colors.black, height: 20, thickness: 2, indent: 3, endIndent: 3,),
+                    const SizedBox(height: 22),
+                    firstNameField,
+                    const SizedBox(height: 20),
+                    lastNameField,
+                    const SizedBox(height: 20),
+                    collegeField,
+                    // collegeField,
+                    const SizedBox(height: 20),
+                    stdEmailField,
+                    const SizedBox(height: 20),
+                    stdNoField,
+                    const SizedBox(height: 20),
+                    passwordField,
+                    const SizedBox(height: 20),
+                    confirmPasswordField,
+                    const SizedBox(height: 35),
+                    signupButton,
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 100,
-                              child: Image.asset("assets/images/Mak-Logo.png",
-                                fit: BoxFit.contain,)
-                          ),
-                          const SizedBox(
-                            width: 200,
-                            child: Text("STUDENT FUND USER REGISTRATION", style: TextStyle(
-                                color: Colors.primaryGreen,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22
+                        children: <Widget>[
+                          const Text("By signing up, you agree to out "),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => TermsConditionsScreen()));
+                            },
+                            child: const Text(
+                              "T&Cs",
+                              style: TextStyle(
+                                  color: Colors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18),
                             ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                          )
                         ],
                       ),
-                      const Divider(color: Colors.black, height: 20, thickness: 2, indent: 3, endIndent: 3,),
-                      const SizedBox(height: 22),
-                      firstNameField,
-                      const SizedBox(height: 20),
-                      lastNameField,
-                      const SizedBox(height: 20),
-                      collegeField,
-                      // collegeField,
-                      const SizedBox(height: 20),
-                      stdEmailField,
-                      const SizedBox(height: 20),
-                      stdNoField,
-                      const SizedBox(height: 20),
-                      passwordField,
-                      const SizedBox(height: 20),
-                      confirmPasswordField,
-                      const SizedBox(height: 35),
-                      signupButton,
-                      const SizedBox(height: 10),
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Text("By signing up, you agree to out "),
-                            GestureDetector(
-                              onTap: () {},
-                              child: const Text("T&Cs",
-                                style: TextStyle(
-                                    color: Colors.primaryGreen,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.underline,
-                                    fontSize: 18),),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
