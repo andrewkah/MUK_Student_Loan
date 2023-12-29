@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen>
     _appBarTitle = 'HOME';
     _backIcon = const Icon(
         Icons.notes_rounded,
-        size: 38,
+        size: 35,
       );
   }
 
@@ -50,14 +50,16 @@ class _MainScreenState extends State<MainScreen>
     // ctxt = context;
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.primaryGreen,
         centerTitle: true,
-        toolbarHeight: 68.0,
+        toolbarHeight: 50.0,
         leading: IconButton(
           padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
           icon: _backIcon,
           onPressed: () {},
         ),
-        title: Text(_appBarTitle),
+        title: Text(_appBarTitle, style: TextStyle(fontWeight: FontWeight.bold),),
       ),
 
       body: screens[_currentIndex],

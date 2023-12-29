@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/app_screens/pay_screen.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/row_text_fields.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: double.infinity),
         child: Padding(
           padding:
-          const EdgeInsets.symmetric(vertical: 28.0, horizontal: 24.0),
+          const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
           child: Column(
             children: <Widget>[
               Row(
@@ -153,7 +154,11 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: CustomButton(title: "PAY LOAN", titleSize: 16, paddingHorizontal: 25, paddingVertical: 15, borderRadius: 18, onPressed: () {  },),
+                      child: CustomButton(title: "PAY LOAN", titleSize: 16, paddingHorizontal: 25, paddingVertical: 15, borderRadius: 18, onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (_)=> PayScreen())
+                        );
+                      },),
                     )
                   ],
                 ),

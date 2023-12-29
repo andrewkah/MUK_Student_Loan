@@ -22,7 +22,7 @@ class FingerPrintLockedScreen extends StatelessWidget {
               Icon(Icons.fingerprint_outlined, color: Colors.primaryGreen, size: 130,),
               Text("Scan your Fingerprint", style: TextStyle(
                 fontWeight: FontWeight.w500,
-                fontSize: 22,
+                fontSize: 20,
                 color: Colors.primaryGreen,
               ),),
             ],

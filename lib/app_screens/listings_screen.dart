@@ -7,12 +7,10 @@ class ListingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        constraints: const BoxConstraints(maxWidth: double.infinity),
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 25.0,
-            horizontal: 24.0,
+            horizontal: 20.0,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,11 +18,201 @@ class ListingsScreen extends StatelessWidget {
               const Text(
                 "Research Grants",
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 6),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                  side: const BorderSide(
+                    color: Colors.primaryGreen,
+                    width: 2.0,
+                  ),
+                ),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 15, 5, 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                constraints: const BoxConstraints(maxWidth: 250),
+                                child: const Text(
+                                  "RISE Seed Innovations Grant Call 004/2023",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+
+
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.arrow_drop_down,
+                                    size: 40,
+                                    color: Colors.primaryGreen,
+                                  )),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "10/01/2024",
+                                textColor: Colors.red,
+                                textSize: 16,
+                              ),
+                              TextButton(
+                                  onPressed: () {  },
+                                  child: const Text(
+                                    "APPLY",
+                                    style: TextStyle(
+                                      color: Colors.primaryGreen,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              const Text(
+                "Scholarships",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 6),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                  side: const BorderSide(
+                    color: Colors.primaryGreen,
+                    width: 2.0,
+                  ),
+                ),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "MasterCard Scholars Foundation Program",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "31/01/2024",
+                                textColor: Colors.red,
+                                textSize: 16,
+                              ),
+                              TextButton(
+                                  onPressed: () {  },
+                                  child: const Text(
+                                    "MORE INFO",
+                                    style: TextStyle(
+                                      color: Colors.primaryGreen,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                              ),
+
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 6,
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                  side: const BorderSide(
+                    color: Colors.primaryGreen,
+                    width: 2.0,
+                  ),
+                ),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Makerere University Female Scholarship Foundation",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const RowTextFields(
+                                titleText: "Due:  ",
+                                subTitleText: "05/01/2024",
+                                textColor: Colors.red,
+                                textSize: 16,
+                              ),
+                              TextButton(
+                                onPressed: () {  },
+                                child: const Text(
+                                  "MORE INFO",
+                                  style: TextStyle(
+                                    color: Colors.primaryGreen,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 6,
+              ),
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.0),
@@ -42,240 +230,33 @@ class ListingsScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            "RISE Seed Innovations Grant",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "Call 004/2023",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.arrow_drop_down,
-                                    size: 40,
-                                    color: Colors.primaryGreen,
-                                  )),
-                            ],
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RowTextFields(
-                                titleText: "Due:  ",
-                                subTitleText: "10/01/2024",
-                                textColor: Colors.red,
-                                textSize: 18,
-                              ),
-                              // SizedBox(width: 70,),
-                              Text(
-                                "APPLY",
-                                style: TextStyle(
-                                  color: Colors.primaryGreen,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10),
-              const Text(
-                "Scholarships",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 6),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.0),
-                  side: const BorderSide(
-                    color: Colors.primaryGreen,
-                    width: 2.0,
-                  ),
-                ),
-                color: Colors.white,
-                child: const Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "MasterCard Scholars Foundation",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Program",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RowTextFields(
-                                titleText: "Due:  ",
-                                subTitleText: "31/01/2024",
-                                textColor: Colors.red,
-                                textSize: 18,
-                              ),
-                              Text(
-                                "MORE INFO",
-                                style: TextStyle(
-                                  color: Colors.primaryGreen,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.0),
-                  side: const BorderSide(
-                    color: Colors.primaryGreen,
-                    width: 2.0,
-                  ),
-                ),
-                color: Colors.white,
-                child: const Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Makerere University Female",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Scholarship Foundation",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RowTextFields(
-                                titleText: "Due:  ",
-                                subTitleText: "05/01/2024",
-                                textColor: Colors.red,
-                                textSize: 18,
-                              ),
-                              Text(
-                                "MORE INFO",
-                                style: TextStyle(
-                                  color: Colors.primaryGreen,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.0),
-                  side: const BorderSide(
-                    color: Colors.primaryGreen,
-                    width: 2.0,
-                  ),
-                ),
-                color: Colors.white,
-                child: const Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
                             "Madhvani Scholars Program",
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              RowTextFields(
+                              const RowTextFields(
                                 titleText: "Due:  ",
                                 subTitleText: "05/01/2024",
                                 textColor: Colors.red,
-                                textSize: 18,
+                                textSize: 16,
                               ),
-                              Text(
-                                "MORE INFO",
-                                style: TextStyle(
-                                  color: Colors.primaryGreen,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
+                              TextButton(
+                                  onPressed: () {  },
+                                  child: const Text(
+                                    "MORE INFO",
+                                    style: TextStyle(
+                                      color: Colors.primaryGreen,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
                               ),
+
                             ],
                           )
                         ],

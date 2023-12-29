@@ -50,7 +50,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     Text.rich(
                       TextSpan(
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           children: <TextSpan>[
                             TextSpan(text: "1. "),
@@ -65,7 +65,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     Text.rich(
                       TextSpan(
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           children: <TextSpan>[
                             TextSpan(text: "2. "),
@@ -80,7 +80,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     Text.rich(
                       TextSpan(
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           children: <TextSpan>[
                             TextSpan(text: "3. "),
