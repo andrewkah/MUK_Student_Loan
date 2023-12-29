@@ -60,6 +60,8 @@ flutter:
   assets:
     - assets/images/Mak-Logo.png
     - assets/images/icons8-coins-96.png
+    - assets/images/MTN-MomoPay.jpg
+    - assets/images/URA-LOGO.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
