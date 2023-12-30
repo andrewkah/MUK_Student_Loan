@@ -126,9 +126,9 @@ class LogInScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       stdNoField,
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
                       passwordField,
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[

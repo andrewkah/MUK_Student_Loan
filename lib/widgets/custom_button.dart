@@ -6,7 +6,7 @@ class CustomButton extends StatelessWidget {
   final double paddingHorizontal;
   final double paddingVertical;
   final double borderRadius;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   const CustomButton(
       {super.key,
       required this.title,

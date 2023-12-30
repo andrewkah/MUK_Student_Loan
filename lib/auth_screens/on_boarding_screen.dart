@@ -12,7 +12,7 @@ class OnBoardingScreen extends StatelessWidget {
 
     // login button
     final loginButton = CustomButton(title: "LOGIN", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LogInScreen()));
     },);
 
     // register button

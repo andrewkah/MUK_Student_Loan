@@ -29,7 +29,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               subtitle: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Text(
                     "Notification Settings",
                     style: TextStyle(
@@ -53,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             endIndent: 3,
           ),
           Padding(
-            padding: EdgeInsets.symmetric( horizontal: 6.0),
+            padding: EdgeInsets.symmetric(horizontal: 6.0),
             child: ListTile(
               title: Text(
                 "Privacy & Settings",
@@ -96,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             endIndent: 3,
           ),
           Padding(
-            padding: EdgeInsets.symmetric( horizontal: 6.0),
+            padding: EdgeInsets.symmetric(horizontal: 6.0),
             child: ListTile(
               subtitle: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +107,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       color: Colors.black,
                     ),
                   ),
-
                   Text(
                     "Hide your balance on the Home screen",
                     style: TextStyle(fontSize: 16, color: Colors.grey),
@@ -169,7 +167,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Align(
               alignment: Alignment.center,
               child: TextButton(
-                onPressed: () {  },
+                onPressed: () {},
                 child: const Text(
                   "SIGN OUT",
                   textAlign: TextAlign.center,
@@ -181,10 +179,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
           ),
-
         ],
       ),
-
     );
   }
 }

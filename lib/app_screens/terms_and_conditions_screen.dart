@@ -15,25 +15,30 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.primaryGreen,
+        foregroundColor: Colors.white,
         centerTitle: true,
-        toolbarHeight: 68.0,
+        toolbarHeight: 50.0,
         leading: IconButton(
           padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
           onPressed: () {
-            Navigator.pop(context, true);
+            Navigator.of(context).pop();
           },
           icon: Icon(Icons.arrow_back_ios_new_rounded),
           iconSize: 30,
         ),
-        title: Text("T&C"),
+        title: Text("T&C",
+            style: TextStyle(fontWeight: FontWeight.bold),
+      ),
       ),
       body: Center(
-        child: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 24.0),
-                child: Column(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 24.0),
+                child: const Column(
                   children: <Widget>[
                     Text(
                       "Thank you for considering our loan services. Before we proceed, it's crucial to understand and agree to the terms and conditions.",
@@ -105,13 +110,16 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                 endIndent: 3,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         Checkbox(
                             value: agree,
+                            side: MaterialStateBorderSide.resolveWith(
+                                (states) => BorderSide(
+                                    width: 2.0, color: Colors.primaryGreen)),
                             activeColor: Colors.primaryGreen,
                             onChanged: (bool? value) {
                               setState(() {
@@ -123,11 +131,25 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: CustomButton(title: "CONTINUE", titleSize: 18, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: (){}),
+                      child: CustomButton(
+                        title: "CONTINUE",
+                        titleSize: 18,
+                        paddingHorizontal: 30,
+                        paddingVertical: 15,
+                        borderRadius: 30,
+                        onPressed: agree
+                            ? () {
+                                /// Continue with the button logic
+                              }
+                            : null,
+                      ),
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
