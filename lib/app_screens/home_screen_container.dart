@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mak_scholar1/app_screens/pay_screen.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/row_text_fields.dart';
@@ -59,7 +58,6 @@ class HomeScreenContainer extends StatelessWidget {
                 ),
                 const Divider(
                   color: Colors.grey,
-                  height: 20,
                   thickness: 2,
                   indent: 3,
                   endIndent: 3,
@@ -130,6 +128,7 @@ class HomeScreenContainer extends StatelessWidget {
                                   "assets/images/icons8-coins-96.png",
                                   fit: BoxFit.contain,
                                 )),
+                            const SizedBox(width: 8,),
                             const SizedBox(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
