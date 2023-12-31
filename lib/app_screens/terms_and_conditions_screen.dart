@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
 
 class TermsConditionsScreen extends StatefulWidget {
@@ -14,23 +15,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.primaryGreen,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        toolbarHeight: 50.0,
-        leading: IconButton(
-          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
-          iconSize: 30,
-        ),
-        title: Text("T&C",
-            style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      ),
+      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "T&C", onPressed: (){ Navigator.of(context).pop(true); },),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -139,7 +124,8 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                         borderRadius: 30,
                         onPressed: agree
                             ? () {
-                                /// Continue with the button logic
+                          /// Continue with the button logic
+                          Navigator.of(context).pop(true);
                               }
                             : null,
                       ),

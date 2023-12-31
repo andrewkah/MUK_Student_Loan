@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 class ApplicationScreen1 extends StatefulWidget {
@@ -38,26 +39,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.primaryGreen,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        toolbarHeight: 50.0,
-        leading: IconButton(
-          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          icon: const Icon(
-            (Icons.arrow_back_ios_new_rounded),
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        title: const Text(
-          "APPLICATION",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(true); },),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(

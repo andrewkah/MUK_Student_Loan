@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mak_scholar1/app_screens/main_screen.dart';
-import 'package:mak_scholar1/app_screens/settings_screen.dart';
-import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
+import 'package:mak_scholar1/widgets/custom_appbar.dart';
 
 class PayScreen extends StatelessWidget {
   const PayScreen({super.key});
@@ -10,26 +8,7 @@ class PayScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.primaryGreen,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        toolbarHeight: 50.0,
-        leading: IconButton(
-          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          icon: const Icon(
-            (Icons.arrow_back_ios_new_rounded),
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        title: const Text(
-          "PAY",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "PAY", onPressed: (){ Navigator.of(context).popAndPushNamed("/");},),
       body: Center(
         child: SafeArea(
           child: Row(
