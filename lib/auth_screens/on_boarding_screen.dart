@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/app_screens/main_screen.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';

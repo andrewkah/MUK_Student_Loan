@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/app_screens/main_screen.dart';
+import 'package:mak_scholar1/app_screens/pay_screen.dart';
 import 'auth_screens/splash_screen.dart';
 
 void main() {
@@ -13,9 +15,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.primaryGreen),
       ),
       home: const SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        '/MainScreen': (BuildContext context) => new MainScreen(),
+        '/PayScreen': (BuildContext context) => new PayScreen(),
+        '/MainScreen': (BuildContext context) => new MainScreen(),
+        '/MainScreen': (BuildContext context) => new MainScreen(),
+        '/MainScreen': (BuildContext context) => new MainScreen(),
+      },
     );
   }
 }

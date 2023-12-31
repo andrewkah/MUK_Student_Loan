@@ -25,18 +25,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin<MainScreen> {
   int _currentIndex = 0;
-  late String _appBarTitle;
-  late Icon _backIcon;
-
-  @override
-  void initState() {
-    super.initState();
-    _appBarTitle = 'HOME';
-    _backIcon = const Icon(
-        Icons.notes_rounded,
-        size: 38,
-      );
-  }
+  final PageStorageBucket bucket = PageStorageBucket();
 
   final screens = [
     Center(child: HomeScreen()),
@@ -47,45 +36,48 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-    // ctxt = context;
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        toolbarHeight: 68.0,
-        leading: IconButton(
-          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          icon: _backIcon,
-          onPressed: () {},
-        ),
-        title: Text(_appBarTitle),
-      ),
-
-      body: screens[_currentIndex],
-
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[300],
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.primaryGreen,
-        unselectedItemColor: Colors.grey[700],
-        currentIndex: _currentIndex,
-        iconSize: 40,
-        onTap: (int index) {
-          setState(() {
-            _currentIndex = index;
-            _appBarTitle = widget.itemsNav[index].title; // Set app bar title directly
-            _backIcon = (index == 0 ? const Icon(Icons.notes_rounded, size: 38) : const Icon(Icons.arrow_back_ios_new_rounded, size: 32));
-          });
+    return
+      WillPopScope(
+        onWillPop: () async {
+          if (_currentIndex != 0) {
+            setState(() {
+              _currentIndex = 0;
+            });
+          }
+          return false;
         },
-        items: widget.itemsNav.map((BottomNav data) {
-          return BottomNavigationBarItem(
-            icon: Icon(data.icon),
-            label: data.title,
-          );
-        }).toList(),
-      ),
-      backgroundColor: Colors.white,
+        child:
+        Scaffold(
+
+          body: IndexedStack(
+            index: _currentIndex,
+            children: screens,
+          ),
+
+          bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.grey[300],
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: true,
+            selectedItemColor: Colors.primaryGreen,
+            unselectedItemColor: Colors.grey[700],
+            currentIndex: _currentIndex,
+            iconSize: 40,
+            onTap: (int index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            items: widget.itemsNav.map((BottomNav data) {
+              return BottomNavigationBarItem(
+                icon: Icon(data.icon),
+                label: data.title,
+              );
+            }).toList(),
+          ),
+          backgroundColor: Colors.white,
+        ),
     );
+
   }
 }

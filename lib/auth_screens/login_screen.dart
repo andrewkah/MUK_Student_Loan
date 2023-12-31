@@ -1,74 +1,83 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
+import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
+import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
+
+import '../app_screens/main_screen.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key});
 
   // form key
-  final _formkey = GlobalKey<FormBuilderState>();
+  final _loginFormKey = GlobalKey<FormBuilderState>();
 
-  // editing controller
   final TextEditingController stdNoController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // email field
-    final stdNoField = FormBuilderTextField(
-      name: "stdNo",
-      autofocus: false,
-      controller: stdNoController,
-      onSaved: (value) {
-        stdNoController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(errorText: "Please fill out this field"),
-        FormBuilderValidators.numeric(errorText: "Must contain integers only"),
-        FormBuilderValidators.minLength(10, errorText: "At least 10 numbers"),
-        FormBuilderValidators.maxLength(12),
-      ]),
-      decoration: const InputDecoration(
-          labelText: "Student Number",
-          labelStyle: TextStyle(fontSize: 20),
-          contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-          )),
-    );
+    final stdNoField = CustomNumberField(
+        controller: stdNoController,
+        name: "stdNo",
+        fieldLabel: "Student Number");
+    // FormBuilderTextField(
+    //   name: "stdNo",
+    //   autofocus: false,
+    //   controller: stdNoController,
+    //   onSaved: (value) {
+    //     stdNoController.text = value!;
+    //   },
+    //   textInputAction: TextInputAction.next,
+    //   autovalidateMode: AutovalidateMode.onUserInteraction,
+    //   validator: FormBuilderValidators.compose([
+    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
+    //     FormBuilderValidators.numeric(errorText: "Must contain integers only"),
+    //     FormBuilderValidators.minLength(10, errorText: "At least 10 numbers"),
+    //     FormBuilderValidators.maxLength(12),
+    //   ]),
+    //   decoration: const InputDecoration(
+    //       labelText: "Student Number",
+    //       labelStyle: TextStyle(fontSize: 20),
+    //       contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+    //       enabledBorder: UnderlineInputBorder(
+    //         borderSide: BorderSide(color: Colors.primaryGreen),
+    //       ),
+    //       focusedBorder: UnderlineInputBorder(
+    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+    //       )),
+    // );
 
     // Password field
-    final passwordField = FormBuilderTextField(
-      name: "password",
-      autofocus: false,
-      obscureText: true,
-      controller: passwordController,
-      onSaved: (value) {
-        passwordController.text = value!;
-      },
-      textInputAction: TextInputAction.done,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(errorText: "Please fill out this field"),
-      ]),
-      decoration: const InputDecoration(
-          labelText: "College",
-          labelStyle: TextStyle(fontSize: 20),
-          contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-          )),
-    );
+    final passwordField = CustomPasswordField(
+        name: "password",
+        controller: passwordController,
+        fieldLabel: "Password");
+    // FormBuilderTextField(
+    //   name: "password",
+    //   autofocus: false,
+    //   obscureText: true,
+    //   controller: passwordController,
+    //   onSaved: (value) {
+    //     passwordController.text = value!;
+    //   },
+    //   textInputAction: TextInputAction.done,
+    //   autovalidateMode: AutovalidateMode.onUserInteraction,
+    //   validator: FormBuilderValidators.compose([
+    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
+    //   ]),
+    //   decoration: const InputDecoration(
+    //       labelText: "College",
+    //       labelStyle: TextStyle(fontSize: 20),
+    //       contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+    //       enabledBorder: UnderlineInputBorder(
+    //         borderSide: BorderSide(color: Colors.primaryGreen),
+    //       ),
+    //       focusedBorder: UnderlineInputBorder(
+    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+    //       )),
+    // );
 
     // Login Button
     final loginButton = Material(
@@ -79,9 +88,11 @@ class LogInScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(30, 15, 30, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          if (_formkey.currentState!.validate()) {
-            return;
-          }
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MainScreen()));
+          // if (_loginFormKey.currentState!.validate()) {
+          //         return;
+          //       }
         },
         child: const Text(
           "Login",
@@ -97,83 +108,87 @@ class LogInScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
           child: SingleChildScrollView(
-        child: Container(
-            constraints: BoxConstraints(maxWidth: double.infinity),
-            child: Padding(
-              padding: const EdgeInsets.all(34.0),
-              child: FormBuilder(
-                  key: _formkey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+        child: Padding(
+          padding: const EdgeInsets.all(34.0),
+          child: FormBuilder(
+              key: _loginFormKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                      height: 220,
+                      child: Image.asset(
+                        "assets/images/Mak-Logo.png",
+                        fit: BoxFit.contain,
+                      )),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    child: const Text(
+                      "STUDENT FUND USER LOGIN",
+                      style: TextStyle(
+                          color: Colors.primaryGreen,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  stdNoField,
+                  const SizedBox(height: 20),
+                  passwordField,
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      SizedBox(
-                          height: 220,
-                          child: Image.asset(
-                            "assets/images/Mak-Logo.png",
-                            fit: BoxFit.contain,
-                          )),
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      TextButton(
+                        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen())); },
                         child: const Text(
-                          "STUDENT FUND USER LOGIN",
+                          "Forgot Password?",
                           style: TextStyle(
-                              color: Colors.primaryGreen,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      stdNoField,
-                      const SizedBox(height: 30),
-                      passwordField,
-                      const SizedBox(height: 25),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {},
-                            child: const Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                  color: Colors.primaryGreen,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      loginButton,
-                      const SizedBox(height: 10),
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text("By using this app, you agree to out "),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => TermsConditionsScreen()));
-                              },
-                              child: const Text(
-                                "T&Cs",
-                                style: TextStyle(
-                                    color: Colors.primaryGreen,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.underline,
-                                    fontSize: 18),
-                              ),
-                            )
-                          ],
+                            color: Colors.primaryGreen,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ],
-                  )),
-            )),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  loginButton,
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "By using this app, you agree to our",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      TermsConditionsScreen()));
+                        },
+                        child: const Text(
+                          "T&Cs",
+                          style: TextStyle(
+                              color: Colors.primaryGreen,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.primaryGreen,
+                              fontSize: 18),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              )),
+        ),
       )),
     );
   }

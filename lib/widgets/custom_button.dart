@@ -6,7 +6,7 @@ class CustomButton extends StatelessWidget {
   final double paddingHorizontal;
   final double paddingVertical;
   final double borderRadius;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   const CustomButton(
       {super.key,
       required this.title,
@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         title,
-        style: TextStyle(fontSize: titleSize, fontWeight: FontWeight.bold),
+        style: TextStyle(color: Colors.white, fontSize: titleSize, fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
       style: ElevatedButton.styleFrom(

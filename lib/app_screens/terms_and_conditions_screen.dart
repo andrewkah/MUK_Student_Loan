@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
 
 class TermsConditionsScreen extends StatefulWidget {
@@ -14,26 +15,15 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        toolbarHeight: 68.0,
-        leading: IconButton(
-          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          onPressed: () {
-            Navigator.pop(context, true);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
-          iconSize: 30,
-        ),
-        title: Text("T&C"),
-      ),
+      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "T&C", onPressed: (){ Navigator.of(context).pop(true); },),
       body: Center(
-        child: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 24.0),
-                child: Column(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 24.0),
+                child: const Column(
                   children: <Widget>[
                     Text(
                       "Thank you for considering our loan services. Before we proceed, it's crucial to understand and agree to the terms and conditions.",
@@ -50,7 +40,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     Text.rich(
                       TextSpan(
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           children: <TextSpan>[
                             TextSpan(text: "1. "),
@@ -65,7 +55,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     Text.rich(
                       TextSpan(
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           children: <TextSpan>[
                             TextSpan(text: "2. "),
@@ -80,7 +70,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     Text.rich(
                       TextSpan(
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           children: <TextSpan>[
                             TextSpan(text: "3. "),
@@ -105,13 +95,16 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                 endIndent: 3,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         Checkbox(
                             value: agree,
+                            side: MaterialStateBorderSide.resolveWith(
+                                (states) => BorderSide(
+                                    width: 2.0, color: Colors.primaryGreen)),
                             activeColor: Colors.primaryGreen,
                             onChanged: (bool? value) {
                               setState(() {
@@ -123,11 +116,26 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: CustomButton(title: "CONTINUE", titleSize: 18, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: (){}),
+                      child: CustomButton(
+                        title: "CONTINUE",
+                        titleSize: 18,
+                        paddingHorizontal: 30,
+                        paddingVertical: 15,
+                        borderRadius: 30,
+                        onPressed: agree
+                            ? () {
+                          /// Continue with the button logic
+                          Navigator.of(context).pop(true);
+                              }
+                            : null,
+                      ),
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
