@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
+import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 import '../app_screens/main_screen.dart';
@@ -136,20 +137,21 @@ class LogInScreen extends StatelessWidget {
                   stdNoField,
                   const SizedBox(height: 20),
                   passwordField,
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      GestureDetector(
-                        onTap: () {},
+                      TextButton(
+                        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen())); },
                         child: const Text(
                           "Forgot Password?",
                           style: TextStyle(
-                              color: Colors.primaryGreen,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                            color: Colors.primaryGreen,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(

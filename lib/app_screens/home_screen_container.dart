@@ -188,7 +188,7 @@ class HomeScreenContainer extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Spacer(),
+                const Spacer(flex: 3,),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: CustomButton(
@@ -201,7 +201,8 @@ class HomeScreenContainer extends StatelessWidget {
                       Navigator.of(context).pushNamed("/Application1");
                     },
                   ),
-                )
+                ),
+                const Spacer(),
               ],
             ),
           ),
