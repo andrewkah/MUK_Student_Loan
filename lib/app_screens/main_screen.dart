@@ -37,16 +37,16 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return
-      // WillPopScope(
-      //   onWillPop: () async {
-      //     if (_currentIndex != 0) {
-      //       setState(() {
-      //         _currentIndex = 0;
-      //       });
-      //     }
-      //     return false;
-      //   },
-      //   child:
+      WillPopScope(
+        onWillPop: () async {
+          if (_currentIndex != 0) {
+            setState(() {
+              _currentIndex = 0;
+            });
+          }
+          return false;
+        },
+        child:
         Scaffold(
 
           body: IndexedStack(
@@ -76,7 +76,7 @@ class _MainScreenState extends State<MainScreen>
             }).toList(),
           ),
           backgroundColor: Colors.white,
-        // ),
+        ),
     );
 
   }
