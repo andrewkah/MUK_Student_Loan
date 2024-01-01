@@ -12,18 +12,18 @@ class FingerPrintLockedScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
           child: const Column(
             children: <Widget>[
-              Icon(Icons.lock_outlined, color: Colors.primaryGreen, size: 80,),
+              Icon(Icons.lock_outlined, color: const Color.fromARGB(255, 0, 147, 71), size: 80,),
               Text("LOCKED", style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
-                color: Colors.primaryGreen,
+                color: const Color.fromARGB(255, 0, 147, 71),
               ),),
               SizedBox(height: 120,),
-              Icon(Icons.fingerprint_outlined, color: Colors.primaryGreen, size: 130,),
+              Icon(Icons.fingerprint_outlined, color: const Color.fromARGB(255, 0, 147, 71), size: 130,),
               Text("Scan your Fingerprint", style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
-                color: Colors.primaryGreen,
+                color: const Color.fromARGB(255, 0, 147, 71),
               ),),
             ],
           ),

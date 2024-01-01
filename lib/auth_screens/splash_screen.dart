@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState(){
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 3), ()=> {
+    Future.delayed(const Duration(seconds: 4), ()=> {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_)=> OnBoardingScreen())
       )
@@ -34,21 +34,39 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.primaryGreen,
+        color: const Color.fromARGB(255, 3, 112, 53),
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Image(image: AssetImage("assets/images/Mak-Logo.png"),
-            width: 300,),
-            const SizedBox(
-              height: 30,
+          children: <Widget>[
+            // const Image(image: AssetImage("assets/images/Mak-Logo.png"),
+            // width: 300,),
+            // const SizedBox(
+            //   height: 30,
+            // ),
+            // Container(
+            //   margin: const EdgeInsets.all(15),
+            //     child: const Text("MAKERERE UNIVERSITY STUDENT FUND",
+            //       textAlign: TextAlign.center,
+            //       style: TextStyle(color: Colors.white, fontSize: 28),)
+            // ),
+            Image.asset(
+              'assets/images/green.png',
+              width: 250,
+              height: 250,
             ),
+            const SizedBox(height: 20),
             Container(
-              margin: const EdgeInsets.all(15),
-                child: const Text("MAKERERE UNIVERSITY STUDENT FUND",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 28),)
+              margin: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: const Text(
+                "MAKERERE UNIVERSITY STUDENT FUND",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color.fromARGB(255, 167, 164, 164),
+                  fontSize: 25,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
             ),
           ],
         ),

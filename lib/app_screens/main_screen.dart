@@ -59,7 +59,7 @@ class _MainScreenState extends State<MainScreen>
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: true,
-            selectedItemColor: Colors.primaryGreen,
+            selectedItemColor: const Color.fromARGB(255, 0, 147, 71),
             unselectedItemColor: Colors.grey[700],
             currentIndex: _currentIndex,
             iconSize: 40,

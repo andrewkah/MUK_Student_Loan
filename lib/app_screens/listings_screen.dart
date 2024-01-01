@@ -28,7 +28,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: const Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -60,7 +60,7 @@ class ListingsScreen extends StatelessWidget {
                                 icon: const Icon(
                                   Icons.arrow_drop_down,
                                   size: 40,
-                                  color: Colors.primaryGreen,
+                                  color: const Color.fromARGB(255, 0, 147, 71),
                                 )),
                           ],
                         ),
@@ -78,7 +78,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "APPLY",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: const Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -108,7 +108,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: const Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -141,7 +141,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "MORE INFO",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: const Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -163,7 +163,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: const Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -196,7 +196,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "MORE INFO",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: const Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -218,7 +218,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: const Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -251,7 +251,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "MORE INFO",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: const Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),

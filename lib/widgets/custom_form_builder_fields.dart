@@ -32,10 +32,10 @@ class CustomTextField extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 3, 112, 53)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 3, 112, 53), width: 3),
           )),
     );
   }
@@ -72,10 +72,10 @@ class CustomPasswordField extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 3, 112, 53)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 3, 112, 53), width: 3),
           )),
     );
   }
@@ -113,10 +113,10 @@ class CustomEmailField extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 3, 112, 53)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 3, 112, 53), width: 3),
           )),
     );
   }
@@ -155,10 +155,10 @@ class CustomNumberField extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
           contentPadding: EdgeInsets.fromLTRB(10, 5, 10, 5),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71), width: 3),
           )),
     );
   }

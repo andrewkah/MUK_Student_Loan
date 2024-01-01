@@ -112,10 +112,10 @@ class RegisterScreen extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71), width: 3),
           )),
       menuMaxHeight: 300,
       items: CollegeLabel.values
@@ -233,10 +233,10 @@ class RegisterScreen extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71), width: 3),
           )),
       name: 'confirmPassword',
     );
@@ -245,7 +245,7 @@ class RegisterScreen extends StatelessWidget {
     final signupButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.primaryGreen,
+      color: const Color.fromARGB(255, 0, 147, 71),
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
         minWidth: MediaQuery.of(context).size.width,
@@ -301,7 +301,7 @@ class RegisterScreen extends StatelessWidget {
                           child: Text(
                             "STUDENT FUND USER REGISTRATION",
                             style: TextStyle(
-                                color: Colors.primaryGreen,
+                                color: const Color.fromARGB(255, 0, 147, 71),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 22),
                             textAlign: TextAlign.center,
@@ -351,10 +351,10 @@ class RegisterScreen extends StatelessWidget {
                             child: const Text(
                               "T&Cs",
                               style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: const Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: Colors.primaryGreen,
+                                  decorationColor: const Color.fromARGB(255, 0, 147, 71),
                                   fontSize: 18),
                             ),
                           )

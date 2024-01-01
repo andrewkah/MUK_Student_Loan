@@ -44,7 +44,7 @@ class TransactionsScreen extends StatelessWidget {
                 "+UGX 900,000",
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.primaryGreen,
+                  color: const Color.fromARGB(255, 0, 147, 71),
                 ),
               ),
             ),
