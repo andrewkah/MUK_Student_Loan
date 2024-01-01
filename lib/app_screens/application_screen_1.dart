@@ -27,7 +27,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
 
   final TextEditingController dobController = TextEditingController();
 
-  final TextEditingController IDController = TextEditingController();
+  final TextEditingController idController = TextEditingController();
 
   final TextEditingController financialCardController = TextEditingController();
 
@@ -43,7 +43,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
             child: FormBuilder(
               key: _formKey,
                 child: Column(
@@ -72,59 +72,59 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           fieldLabel: "Other Names"),
                       Row(
                         children: [
-                          Text("Gender", style: TextStyle(fontSize: 18),),
+                          const Text("Gender", style: TextStyle(fontSize: 18),),
                           Checkbox(
                               value: male,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
                               activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   male = value!;
                                 });
                               }),
-                          Text("Male", style: TextStyle(fontSize: 18),),
+                          const Text("Male", style: TextStyle(fontSize: 18),),
                           Checkbox(
                               value: female,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
                               activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   female = value!;
                                 });
                               }),
-                          Text("Female", style: TextStyle(fontSize: 18),),
+                          const Text("Female", style: TextStyle(fontSize: 18),),
                         ],
                       ),
                       Row(
                         children: [
-                          Text("Disability", style: TextStyle(fontSize: 18),),
+                          const Text("Disability", style: TextStyle(fontSize: 18),),
                           Checkbox(
                               value: yes,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
                               activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   yes = value!;
                                 });
                               }),
-                          Text("Yes", style: TextStyle(fontSize: 18),),
+                          const Text("Yes", style: TextStyle(fontSize: 18),),
                           Checkbox(
                               value: no,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
                               activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   no = value!;
                                 });
                               }),
-                          Text("No", style: TextStyle(fontSize: 18),),
+                          const Text("No", style: TextStyle(fontSize: 18),),
                         ],
                       ),
-                      Text(
+                      const Text(
                         "NB. If you are disabled, attach a copy of the persons with disabilities Certificate.",
                         style:
                         TextStyle(color: Colors.red, fontWeight: FontWeight.w500, fontSize: 18),
@@ -136,7 +136,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           child: const Text(
                             "ATTACH COPY",
                             style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 147, 71),
+                              color: Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ),
@@ -151,10 +151,10 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           name: "Dob",
                           controller: dobController,
                           fieldLabel: "Date of Birth"),
-                      CustomTextField(name: "NationalID", controller: IDController, fieldLabel: "National Id Number"),
+                      CustomTextField(name: "NationalID", controller: idController, fieldLabel: "National Id Number"),
                       CustomNumberField(name: "Financial Card", controller: financialCardController, fieldLabel: "Financial Card Number"),
                       CustomTextField(name: "Country", controller: countryOfController, fieldLabel: "Country of Birth"),
-                      SizedBox( height: 10,),
+                      const SizedBox( height: 10,),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -162,7 +162,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           child: const Text(
                             "NEXT",
                             style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 147, 71),
+                              color: Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                             ),
