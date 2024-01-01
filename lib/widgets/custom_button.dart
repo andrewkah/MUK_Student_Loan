@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        backgroundColor: Colors.primaryGreen,
+        backgroundColor: const Color.fromARGB(255, 0, 147, 71),
       ),
     );
     //   Material(

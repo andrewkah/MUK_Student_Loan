@@ -83,10 +83,10 @@ class LogInScreen extends StatelessWidget {
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.primaryGreen,
+      color: const Color.fromARGB(255, 0, 147, 71),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(30, 15, 30, 15),
-        minWidth: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+        minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => MainScreen()));
@@ -95,7 +95,7 @@ class LogInScreen extends StatelessWidget {
           //       }
         },
         child: const Text(
-          "Login",
+          "LOGIN",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
@@ -120,16 +120,16 @@ class LogInScreen extends StatelessWidget {
                       height: 220,
                       child: Image.asset(
                         "assets/images/Mak-Logo.png",
-                        fit: BoxFit.contain,
+                        width: 200, height: 200,
                       )),
                   Container(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                     child: const Text(
                       "STUDENT FUND USER LOGIN",
                       style: TextStyle(
-                          color: Colors.primaryGreen,
+                          color: const Color.fromARGB(255, 0, 147, 71),
                           fontWeight: FontWeight.bold,
-                          fontSize: 30),
+                          fontSize: 25),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -146,7 +146,7 @@ class LogInScreen extends StatelessWidget {
                         child: const Text(
                           "Forgot Password?",
                           style: TextStyle(
-                            color: Colors.primaryGreen,
+                            color: const Color.fromARGB(255, 0, 147, 71),
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
@@ -177,10 +177,10 @@ class LogInScreen extends StatelessWidget {
                         child: const Text(
                           "T&Cs",
                           style: TextStyle(
-                              color: Colors.primaryGreen,
+                              color: const Color.fromARGB(255, 234, 0, 0),
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
-                              decorationColor: Colors.primaryGreen,
+                              decorationColor: const Color.fromARGB(255, 234, 0, 0),
                               fontSize: 18),
                         ),
                       )

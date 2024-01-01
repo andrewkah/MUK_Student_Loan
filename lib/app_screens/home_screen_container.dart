@@ -10,7 +10,7 @@ class HomeScreenContainer extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           foregroundColor: Colors.white,
-          backgroundColor: Colors.primaryGreen,
+          backgroundColor: const Color.fromARGB(255, 0, 147, 71),
           centerTitle: true,
           toolbarHeight: 50.0,
           leading: IconButton(
@@ -51,7 +51,7 @@ class HomeScreenContainer extends StatelessWidget {
                         child: RowTextFields(
                       titleText: "Hello, ",
                       subTitleText: "MARTIN KALEMA",
-                      textColor: Colors.primaryGreen,
+                      textColor: const Color.fromARGB(255, 0, 147, 71),
                       textSize: 22,
                     )),
                   ],
@@ -66,19 +66,19 @@ class HomeScreenContainer extends StatelessWidget {
                 const RowTextFields(
                   titleText: "COLLEGE:  ",
                   subTitleText: "CoCIS",
-                  textColor: Colors.primaryGreen,
+                  textColor: const Color.fromARGB(255, 0, 147, 71),
                   textSize: 22,
                 ),
                 const RowTextFields(
                   titleText: "PROGRAMME: ",
                   subTitleText: "BSSE",
-                  textColor: Colors.primaryGreen,
+                  textColor: const Color.fromARGB(255, 0, 147, 71),
                   textSize: 22,
                 ),
                 const RowTextFields(
                   titleText: "CURRENT YR: ",
                   subTitleText: "2023/2024",
-                  textColor: Colors.primaryGreen,
+                  textColor: const Color.fromARGB(255, 0, 147, 71),
                   textSize: 22,
                 ),
                 const RowTextFields(
@@ -96,7 +96,7 @@ class HomeScreenContainer extends StatelessWidget {
                     Text(
                       "PRINT EXAM PERMIT",
                       style: TextStyle(
-                          color: Colors.primaryGreen,
+                          color: const Color.fromARGB(255, 0, 147, 71),
                           fontWeight: FontWeight.bold,
                           fontSize: 22),
                       textAlign: TextAlign.center,
@@ -110,7 +110,7 @@ class HomeScreenContainer extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14.0),
                     side: const BorderSide(
-                      color: Colors.primaryGreen,
+                      color: const Color.fromARGB(255, 0, 147, 71),
                       width: 2.0,
                     ),
                   ),
@@ -136,7 +136,7 @@ class HomeScreenContainer extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Loan Balance: ",
                                     subTitleText: "1,977,138/=",
-                                    textColor: Colors.primaryGreen,
+                                    textColor: const Color.fromARGB(255, 0, 147, 71),
                                     textSize: 19,
                                   ),
                                   SizedBox(
@@ -145,7 +145,7 @@ class HomeScreenContainer extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Semester: ",
                                     subTitleText: "II",
-                                    textColor: Colors.primaryGreen,
+                                    textColor: const Color.fromARGB(255, 0, 147, 71),
                                     textSize: 19,
                                   ),
                                   SizedBox(
@@ -154,7 +154,7 @@ class HomeScreenContainer extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Academic Year: ",
                                     subTitleText: "2022/2023",
-                                    textColor: Colors.primaryGreen,
+                                    textColor: const Color.fromARGB(255, 0, 147, 71),
                                     textSize: 19,
                                   ),
                                   SizedBox(

@@ -76,8 +76,8 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           Checkbox(
                               value: male,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: Colors.primaryGreen)),
-                              activeColor: Colors.primaryGreen,
+                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                              activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   male = value!;
@@ -87,8 +87,8 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           Checkbox(
                               value: female,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: Colors.primaryGreen)),
-                              activeColor: Colors.primaryGreen,
+                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                              activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   female = value!;
@@ -103,8 +103,8 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           Checkbox(
                               value: yes,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: Colors.primaryGreen)),
-                              activeColor: Colors.primaryGreen,
+                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                              activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   yes = value!;
@@ -114,8 +114,8 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           Checkbox(
                               value: no,
                               side: MaterialStateBorderSide.resolveWith((states) =>
-                                  BorderSide(width: 2.0, color: Colors.primaryGreen)),
-                              activeColor: Colors.primaryGreen,
+                                  BorderSide(width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                              activeColor: const Color.fromARGB(255, 0, 147, 71),
                               onChanged: (bool? value) {
                                 setState(() {
                                   no = value!;
@@ -136,7 +136,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           child: const Text(
                             "ATTACH COPY",
                             style: TextStyle(
-                              color: Colors.primaryGreen,
+                              color: const Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ),
@@ -162,7 +162,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           child: const Text(
                             "NEXT",
                             style: TextStyle(
-                              color: Colors.primaryGreen,
+                              color: const Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                             ),

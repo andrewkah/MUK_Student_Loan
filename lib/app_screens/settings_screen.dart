@@ -81,7 +81,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               trailing: Switch(
                   value: balanceSwitch,
-                  activeColor: Colors.primaryGreen,
+                  activeColor: const Color.fromARGB(255, 0, 147, 71),
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
                     setState(() {
@@ -117,7 +117,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               trailing: Switch(
                   value: fingerprintSwitch,
-                  activeColor: Colors.primaryGreen,
+                  activeColor: const Color.fromARGB(255, 0, 147, 71),
                   onChanged: (bool value) {
                     setState(() {
                       fingerprintSwitch = value;
