@@ -82,7 +82,7 @@ class LogInScreen extends StatelessWidget {
     // Login Button
     final loginButton = Material(
       elevation: 5,
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: BorderRadius.circular(20),
       color: const Color.fromARGB(255, 0, 147, 71),
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),

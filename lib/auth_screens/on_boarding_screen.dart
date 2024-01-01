@@ -11,12 +11,12 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // login button
-    final loginButton = CustomButton(title: "LOGIN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
+    final loginButton = CustomButton(title: "LOGIN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => LogInScreen()));
     },);
 
     // register button
-    final registerButton = CustomButton(title: "SIGN UP", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
+    final registerButton = CustomButton(title: "SIGN UP", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
     },);
 
@@ -38,7 +38,7 @@ class OnBoardingScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 25
             ),),
-            const SizedBox(height: 50,),
+            const SizedBox(height: 150,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
