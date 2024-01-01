@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
@@ -12,72 +13,24 @@ class LogInScreen extends StatelessWidget {
   // form key
   final _loginFormKey = GlobalKey<FormBuilderState>();
 
-  final TextEditingController stdNoController = TextEditingController();
-
+  final TextEditingController stdEmailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
-    final stdNoField = CustomNumberField(
-        controller: stdNoController,
-        name: "stdNo",
-        fieldLabel: "Student Number");
-    // FormBuilderTextField(
-    //   name: "stdNo",
-    //   autofocus: false,
-    //   controller: stdNoController,
-    //   onSaved: (value) {
-    //     stdNoController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //     FormBuilderValidators.numeric(errorText: "Must contain integers only"),
-    //     FormBuilderValidators.minLength(10, errorText: "At least 10 numbers"),
-    //     FormBuilderValidators.maxLength(12),
-    //   ]),
-    //   decoration: const InputDecoration(
-    //       labelText: "Student Number",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )),
-    // );
+
+
+    final stdEmailField = CustomEmailField(
+        controller: stdEmailController,
+        name: "stdEmail",
+        fieldLabel: "Student Email");
 
     // Password field
     final passwordField = CustomPasswordField(
         name: "password",
         controller: passwordController,
         fieldLabel: "Password");
-    // FormBuilderTextField(
-    //   name: "password",
-    //   autofocus: false,
-    //   obscureText: true,
-    //   controller: passwordController,
-    //   onSaved: (value) {
-    //     passwordController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.done,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //   ]),
-    //   decoration: const InputDecoration(
-    //       labelText: "College",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )),
-    // );
 
     // Login Button
     final loginButton = Material(
@@ -88,11 +41,10 @@ class LogInScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MainScreen()));
-          // if (_loginFormKey.currentState!.validate()) {
-          //         return;
-          //       }
+          if(_loginFormKey.currentState!.validate()){
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MainScreen()));
+          }
         },
         child: const Text(
           "LOGIN",
@@ -127,14 +79,14 @@ class LogInScreen extends StatelessWidget {
                     child: const Text(
                       "STUDENT FUND USER LOGIN",
                       style: TextStyle(
-                          color: const Color.fromARGB(255, 0, 147, 71),
+                          color: Color.fromARGB(255, 0, 147, 71),
                           fontWeight: FontWeight.bold,
                           fontSize: 25),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(height: 30),
-                  stdNoField,
+                  stdEmailField,
                   const SizedBox(height: 20),
                   passwordField,
                   const SizedBox(height: 10),
@@ -142,11 +94,11 @@ class LogInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       TextButton(
-                        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen())); },
+                        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ForgotPasswordScreen())); },
                         child: const Text(
                           "Forgot Password?",
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 0, 147, 71),
+                            color: Color.fromARGB(255, 0, 147, 71),
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
@@ -172,24 +124,26 @@ class LogInScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      TermsConditionsScreen()));
+                                      const TermsConditionsScreen()));
                         },
                         child: const Text(
                           "T&Cs",
                           style: TextStyle(
-                              color: const Color.fromARGB(255, 234, 0, 0),
+                              color: Color.fromARGB(255, 234, 0, 0),
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
-                              decorationColor: const Color.fromARGB(255, 234, 0, 0),
+                              decorationColor: Color.fromARGB(255, 234, 0, 0),
                               fontSize: 18),
                         ),
                       )
                     ],
                   ),
                 ],
-              )),
+              )
+          ),
         ),
-      )),
+      )
+      ),
     );
   }
 }

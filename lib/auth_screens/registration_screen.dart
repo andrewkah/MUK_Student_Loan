@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
+import 'package:mak_scholar1/authentication_files/signup_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
+
 
 import '../app_screens/main_screen.dart';
 
@@ -29,27 +32,16 @@ class RegisterScreen extends StatelessWidget {
   // form key
   final _registerFormKey = GlobalKey<FormBuilderState>();
 
-  final TextEditingController firstNameController = TextEditingController();
+  // Registration/ SignUp Controller
+  final controller = Get.put(SignUpController());
 
-  final TextEditingController lastNameController = TextEditingController();
-
-  final TextEditingController collegeController = TextEditingController();
-
-  final TextEditingController stdEmailController = TextEditingController();
-
-  final TextEditingController stdNoController = TextEditingController();
-
-  final TextEditingController passwordController = TextEditingController();
-
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     // first name field
     final firstNameField = CustomTextField(
         name: "firstName",
-        controller: firstNameController,
+        controller: controller.firstName,
         fieldLabel: "First Name");
     // FormBuilderTextField(name: "firstName", autofocus: false, controller: firstNameController, keyboardType: TextInputType.text,
     //   onSaved: (value) {
@@ -76,7 +68,7 @@ class RegisterScreen extends StatelessWidget {
     // last name field
     final lastNameField = CustomTextField(
         name: "lastName",
-        controller: lastNameController,
+        controller: controller.lastName,
         fieldLabel: "Last Name");
     // FormBuilderTextField(name: 'lastName', autofocus: false, controller: lastNameController, keyboardType: TextInputType.text,
     //   onSaved: (value) {
@@ -112,10 +104,10 @@ class RegisterScreen extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71)),
+            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71), width: 3),
+            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
           )),
       menuMaxHeight: 300,
       items: CollegeLabel.values
@@ -128,7 +120,7 @@ class RegisterScreen extends StatelessWidget {
     // student email field
     final stdEmailField = CustomEmailField(
         name: "studentEmail",
-        controller: stdEmailController,
+        controller: controller.email,
         fieldLabel: "Student Email");
     // TextFormField( autofocus: false, controller: stdEmailController, keyboardType: TextInputType.emailAddress,
     //   onSaved: (value) {
@@ -155,7 +147,7 @@ class RegisterScreen extends StatelessWidget {
 
     // student number field
     final stdNoField = CustomNumberField(
-        controller: stdNoController,
+        controller: controller.studentNumber,
         name: "studentNo",
         fieldLabel: "Student Number");
     // TextFormField( autofocus: false, controller: stdNoController, keyboardType: TextInputType.number,
@@ -186,7 +178,7 @@ class RegisterScreen extends StatelessWidget {
     // Password field
     final passwordField = CustomPasswordField(
         name: "password",
-        controller: passwordController,
+        controller: controller.password,
         fieldLabel: "Password");
     // TextFormField( autofocus: false, obscureText: true, controller: passwordController,
     //   onSaved: (value) {
@@ -214,10 +206,10 @@ class RegisterScreen extends StatelessWidget {
     // confirm password field
     final confirmPasswordField = FormBuilderTextField(
       autofocus: false,
-      controller: confirmPasswordController,
+      controller: controller.password,
       obscureText: true,
       onSaved: (value) {
-        confirmPasswordController.text = value!;
+        controller.password.text = value!;
       },
       textInputAction: TextInputAction.done,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -225,7 +217,7 @@ class RegisterScreen extends StatelessWidget {
         FormBuilderValidators.required(errorText: "Please fill out this field"),
         FormBuilderValidators.minLength(6,
             errorText: "password length should be 6 or greater"),
-        FormBuilderValidators.match(passwordController.text,
+        FormBuilderValidators.match(controller.password.text,
             errorText: "password mismatch!!")
       ]),
       decoration: const InputDecoration(
@@ -233,10 +225,10 @@ class RegisterScreen extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
           contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71)),
+            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: const Color.fromARGB(255, 0, 147, 71), width: 3),
+            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
           )),
       name: 'confirmPassword',
     );
@@ -250,10 +242,12 @@ class RegisterScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
-          // if (_registerFormKey.currentState!.validate()) {
-          //   return;
-          // }
+          if(_registerFormKey.currentState!.validate()){
+            SignUpController.instance.registerUser(controller.email.text.trim(),
+                controller.password.text.trim());
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MainScreen()));
+          }
         },
         child: const Text(
           "SIGN UP",
@@ -301,7 +295,7 @@ class RegisterScreen extends StatelessWidget {
                           child: Text(
                             "STUDENT FUND USER REGISTRATION",
                             style: TextStyle(
-                                color: const Color.fromARGB(255, 0, 147, 71),
+                                color: Color.fromARGB(255, 0, 147, 71),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 22),
                             textAlign: TextAlign.center,
@@ -346,15 +340,15 @@ class RegisterScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          TermsConditionsScreen()));
+                                          const TermsConditionsScreen()));
                             },
                             child: const Text(
                               "T&Cs",
                               style: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 147, 71),
+                                  color: Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: const Color.fromARGB(255, 0, 147, 71),
+                                  decorationColor: Color.fromARGB(255, 0, 147, 71),
                                   fontSize: 18),
                             ),
                           )

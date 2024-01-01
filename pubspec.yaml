@@ -39,6 +39,7 @@ dependencies:
   flutter_form_builder: ^9.1.1
   form_builder_validators: ^9.1.0
   flutter_pw_validator: ^1.6.0
+  get: ^4.6.5
   local_auth: ^2.1.7
   google_maps_flutter: ^2.5.0
   bottom_nav_bar: ^1.0.3

@@ -13,16 +13,16 @@ class HomeScreenContainer extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 0, 147, 71),
           centerTitle: true,
           toolbarHeight: 50.0,
-          leading: IconButton(
-            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-            icon: const Icon(
-              Icons.notes_rounded,
-              size: 35,
-            ),
-            onPressed: () {
-              Navigator.of(context).canPop();
-            },
-          ),
+          // leading: IconButton(
+          //   padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+          //   icon: const Icon(
+          //     Icons.notes_rounded,
+          //     size: 35,
+          //   ),
+          //   onPressed: () {
+          //     Navigator.of(context).canPop();
+          //   },
+          // ),
           title: const Text(
             'HOME',
             style: TextStyle(fontWeight: FontWeight.bold),
@@ -51,7 +51,7 @@ class HomeScreenContainer extends StatelessWidget {
                         child: RowTextFields(
                       titleText: "Hello, ",
                       subTitleText: "MARTIN KALEMA",
-                      textColor: const Color.fromARGB(255, 0, 147, 71),
+                      textColor: Color.fromARGB(255, 0, 147, 71),
                       textSize: 22,
                     )),
                   ],
@@ -66,26 +66,26 @@ class HomeScreenContainer extends StatelessWidget {
                 const RowTextFields(
                   titleText: "COLLEGE:  ",
                   subTitleText: "CoCIS",
-                  textColor: const Color.fromARGB(255, 0, 147, 71),
-                  textSize: 22,
+                  textColor: Color.fromARGB(255, 0, 147, 71),
+                  textSize: 20,
                 ),
                 const RowTextFields(
                   titleText: "PROGRAMME: ",
                   subTitleText: "BSSE",
-                  textColor: const Color.fromARGB(255, 0, 147, 71),
-                  textSize: 22,
+                  textColor: Color.fromARGB(255, 0, 147, 71),
+                  textSize: 20,
                 ),
                 const RowTextFields(
                   titleText: "CURRENT YR: ",
                   subTitleText: "2023/2024",
-                  textColor: const Color.fromARGB(255, 0, 147, 71),
-                  textSize: 22,
+                  textColor: Color.fromARGB(255, 0, 147, 71),
+                  textSize: 20,
                 ),
                 const RowTextFields(
                   titleText: "ACCOUNT BAL: ",
                   subTitleText: "0.00/=",
                   textColor: Colors.red,
-                  textSize: 22,
+                  textSize: 20,
                 ),
                 const SizedBox(
                   height: 30,
@@ -96,9 +96,9 @@ class HomeScreenContainer extends StatelessWidget {
                     Text(
                       "PRINT EXAM PERMIT",
                       style: TextStyle(
-                          color: const Color.fromARGB(255, 0, 147, 71),
+                          color: Color.fromARGB(255, 0, 147, 71),
                           fontWeight: FontWeight.bold,
-                          fontSize: 22),
+                          fontSize: 20),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -110,7 +110,7 @@ class HomeScreenContainer extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14.0),
                     side: const BorderSide(
-                      color: const Color.fromARGB(255, 0, 147, 71),
+                      color: Color.fromARGB(255, 0, 147, 71),
                       width: 2.0,
                     ),
                   ),
@@ -136,8 +136,8 @@ class HomeScreenContainer extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Loan Balance: ",
                                     subTitleText: "1,977,138/=",
-                                    textColor: const Color.fromARGB(255, 0, 147, 71),
-                                    textSize: 19,
+                                    textColor: Color.fromARGB(255, 0, 147, 71),
+                                    textSize: 16,
                                   ),
                                   SizedBox(
                                     height: 8,
@@ -145,8 +145,8 @@ class HomeScreenContainer extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Semester: ",
                                     subTitleText: "II",
-                                    textColor: const Color.fromARGB(255, 0, 147, 71),
-                                    textSize: 19,
+                                    textColor: Color.fromARGB(255, 0, 147, 71),
+                                    textSize: 16,
                                   ),
                                   SizedBox(
                                     height: 8,
@@ -154,8 +154,8 @@ class HomeScreenContainer extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Academic Year: ",
                                     subTitleText: "2022/2023",
-                                    textColor: const Color.fromARGB(255, 0, 147, 71),
-                                    textSize: 19,
+                                    textColor: Color.fromARGB(255, 0, 147, 71),
+                                    textSize: 16,
                                   ),
                                   SizedBox(
                                     height: 8,
@@ -164,7 +164,7 @@ class HomeScreenContainer extends StatelessWidget {
                                     titleText: "Date due: ",
                                     subTitleText: "06/08/2023",
                                     textColor: Colors.red,
-                                    textSize: 19,
+                                    textSize: 16,
                                   ),
                                 ],
                               ),
@@ -176,7 +176,7 @@ class HomeScreenContainer extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: CustomButton(
                           title: "PAY LOAN",
-                          titleSize: 16,
+                          titleSize: 18,
                           paddingHorizontal: 25,
                           paddingVertical: 15,
                           borderRadius: 18,
@@ -193,7 +193,7 @@ class HomeScreenContainer extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: CustomButton(
                     title: "APPLY FOR LOAN",
-                    titleSize: 20,
+                    titleSize: 18,
                     paddingHorizontal: 30,
                     paddingVertical: 15,
                     borderRadius: 30,
@@ -202,7 +202,7 @@ class HomeScreenContainer extends StatelessWidget {
                     },
                   ),
                 ),
-                const Spacer(),
+                const SizedBox(height: 10,),
               ],
             ),
           ),
