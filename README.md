@@ -18,29 +18,32 @@ The Student Loan Request App aims to:
 - Real time updates.
 
 ## Install this project
+  ```bash
+  git clone https://github.com/andrewkah/MUK_Student_Loan.git
+  ```
 
 ## Getting started with flutter
 - Create new Firebase Project.
 - Install Firebase_CLI
   - Install node.js
-  ```bash
-  npm install mode.js
-  ```
+    ```bash
+    npm install mode.js
+    ```
   - Install firebase tools
-  ```bash
-  npm install -g firebase-tools
-  ```
+    ```bash
+    npm install -g firebase-tools
+    ```
 - Log into firebase
-```bash
-firebase login
-```
+  ```bash
+  firebase login
+  ```
 - Activate FlutterFire_CLI
-```bash
-dart pub global activate flutterfire_cli
-```
-```bash
-flutterfire configure --project=name-of-project
-```
+  ```bash
+  dart pub global activate flutterfire_cli
+  ```
+  ```bash
+  flutterfire configure --project=name-of-project
+  ```
 You can also view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
