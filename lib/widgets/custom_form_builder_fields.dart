@@ -6,11 +6,13 @@ class CustomTextField extends StatelessWidget {
   final String name;
   final TextEditingController controller;
   final String fieldLabel;
+  final IconData? prefixIcon;
+
   const CustomTextField(
       {super.key,
       required this.name,
       required this.controller,
-      required this.fieldLabel});
+      required this.fieldLabel, this.prefixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,10 @@ class CustomTextField extends StatelessWidget {
           ),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
-          )),
+          ),
+        prefixIcon: Icon(prefixIcon),
+        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
+      ),
     );
   }
 }
@@ -78,6 +83,7 @@ class CustomPasswordField extends StatelessWidget {
             borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
           ),
           prefixIcon: const Icon(Icons.password_outlined),
+        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
       ),
     );
   }
@@ -121,6 +127,7 @@ class CustomEmailField extends StatelessWidget {
             borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
           ),
           prefixIcon: const Icon(Icons.email_outlined),
+        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
       ),
     );
   }
@@ -163,7 +170,10 @@ class CustomNumberField extends StatelessWidget {
           ),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
-          )),
+          ),
+        prefixIcon: const Icon(Icons.onetwothree_outlined),
+        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
+      ),
     );
   }
 }

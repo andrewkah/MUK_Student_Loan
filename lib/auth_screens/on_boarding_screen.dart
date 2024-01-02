@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mak_scholar1/app_screens/main_screen.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
@@ -31,14 +30,14 @@ class OnBoardingScreen extends StatelessWidget {
             SizedBox(
                 height: 220,
                 child: Image.asset("assets/images/Mak-Logo.png",
-                  width: 200, height: 200,)
+                  width: 280, height: 280,)
             ),
             const Text("STUDENT FUND", style: TextStyle(
                 color: const Color.fromARGB(255, 0, 147, 71),
                 fontWeight: FontWeight.bold,
                 fontSize: 25
             ),),
-            const SizedBox(height: 150,),
+            const SizedBox(height: 120,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

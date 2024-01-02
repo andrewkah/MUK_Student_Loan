@@ -12,9 +12,9 @@ class ApplicationScreen3 extends StatefulWidget {
 
 class _ApplicationScreen3State extends State<ApplicationScreen3> {
   final _formKey2 = GlobalKey<FormBuilderState>();
-  String? _selectedAnswer1 = 'no1';
-  String? _selectedAnswer2 = 'no2';
-  String? _selectedLoanCategory = '25';
+  String? _selectedAnswer1 = 'no';
+  String? _selectedAnswer2 = 'no';
+  String? _selectedLoanCategory = '0';
 
   @override
   Widget build(BuildContext context) {
