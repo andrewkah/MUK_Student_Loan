@@ -18,6 +18,10 @@ The Student Loan Request App aims to:
 - Document Upload
 - Real time updates.
 
+## Tech Stack
+- Flutter ![Static Badge](https://img.shields.io/badge/flutter_v_13.16.4-)
+- Firebase  ![Static Badge](https://img.shields.io/badge/firebase%20CLI_v_13.0.2-orange)
+
 ## Install this project
   ```bash
   git clone https://github.com/andrewkah/MUK_Student_Loan.git
