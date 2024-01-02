@@ -79,7 +79,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             TextSpan(
                                 text:
-                                    "You agree to adhere to the repayment schedule as outlined in the loan agreement. failure to make timely payments may result in penalties, increased interest rates, and impact your balance.")
+                                    "You agree to adhere to the repayment schedule as outlined in the loan agreement. Failure to make timely payments may result in penalties, increased interest rates, and impact your balance.")
                           ]),
                     ),
                     SizedBox(
@@ -104,8 +104,8 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                             value: agree,
                             side: MaterialStateBorderSide.resolveWith(
                                 (states) => BorderSide(
-                                    width: 2.0, color: Colors.primaryGreen)),
-                            activeColor: Colors.primaryGreen,
+                                    width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                            activeColor: const Color.fromARGB(255, 0, 147, 71),
                             onChanged: (bool? value) {
                               setState(() {
                                 agree = value!;

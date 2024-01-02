@@ -20,18 +20,18 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text(
-        title,
-        style: TextStyle(color: Colors.white, fontSize: titleSize, fontWeight: FontWeight.bold),
-        textAlign: TextAlign.center,
-      ),
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(
             vertical: paddingVertical, horizontal: paddingHorizontal),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        backgroundColor: Colors.primaryGreen,
+        backgroundColor: const Color.fromARGB(255, 0, 147, 71),
+      ),
+      child: Text(
+        title,
+        style: TextStyle(color: Colors.white, fontSize: titleSize, fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
       ),
     );
     //   Material(

@@ -16,6 +16,7 @@ class ListingsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            const SizedBox(height: 10,),
             const Text(
               "Research Grants",
               style: TextStyle(
@@ -28,7 +29,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -60,7 +61,7 @@ class ListingsScreen extends StatelessWidget {
                                 icon: const Icon(
                                   Icons.arrow_drop_down,
                                   size: 40,
-                                  color: Colors.primaryGreen,
+                                  color: Color.fromARGB(255, 0, 147, 71),
                                 )),
                           ],
                         ),
@@ -78,13 +79,13 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "APPLY",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                           ],
@@ -95,7 +96,7 @@ class ListingsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             const Text(
               "Scholarships",
               style: TextStyle(
@@ -103,12 +104,12 @@ class ListingsScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -116,7 +117,7 @@ class ListingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
+                    padding: const EdgeInsets.fromLTRB(15, 15, 20, 15),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -141,7 +142,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "MORE INFO",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -163,7 +164,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -171,7 +172,7 @@ class ListingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(15, 15, 20, 15),
+                    padding: const EdgeInsets.fromLTRB(15, 15, 20, 15),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -196,7 +197,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "MORE INFO",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -218,7 +219,7 @@ class ListingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
                 side: const BorderSide(
-                  color: Colors.primaryGreen,
+                  color: Color.fromARGB(255, 0, 147, 71),
                   width: 2.0,
                 ),
               ),
@@ -251,7 +252,7 @@ class ListingsScreen extends StatelessWidget {
                               child: const Text(
                                 "MORE INFO",
                                 style: TextStyle(
-                                  color: Colors.primaryGreen,
+                                  color: Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),

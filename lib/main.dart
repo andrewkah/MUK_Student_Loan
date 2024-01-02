@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mak_scholar1/app_screens/main_screen.dart';
-import 'package:mak_scholar1/app_screens/pay_screen.dart';
+import 'package:get/get.dart';
+import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 import 'auth_screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(Authenticator()));
+
   runApp(const MyApp());
 }
 
@@ -16,16 +23,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.primaryGreen),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 147, 71)),
       ),
       home: const SplashScreen(),
-      routes: <String, WidgetBuilder>{
-        '/MainScreen': (BuildContext context) => new MainScreen(),
-        '/PayScreen': (BuildContext context) => new PayScreen(),
-        '/MainScreen': (BuildContext context) => new MainScreen(),
-        '/MainScreen': (BuildContext context) => new MainScreen(),
-        '/MainScreen': (BuildContext context) => new MainScreen(),
-      },
+
     );
   }
 }

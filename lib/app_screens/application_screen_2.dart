@@ -83,7 +83,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                        ),
                        IconButton(onPressed: (){
                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MapScreen()));
-                       }, icon: Icon(Icons.location_on_outlined, size: 30, color: Colors.primaryGreen,)),
+                       }, icon: Icon(Icons.location_on_outlined, size: 30, color: const Color.fromARGB(255, 0, 147, 71),)),
                      ],
                    ),
                     SizedBox( height: 15,),
@@ -119,7 +119,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                         child: const Text(
                           "ATTACH PASS-SLIP",
                           style: TextStyle(
-                            color: Colors.primaryGreen,
+                            color: const Color.fromARGB(255, 0, 147, 71),
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
@@ -134,7 +134,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                         child: const Text(
                           "NEXT",
                           style: TextStyle(
-                            color: Colors.primaryGreen,
+                            color: const Color.fromARGB(255, 0, 147, 71),
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),

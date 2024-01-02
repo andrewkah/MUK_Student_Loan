@@ -11,12 +11,12 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // login button
-    final loginButton = CustomButton(title: "LOGIN", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
+    final loginButton = CustomButton(title: "LOGIN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => LogInScreen()));
     },);
 
     // register button
-    final registerButton = CustomButton(title: "SIGNUP", titleSize: 25, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 30, onPressed: () {
+    final registerButton = CustomButton(title: "SIGN UP", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
     },);
 
@@ -31,14 +31,14 @@ class OnBoardingScreen extends StatelessWidget {
             SizedBox(
                 height: 220,
                 child: Image.asset("assets/images/Mak-Logo.png",
-                  fit: BoxFit.contain,)
+                  width: 200, height: 200,)
             ),
             const Text("STUDENT FUND", style: TextStyle(
-                color: Colors.primaryGreen,
+                color: const Color.fromARGB(255, 0, 147, 71),
                 fontWeight: FontWeight.bold,
-                fontSize: 30
+                fontSize: 25
             ),),
-            const SizedBox(height: 50,),
+            const SizedBox(height: 150,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

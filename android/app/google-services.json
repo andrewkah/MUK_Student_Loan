@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1091244269702",
+    "project_id": "muk-student-loan",
+    "storage_bucket": "muk-student-loan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091244269702:android:90f740465988e933243107",
+        "android_client_info": {
+          "package_name": "com.example.mak_scholar1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU7vdgV0lP_cNWEo9SWWuXLEbEDJtaZhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

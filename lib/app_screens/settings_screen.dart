@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
+import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -19,9 +20,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       child: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
+            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
             child: ListTile(
-              title: Text(
+              title: const Text(
                 "Notifications",
                 style: TextStyle(
                   fontSize: 20,
@@ -56,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.0),
             child: ListTile(
-              title: Text(
+              title: const Text(
                 "Privacy & Settings",
                 style: TextStyle(
                   fontSize: 20,
@@ -81,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               trailing: Switch(
                   value: balanceSwitch,
-                  activeColor: Colors.primaryGreen,
+                  activeColor: const Color.fromARGB(255, 0, 147, 71),
                   onChanged: (bool value) {
                     // This is called when the user toggles the switch.
                     setState(() {
@@ -97,7 +98,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             endIndent: 3,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 6.0),
+            padding: const EdgeInsets.symmetric(horizontal: 6.0),
             child: ListTile(
               subtitle: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +118,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               trailing: Switch(
                   value: fingerprintSwitch,
-                  activeColor: Colors.primaryGreen,
+                  activeColor: const Color.fromARGB(255, 0, 147, 71),
                   onChanged: (bool value) {
                     setState(() {
                       fingerprintSwitch = value;
@@ -163,19 +164,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
             indent: 3,
             endIndent: 3,
           ),
+          const SizedBox(height: 150,),
           // const Spacer(),
           Padding(
-            padding: EdgeInsets.only(top: 120),
+            padding: const EdgeInsets.only(top: 120),
             child: Align(
               alignment: Alignment.center,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Authenticator.instance.logout();
+                },
                 child: const Text(
                   "SIGN OUT",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.red,
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),
               ),

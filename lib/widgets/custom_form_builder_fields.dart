@@ -30,12 +30,12 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
           labelText: fieldLabel,
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+          contentPadding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53)),
           ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
           )),
     );
   }
@@ -70,13 +70,15 @@ class CustomPasswordField extends StatelessWidget {
       decoration: InputDecoration(
           labelText: fieldLabel,
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+          contentPadding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53)),
           ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-          )),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
+          ),
+          prefixIcon: const Icon(Icons.password_outlined),
+      ),
     );
   }
 }
@@ -111,13 +113,15 @@ class CustomEmailField extends StatelessWidget {
       decoration: InputDecoration(
           labelText: fieldLabel,
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+          contentPadding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53)),
           ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-          )),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
+          ),
+          prefixIcon: const Icon(Icons.email_outlined),
+      ),
     );
   }
 }
@@ -153,12 +157,12 @@ class CustomNumberField extends StatelessWidget {
       decoration: InputDecoration(
           labelText: fieldLabel,
           labelStyle: TextStyle(fontSize: 18, color: Colors.grey.shade500),
-          contentPadding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen),
+          contentPadding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
           ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
           )),
     );
   }
