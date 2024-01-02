@@ -1,6 +1,4 @@
-# Makerere Student Fund  ![Static Badge](https://img.shields.io/badge/makerere_student_fund-v1.0-blue?style=for-the-badge)
-
-
+# Makerere Student Fund  ![Static Badge](https://img.shields.io/badge/makerere_student_fund-v1.0-blue?style=for-the-badge)  ![GitHub contributors](https://img.shields.io/github/contributors/andrewkah/MUK_Student_Loan?style=for-the-badge&logo=github)
 
 ## Introduction
 In today's education landscape, the cost of higher education continues to rise, making it increasingly challenging for students to fund their studies. To address this issue, we propose the development of a mobile application that simplifies and streamlines the process of applying for student loans. This app will be a user-friendly, accessible, and efficient platform that empowers students to seek financial assistance for their educational pursuits. In this concept paper, we outline the key features, functionalities, and benefits of the Student Loan Request App.
@@ -22,6 +20,8 @@ The Student Loan Request App aims to:
 ## Tech Stack
 - Flutter ![Static Badge](https://img.shields.io/badge/flutter_v_3.16.4-blue)
 - Firebase  ![Static Badge](https://img.shields.io/badge/firebase%20CLI_v_13.0.2-orange)
+- Sunbird AI Translation API
+- Google Maps
 
 ## Install this project
   ```bash
@@ -53,3 +53,7 @@ The Student Loan Request App aims to:
 You can also view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## License
+![Static Badge](https://img.shields.io/badge/Apache-2.0-blue?style=for-the-badge&logo=Apache)
+
