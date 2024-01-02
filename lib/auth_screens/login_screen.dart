@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
+import 'package:mak_scholar1/authentication_files/signin_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 import '../app_screens/main_screen.dart';
@@ -13,23 +14,23 @@ class LogInScreen extends StatelessWidget {
   // form key
   final _loginFormKey = GlobalKey<FormBuilderState>();
 
-  final TextEditingController stdEmailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
+  // final TextEditingController stdEmailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
+  final controller = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
 
 
     final stdEmailField = CustomEmailField(
-        controller: stdEmailController,
+        controller: controller.email,
         name: "stdEmail",
         fieldLabel: "Student Email");
 
     // Password field
     final passwordField = CustomPasswordField(
         name: "password",
-        controller: passwordController,
+        controller: controller.password,
         fieldLabel: "Password");
 
     // Login Button
@@ -42,8 +43,8 @@ class LogInScreen extends StatelessWidget {
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           if(_loginFormKey.currentState!.validate()){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MainScreen()));
+              SignInController.instance.loginUser(controller.email.text.trim(),
+              controller.password.text.trim());
           }
         },
         child: const Text(
@@ -110,7 +111,7 @@ class LogInScreen extends StatelessWidget {
                     height: 20,
                   ),
                   loginButton,
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

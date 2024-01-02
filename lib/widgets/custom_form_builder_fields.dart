@@ -77,7 +77,7 @@ class CustomPasswordField extends StatelessWidget {
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
           ),
-          prefixIcon: const Icon(Icons.password_outlined),
+          // prefixIcon: const Icon(Icons.password_outlined),
       ),
     );
   }
@@ -120,7 +120,7 @@ class CustomEmailField extends StatelessWidget {
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 3, 112, 53), width: 3),
           ),
-          prefixIcon: const Icon(Icons.email_outlined),
+          // prefixIcon: const Icon(Icons.email_outlined),
       ),
     );
   }

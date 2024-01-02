@@ -7,8 +7,6 @@ import 'package:mak_scholar1/authentication_files/signup_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 
-import '../app_screens/main_screen.dart';
-
 // DropdownMenuEntry labels and values for the first dropdown menu.
 enum CollegeLabel {
   CEES('College of Education and External Studies'),
@@ -245,8 +243,8 @@ class RegisterScreen extends StatelessWidget {
           if(_registerFormKey.currentState!.validate()){
             SignUpController.instance.registerUser(controller.email.text.trim(),
                 controller.password.text.trim());
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MainScreen()));
+            // Navigator.push(
+            //     context, MaterialPageRoute(builder: (context) => MainScreen()));
           }
         },
         child: const Text(
