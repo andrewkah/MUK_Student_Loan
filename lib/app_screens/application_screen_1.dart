@@ -14,8 +14,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
   final _formKey = GlobalKey<FormBuilderState>();
   bool male = false;
   bool female = false;
-  bool yes = false;
-  bool no = false;
+  String? _selectedAnswer1 = 'no';
 
   final TextEditingController firstNameController = TextEditingController();
 
@@ -61,67 +60,85 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                         name: "surname",
                         controller: surNameController,
                         fieldLabel: 'Surname',
+                        prefixIcon: Icons.person_outline_rounded,
                       ),
                       CustomTextField(
                           name: "firstName",
                           controller: firstNameController,
-                          fieldLabel: "First Name"),
+                          fieldLabel: "First Name",
+                        prefixIcon: Icons.person_outline_rounded,
+                      ),
                       CustomTextField(
                           name: "other_names",
                           controller: otherNamesController,
-                          fieldLabel: "Other Names"),
+                          fieldLabel: "Other Names",
+                        prefixIcon: Icons.person_outline_rounded,
+                      ),
                       Row(
                         children: [
                           const Text("Gender", style: TextStyle(fontSize: 18),),
-                          Checkbox(
-                              value: male,
-                              side: MaterialStateBorderSide.resolveWith((states) =>
-                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
-                              activeColor: const Color.fromARGB(255, 0, 147, 71),
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  male = value!;
-                                });
-                              }),
-                          const Text("Male", style: TextStyle(fontSize: 18),),
-                          Checkbox(
-                              value: female,
-                              side: MaterialStateBorderSide.resolveWith((states) =>
-                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
-                              activeColor: const Color.fromARGB(255, 0, 147, 71),
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  female = value!;
-                                });
-                              }),
-                          const Text("Female", style: TextStyle(fontSize: 18),),
+                          Row(
+                            children: [
+                              Radio(
+                                  value: 'yes1', // Set a group value for radio buttons
+                                  groupValue: _selectedAnswer1,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedAnswer1 = value;
+                                    });
+                                  }),
+                              const Text("Male", style: TextStyle(fontSize: 18)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Radio(
+                                  value: 'no1',
+                                  groupValue: _selectedAnswer1,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedAnswer1 = value;
+                                    });
+                                  }),
+                              const Text("Female", style: TextStyle(fontSize: 18)),
+                            ],
+                          ),
                         ],
                       ),
                       Row(
                         children: [
                           const Text("Disability", style: TextStyle(fontSize: 18),),
-                          Checkbox(
-                              value: yes,
-                              side: MaterialStateBorderSide.resolveWith((states) =>
-                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
-                              activeColor: const Color.fromARGB(255, 0, 147, 71),
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  yes = value!;
-                                });
-                              }),
-                          const Text("Yes", style: TextStyle(fontSize: 18),),
-                          Checkbox(
-                              value: no,
-                              side: MaterialStateBorderSide.resolveWith((states) =>
-                                  const BorderSide(width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
-                              activeColor: const Color.fromARGB(255, 0, 147, 71),
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  no = value!;
-                                });
-                              }),
-                          const Text("No", style: TextStyle(fontSize: 18),),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                children: [
+                                  Radio(
+                                      value: 'yes2', // Set a group value for radio buttons
+                                      groupValue: _selectedAnswer1,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          _selectedAnswer1 = value;
+                                        });
+                                      }),
+                                  const Text("Yes", style: TextStyle(fontSize: 18)),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Radio(
+                                      value: 'no2',
+                                      groupValue: _selectedAnswer1,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          _selectedAnswer1 = value;
+                                        });
+                                      }),
+                                  const Text("No", style: TextStyle(fontSize: 18)),
+                                ],
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                       const Text(
@@ -146,14 +163,18 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                       CustomTextField(
                           name: "nationality",
                           controller: nationalityController,
-                          fieldLabel: "Nationality"),
+                          fieldLabel: "Nationality",
+                        prefixIcon: Icons.perm_contact_cal_outlined,
+                      ),
                       CustomTextField(
                           name: "Dob",
                           controller: dobController,
-                          fieldLabel: "Date of Birth"),
-                      CustomTextField(name: "NationalID", controller: idController, fieldLabel: "National Id Number"),
+                          fieldLabel: "Date of Birth",
+                        prefixIcon: Icons.date_range_outlined,
+                      ),
+                      CustomTextField(name: "NationalID", controller: idController, fieldLabel: "National Id Number", prefixIcon: Icons.onetwothree_outlined,),
                       CustomNumberField(name: "Financial Card", controller: financialCardController, fieldLabel: "Financial Card Number"),
-                      CustomTextField(name: "Country", controller: countryOfController, fieldLabel: "Country of Birth"),
+                      CustomTextField(name: "Country", controller: countryOfController, fieldLabel: "Country of Birth", prefixIcon: Icons.map_outlined,),
                       const SizedBox( height: 10,),
                       Align(
                         alignment: Alignment.centerRight,

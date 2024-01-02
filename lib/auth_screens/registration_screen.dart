@@ -42,7 +42,9 @@ class RegisterScreen extends StatelessWidget {
     final firstNameField = CustomTextField(
         name: "firstName",
         controller: controller.firstName,
-        fieldLabel: "First Name");
+        fieldLabel: "First Name",
+      prefixIcon: Icons.person_outline_rounded,
+    );
     // FormBuilderTextField(name: "firstName", autofocus: false, controller: firstNameController, keyboardType: TextInputType.text,
     //   onSaved: (value) {
     //     stdNoController.text = value!;
@@ -69,7 +71,9 @@ class RegisterScreen extends StatelessWidget {
     final lastNameField = CustomTextField(
         name: "lastName",
         controller: controller.lastName,
-        fieldLabel: "Last Name");
+        fieldLabel: "Last Name",
+      prefixIcon: Icons.person_outline_rounded,
+    );
     // FormBuilderTextField(name: 'lastName', autofocus: false, controller: lastNameController, keyboardType: TextInputType.text,
     //   onSaved: (value) {
     //     stdNoController.text = value!;
@@ -108,7 +112,10 @@ class RegisterScreen extends StatelessWidget {
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
-          )),
+          ),
+        prefixIcon: const Icon(Icons.home_work_outlined),
+        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
+      ),
       menuMaxHeight: 300,
       items: CollegeLabel.values
           .map<DropdownMenuItem<CollegeLabel>>((CollegeLabel college) {
@@ -215,10 +222,10 @@ class RegisterScreen extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(errorText: "Please fill out this field"),
-        FormBuilderValidators.minLength(6,
-            errorText: "password length should be 6 or greater"),
-        FormBuilderValidators.match(controller.password.text,
-            errorText: "password mismatch!!")
+        // FormBuilderValidators.minLength(6,
+        //     errorText: "password length should be 6 or greater"),
+        // FormBuilderValidators.match(controller.password.text,
+        //     errorText: "password mismatch!!")
       ]),
       decoration: const InputDecoration(
           labelText: "Confirm Password",
@@ -229,7 +236,10 @@ class RegisterScreen extends StatelessWidget {
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
-          )),
+          ),
+          prefixIcon: const Icon(Icons.password_outlined),
+        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
+      ),
       name: 'confirmPassword',
     );
 
@@ -240,7 +250,7 @@ class RegisterScreen extends StatelessWidget {
       color: const Color.fromARGB(255, 0, 147, 71),
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
-        minWidth: MediaQuery.of(context).size.width,
+        minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           if(_registerFormKey.currentState!.validate()){
             SignUpController.instance.registerUser(controller.email.text.trim(),
