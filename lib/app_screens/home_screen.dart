@@ -4,7 +4,6 @@ import 'package:mak_scholar1/app_screens/application_screen_2.dart';
 import 'package:mak_scholar1/app_screens/application_screen_3.dart';
 import 'package:mak_scholar1/app_screens/home_screen_container.dart';
 import 'package:mak_scholar1/app_screens/pay_screen.dart';
-import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 
 
 class HomeScreen extends StatelessWidget {

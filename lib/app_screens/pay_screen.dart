@@ -8,7 +8,7 @@ class PayScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "PAY", onPressed: (){ Navigator.of(context).popAndPushNamed("/");},),
+      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "PAY", onPressed: (){ Navigator.of(context).pop();},),
       body: Center(
         child: SafeArea(
           child: Row(

@@ -52,8 +52,8 @@ class _SplashScreenState extends State<SplashScreen>
             // ),
             Image.asset(
               'assets/images/green.png',
-              width: 250,
-              height: 250,
+              width: 300,
+              height: 300,
             ),
             const SizedBox(height: 20),
             Container(

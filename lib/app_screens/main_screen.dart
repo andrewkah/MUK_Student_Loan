@@ -28,10 +28,10 @@ class _MainScreenState extends State<MainScreen>
   final PageStorageBucket bucket = PageStorageBucket();
 
   final screens = [
-    Center(child: HomeScreen()),
-    Center(child: ListingsScreen()),
-    Center(child: TransactionsScreen()),
-    Center(child: SettingsScreen()),
+    HomeScreen(),
+    ListingsScreen(),
+    TransactionsScreen(),
+    SettingsScreen(),
   ];
 
   @override
@@ -48,7 +48,6 @@ class _MainScreenState extends State<MainScreen>
         },
         child:
         Scaffold(
-
           body: IndexedStack(
             index: _currentIndex,
             children: screens,
@@ -57,7 +56,7 @@ class _MainScreenState extends State<MainScreen>
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.grey[300],
             type: BottomNavigationBarType.fixed,
-            showSelectedLabels: false,
+            showSelectedLabels: true,
             showUnselectedLabels: true,
             selectedItemColor: const Color.fromARGB(255, 0, 147, 71),
             unselectedItemColor: Colors.grey[700],

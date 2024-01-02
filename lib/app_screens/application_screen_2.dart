@@ -59,19 +59,26 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                       name: "village",
                       controller: villageController,
                       fieldLabel: 'Village',
+                      prefixIcon: Icons.holiday_village_outlined,
                     ),
                     CustomTextField(
                         name: "province",
                         controller: provinceController,
-                        fieldLabel: "Province"),
+                        fieldLabel: "Province",
+                      prefixIcon: Icons.location_city_outlined,
+                    ),
                     CustomTextField(
                         name: "district",
                         controller: districtController,
-                        fieldLabel: "District"),
+                        fieldLabel: "District",
+                      prefixIcon: Icons.map_outlined,
+                    ),
                     CustomTextField(
                         name: "postal code",
                         controller: postalCodeController,
-                        fieldLabel: "Postal Code"),
+                        fieldLabel: "Postal Code",
+                      prefixIcon: Icons.markunread_mailbox_outlined,
+                    ),
                    Row(
                      children: [
                        SizedBox(
@@ -79,7 +86,9 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                          child: CustomTextField(
                              name: "address",
                              controller: addressController,
-                             fieldLabel: "Residential Address"),
+                             fieldLabel: "Residential Address",
+                           prefixIcon: Icons.add_home_outlined,
+                         ),
                        ),
                        IconButton(onPressed: (){
                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MapScreen()));
@@ -99,11 +108,14 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                       name: "last school",
                       controller: lastSchoolController,
                       fieldLabel: 'Name of last school attended',
+                      prefixIcon: Icons.school_outlined,
                     ),
                     CustomTextField(
                         name: "district",
                         controller: schDistrictController,
-                        fieldLabel: "District"),
+                        fieldLabel: "District",
+                      prefixIcon: Icons.map_outlined,
+                    ),
                     CustomNumberField(
                         name: "year of completion",
                         controller: yearCompletController,
@@ -111,7 +123,9 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                     CustomTextField(
                         name: "index no",
                         controller: indexController,
-                        fieldLabel: "Index Number"),
+                        fieldLabel: "Index Number",
+                      prefixIcon: Icons.onetwothree_outlined,
+                    ),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
