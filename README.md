@@ -19,7 +19,8 @@ The Student Loan Request App aims to:
 - Real time updates.
 
 ## Tech Stack
-- Flutter ![Static Badge](https://img.shields.io/badge/flutter_v_13.16.4-)
+- Flutter ![Static Badge](https://img.shields.io/badge/flutter_v_13.16.4-blue)
+- 
 - Firebase  ![Static Badge](https://img.shields.io/badge/firebase%20CLI_v_13.0.2-orange)
 
 ## Install this project
