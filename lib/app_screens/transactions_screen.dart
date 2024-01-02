@@ -7,7 +7,7 @@ class TransactionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "SETTINGS", onPressed: (){ Navigator.of(context).pop(true); },),
+    appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "TRANSACTIONS", onPressed: (){ Navigator.of(context).pop(true); },),
     body: SafeArea(
       child: ListView(
         children: const <Widget>[

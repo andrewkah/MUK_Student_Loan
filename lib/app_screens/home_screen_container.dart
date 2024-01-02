@@ -28,8 +28,7 @@ class HomeScreenContainer extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        body: Container(
-          constraints: const BoxConstraints(maxWidth: double.infinity),
+        body: SafeArea(
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
