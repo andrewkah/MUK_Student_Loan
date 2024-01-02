@@ -1,4 +1,5 @@
-# Makerere Student Fund 
+# Makerere Student Fund ![Static Badge](https://img.shields.io/badge/makerere_student_fund-v1.0-blue)
+
 
 ## Introduction
 In today's education landscape, the cost of higher education continues to rise, making it increasingly challenging for students to fund their studies. To address this issue, we propose the development of a mobile application that simplifies and streamlines the process of applying for student loans. This app will be a user-friendly, accessible, and efficient platform that empowers students to seek financial assistance for their educational pursuits. In this concept paper, we outline the key features, functionalities, and benefits of the Student Loan Request App.
