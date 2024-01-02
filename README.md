@@ -1,4 +1,5 @@
-# Makerere Student Fund ![Static Badge](https://img.shields.io/badge/makerere_student_fund-v1.0-blue)
+# Makerere Student Fund  ![Static Badge](https://img.shields.io/badge/makerere_student_fund-v1.0-blue?style=for-the-badge)
+
 
 
 ## Introduction
