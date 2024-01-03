@@ -41,7 +41,7 @@ class OnBoardingScreen extends StatelessWidget {
                   width: 280, height: 280,)
             ),
             const Text("STUDENT FUND", style: TextStyle(
-                color: const Color.fromARGB(255, 0, 147, 71),
+                color: Color.fromARGB(255, 0, 147, 71),
                 fontWeight: FontWeight.bold,
                 fontSize: 25
             ),),
