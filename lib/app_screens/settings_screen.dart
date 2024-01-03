@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
+import 'package:get/get.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -54,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             endIndent: 3,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 6.0),
+            padding: const EdgeInsets.symmetric(horizontal: 6.0),
             child: ListTile(
               title: const Text(
                 "Privacy & Settings",
@@ -169,7 +170,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
               alignment: Alignment.center,
               child: TextButton(
                 onPressed: () {
-                  Authenticator.instance.logout();
+                  Get.defaultDialog(
+                    title: 'Log Out',
+                    middleText: 'Are you sure you want to exit?',
+                    backgroundColor: Colors.white,
+                    radius: 10.0,
+                    titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    middleTextStyle: const TextStyle(fontSize: 18),
+                    contentPadding: const EdgeInsets.all(10.0),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Future.delayed(const Duration(seconds: 2), (){
+                            Authenticator.instance.logout();
+                          });
+
+                        },
+                        child: const Text('Yes',
+                            style: TextStyle(fontSize: 18, color: Colors.black)
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: const Text('No',
+                            style: TextStyle(fontSize: 18)
+                        ),
+                      ),
+                    ],
+                  );
+
                 },
                 child: const Text(
                   "SIGN OUT",

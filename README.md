@@ -75,7 +75,7 @@ The Student Loan Request App aims to:
   git clone https://github.com/andrewkah/MUK_Student_Loan.git
   ```
 
-## Getting started with flutter
+## Getting started with Firebase.
 - Create new Firebase Project.
 - Install Firebase_CLI
   - Install node.js
