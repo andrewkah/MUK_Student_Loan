@@ -42,7 +42,7 @@ class LogInScreen extends StatelessWidget {
           }
         },
         child: const Text(
-          "LOGIN",
+          "SIGNIN",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
