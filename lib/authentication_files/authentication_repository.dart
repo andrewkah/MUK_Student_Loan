@@ -30,6 +30,13 @@ class Authenticator extends GetxController{
       firebaseUser.value != null ? Get.offAll(() => MainScreen()) : Get.offAll(() => const OnBoardingScreen());
     } on FirebaseAuthException catch(e){
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
+      Get.snackbar(
+        "Firebase Auth Exception",
+        ex.message,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent.withOpacity(0.1),
+        colorText: Colors.red,
+      );
       // not good for production code
       // print('FIREBASE AUTH EXCEPTION -${ex.message}');
       throw ex;
@@ -45,7 +52,13 @@ class Authenticator extends GetxController{
   Future<void> signInWithEmailAndPassword({required String email, required String password}) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.offAll(() => MainScreen());
+      Get.snackbar(
+        "Login Successful",
+        "",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent.withOpacity(0.1),
+        colorText: Colors.green,
+      );
     } on FirebaseAuthException catch(e){
       // Add some code here
       Get.snackbar(

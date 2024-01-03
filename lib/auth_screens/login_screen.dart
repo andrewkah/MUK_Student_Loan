@@ -5,23 +5,17 @@ import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
 import 'package:mak_scholar1/authentication_files/signin_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
-
 import '../app_screens/main_screen.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key});
-
   // form key
   final _loginFormKey = GlobalKey<FormBuilderState>();
 
-  // final TextEditingController stdEmailController = TextEditingController();
-  // final TextEditingController passwordController = TextEditingController();
   final controller = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
-
-
     final stdEmailField = CustomEmailField(
         controller: controller.email,
         name: "stdEmail",
