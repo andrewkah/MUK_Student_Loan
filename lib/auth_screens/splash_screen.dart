@@ -12,22 +12,35 @@ class SplashScreen extends StatefulWidget{
 
 class _SplashScreenState extends State<SplashScreen> 
     with SingleTickerProviderStateMixin{
+  late AnimationController _controller;
+
   @override
   void initState(){
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(const Duration(seconds: 4), ()=> {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_)=> const OnBoardingScreen())
-      )
+
+    _controller = AnimationController(
+      duration: const Duration(seconds: 4),
+      vsync: this,
+    )..forward();
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        if (mounted) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (_) => const OnBoardingScreen()),
+          );
+        }
+      }
     });
   }
 
   @override
   void dispose(){
-    super.dispose();
+    _controller.dispose();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-    overlays:  SystemUiOverlay.values);
+        overlays: SystemUiOverlay.values);
+    super.dispose();
   }
   
   @override
