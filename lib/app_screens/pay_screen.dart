@@ -9,42 +9,47 @@ class PayScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "PAY", onPressed: (){ Navigator.of(context).pop();},),
-      body: Center(
-        child: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {},
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: SizedBox(
-                    height: 100,
-                    child: Image.asset(
-                      "assets/images/MTN-MomoPay.jpg",
-                      fit: BoxFit.contain,
+      body: SafeArea(
+          child: Column(
+            children: [
+              Spacer(flex: 1,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {},
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: SizedBox(
+                        height: 140,
+                        child: Image.asset(
+                          "assets/images/MTN-MomoPay.jpg",
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: SizedBox(
-                    height: 100,
-                    child: Image.asset(
-                      "assets/images/URA-Logo.png",
-                      fit: BoxFit.contain,
+                  GestureDetector(
+                    onTap: () {},
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: SizedBox(
+                        height: 140,
+                        child: Image.asset(
+                          "assets/images/URA-Logo.png",
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
 
+                  ),
+                ],
               ),
+              Spacer(flex: 2,),
             ],
           ),
+
         ),
-      ),
     );
   }
 }

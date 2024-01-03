@@ -5,7 +5,6 @@ import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
 import 'package:mak_scholar1/authentication_files/signin_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
-import '../app_screens/main_screen.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key});
@@ -52,7 +51,6 @@ class LogInScreen extends StatelessWidget {
 
     // Render
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
           child: SingleChildScrollView(
         child: Padding(
@@ -124,10 +122,10 @@ class LogInScreen extends StatelessWidget {
                         child: const Text(
                           "T&Cs",
                           style: TextStyle(
-                              color: Color.fromARGB(255, 234, 0, 0),
+                              color: Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
-                              decorationColor: Color.fromARGB(255, 234, 0, 0),
+                              decorationColor: Color.fromARGB(255, 0, 147, 71),
                               fontSize: 18),
                         ),
                       )

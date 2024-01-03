@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mak_scholar1/app_screens/main_screen.dart';
+import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
@@ -16,7 +16,7 @@ class OnBoardingScreen extends StatelessWidget {
     final loginButton = CustomButton(title: "SIGN IN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () async {
       bool auth = await FingerprintAuthenticator.authentication();
       if (auth) {
-        Get.offAll(() => MainScreen());
+        Get.offAll(() => const BottomNavBarScreen());
       } else {
         Get.to(() => LogInScreen());
       }
@@ -28,7 +28,6 @@ class OnBoardingScreen extends StatelessWidget {
     },);
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: Padding(padding: const EdgeInsets.all(30.0),
         child: Column(

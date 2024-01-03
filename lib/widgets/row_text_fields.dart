@@ -4,9 +4,9 @@ class RowTextFields extends StatelessWidget {
 
   final String titleText;
   final String subTitleText;
-  final Color textColor;
+  final Color? textColor;
   final double? textSize;
-  const RowTextFields({super.key, required this.titleText, required this.subTitleText, required this.textColor, this.textSize});
+  const RowTextFields({super.key, required this.titleText, required this.subTitleText, this.textColor, this.textSize});
 
   @override
   Widget build(BuildContext context) {
