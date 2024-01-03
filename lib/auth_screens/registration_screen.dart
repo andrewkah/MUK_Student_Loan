@@ -70,7 +70,6 @@ class RegisterScreen extends StatelessWidget {
         name: "lastName",
         controller: controller.lastName,
         fieldLabel: "Last Name",
-      prefixIcon: Icons.person_outline_rounded,
     );
     // FormBuilderTextField(name: 'lastName', autofocus: false, controller: lastNameController, keyboardType: TextInputType.text,
     //   onSaved: (value) {
@@ -111,8 +110,6 @@ class RegisterScreen extends StatelessWidget {
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
           ),
-        prefixIcon: const Icon(Icons.home_work_outlined),
-        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
       ),
       menuMaxHeight: 300,
       items: CollegeLabel.values
@@ -235,8 +232,6 @@ class RegisterScreen extends StatelessWidget {
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
           ),
-          prefixIcon: const Icon(Icons.password_outlined),
-        prefixIconColor: const Color.fromARGB(255, 3, 112, 53),
       ),
       name: 'confirmPassword',
     );
