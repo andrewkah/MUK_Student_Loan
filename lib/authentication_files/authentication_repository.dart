@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:mak_scholar1/auth_screens/on_boarding_screen.dart';
-import 'package:mak_scholar1/app_screens/main_screen.dart';
 import 'package:mak_scholar1/authentication_files/signup_email_password_failure.dart';
 
 class Authenticator extends GetxController{
@@ -21,14 +21,14 @@ class Authenticator extends GetxController{
   }
 
   _setInitialScreen(User? user){
-    user == null ? Get.offAll(() => const OnBoardingScreen()) : Get.offAll(() => MainScreen());
+    user == null ? Get.offAll(() => const OnBoardingScreen()) : Get.offAll(() => BottomNavBarScreen());
   }
 
   // create user
   Future<void> createUserWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword( email : email, password : password);
-      firebaseUser.value != null ? Get.offAll(() => MainScreen()) : Get.offAll(() => const OnBoardingScreen());
+      firebaseUser.value != null ? Get.offAll(() => BottomNavBarScreen()) : Get.offAll(() => const OnBoardingScreen());
     } on FirebaseAuthException catch(e){
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       Get.snackbar(
