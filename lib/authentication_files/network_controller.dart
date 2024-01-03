@@ -17,10 +17,10 @@ class NetworkController extends GetxController{
       Get.snackbar(
         "No Internet",
         "Please check your internet connection",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.redAccent.withOpacity(0.1),
+        snackPosition: SnackPosition.TOP,
+        backgroundColor: Colors.redAccent.withOpacity(0.2),
         colorText: Colors.red,
-        duration: const Duration(days: 1),
+        duration: const Duration(seconds: 4),
       );
     } else {
       if(Get.isSnackbarOpen){
@@ -29,3 +29,4 @@ class NetworkController extends GetxController{
     }
   }
 }
+

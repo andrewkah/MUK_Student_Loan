@@ -99,7 +99,7 @@ class FingerprintAuthenticator {
       if(!await canAuthenticate()){
         return false;
       }
-      return await _auth.authenticate(localizedReason: "get into the app");
+      return await _auth.authenticate(localizedReason: "Sign in");
     } catch (e){
       // implement
       print('error $e');

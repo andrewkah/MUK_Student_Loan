@@ -95,7 +95,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                 endIndent: 3,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
                     Row(
@@ -103,15 +103,15 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                         Checkbox(
                             value: agree,
                             side: MaterialStateBorderSide.resolveWith(
-                                (states) => BorderSide(
-                                    width: 2.0, color: const Color.fromARGB(255, 0, 147, 71))),
+                                (states) => const BorderSide(
+                                    width: 2.0, color: Color.fromARGB(255, 0, 147, 71))),
                             activeColor: const Color.fromARGB(255, 0, 147, 71),
                             onChanged: (bool? value) {
                               setState(() {
                                 agree = value!;
                               });
                             }),
-                        Text("I agree to the terms and conditions."),
+                        const Text("I agree to the terms and conditions."),
                       ],
                     ),
                     Align(
@@ -133,7 +133,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],
