@@ -6,7 +6,6 @@ class FingerPrintUnlockedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: Container(
           padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),

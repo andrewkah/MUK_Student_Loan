@@ -28,7 +28,6 @@ class OnBoardingScreen extends StatelessWidget {
     },);
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: Padding(padding: const EdgeInsets.all(30.0),
         child: Column(

@@ -16,7 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) =>  Scaffold(
-    appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "SETTINGS", onPressed: (){ Navigator.of(context).pop(true); },),
+    appBar: CustomAppBar( title: "SETTINGS",),
     body: SafeArea(
       child: ListView(
         children: <Widget>[
@@ -37,7 +37,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     "Notification Settings",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black,
                     ),
                   ),
                 ],
@@ -72,7 +71,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     "Hide Balance",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black,
                     ),
                   ),
                   Text(
@@ -108,7 +106,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     "Enable fingerprint",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black,
                     ),
                   ),
                   Text(
@@ -168,7 +165,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 150,),
           // const Spacer(),
           Padding(
-            padding: const EdgeInsets.only(top: 120),
+            padding: const EdgeInsets.only(top: 60),
             child: Align(
               alignment: Alignment.center,
               child: TextButton(

@@ -217,10 +217,6 @@ class RegisterScreen extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(errorText: "Please fill out this field"),
-        // FormBuilderValidators.minLength(6,
-        //     errorText: "password length should be 6 or greater"),
-        // FormBuilderValidators.match(controller.password.text,
-        //     errorText: "password mismatch!!")
       ]),
       decoration: const InputDecoration(
           labelText: "Confirm Password",
@@ -273,7 +269,6 @@ class RegisterScreen extends StatelessWidget {
             color: Colors.grey.shade600,
           ),
         ),
-        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Padding(

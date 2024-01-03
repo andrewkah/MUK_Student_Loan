@@ -19,7 +19,6 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(true); },),
       body: Center(
         child: SafeArea(
