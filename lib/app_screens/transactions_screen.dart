@@ -7,7 +7,7 @@ class TransactionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "TRANSACTIONS", onPressed: (){ Navigator.of(context).pop(true); },),
+    appBar: CustomAppBar( title: "TRANSACTIONS", ),
     body: SafeArea(
       child: ListView(
         children: const <Widget>[
@@ -36,8 +36,7 @@ class TransactionsScreen extends StatelessWidget {
                   RowTextFields(
                       titleText: "Carrier: ",
                       subTitleText: "Stanbic",
-                      textSize: 18,
-                      textColor: Colors.black)
+                      textSize: 18,)
                 ],
               ),
               trailing: Text(
@@ -78,8 +77,7 @@ class TransactionsScreen extends StatelessWidget {
                   RowTextFields(
                       titleText: "Carrier: ",
                       subTitleText: "NULL",
-                      textSize: 18,
-                      textColor: Colors.black)
+                      textSize: 18,)
                 ],
               ),
               trailing: Text(

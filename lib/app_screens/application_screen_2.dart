@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:mak_scholar1/app_screens/application_screen_3.dart';
 import 'package:mak_scholar1/app_screens/map_screen.dart';
 
 import '../widgets/custom_appbar.dart';
@@ -36,10 +37,8 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(true); },),
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
             child: FormBuilder(
@@ -144,7 +143,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () { Navigator.of(context).pushNamed("/Application3"); },
+                        onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => ApplicationScreen3()));},
                         child: const Text(
                           "NEXT",
                           style: TextStyle(
@@ -160,7 +159,6 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
             ),
           ),
         ),
-      ),
     );
   }
 }
