@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mak_scholar1/app_screens/main_screen.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
+import '../authentication_files/authentication_repository.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -10,8 +13,13 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // login button
-    final loginButton = CustomButton(title: "LOGIN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LogInScreen()));
+    final loginButton = CustomButton(title: "SIGN IN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () async {
+      bool auth = await FingerprintAuthenticator.authentication();
+      if (auth) {
+        Get.offAll(() => MainScreen());
+      } else {
+        Get.to(() => LogInScreen());
+      }
     },);
 
     // register button
@@ -33,7 +41,7 @@ class OnBoardingScreen extends StatelessWidget {
                   width: 280, height: 280,)
             ),
             const Text("STUDENT FUND", style: TextStyle(
-                color: const Color.fromARGB(255, 0, 147, 71),
+                color: Color.fromARGB(255, 0, 147, 71),
                 fontWeight: FontWeight.bold,
                 fontSize: 25
             ),),
