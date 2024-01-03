@@ -17,6 +17,52 @@ The Student Loan Request App aims to:
 - Document Upload
 - Real time updates.
 
+## Folder Structure
+```
+├── lib
+│   ├── app_screens
+│   │   ├── application_screen_1.dart
+│   │   ├── application_screen_2.dart
+│   │   ├── application_screen_3.dart
+│   │   ├── home_screen_container.dart
+│   │   ├── home_screen.dart
+│   │   ├── listings_screen.dart
+│   │   ├── main_screen.dart
+│   │   ├── map_screen.dart
+│   │   ├── pay_screen.dart
+│   │   ├── settings_screen.dart
+│   │   ├── terms_and_conditions_screen.dart
+│   │   └── transactions_screen.dart
+│   ├── authentication_files
+│   │   ├── authentication_repository.dart
+│   │   ├── dependency_injection.dart
+│   │   ├── network_controller.dart
+│   │   ├── signin_controller.dart
+│   │   ├── signup_controller.dart
+│   │   └── signup_email_password_failure.dart
+│   ├── auth_screens
+│   │   ├── forgot_password_screen.dart
+│   │   ├── locked_fingerprint_screen.dart
+│   │   ├── login_screen.dart
+│   │   ├── not_recognised_fingerprint_screen.dart
+│   │   ├── on_boarding_screen.dart
+│   │   ├── registration_screen.dart
+│   │   ├── splash_screen.dart
+│   │   └── unlocked_fingerprint_screen.dart
+│   ├── firebase_options.dart
+│   ├── main.dart
+│   ├── models
+│   │   ├── bottom_nav.dart
+│   │   ├── user_model.dart
+│   │   └── user_repository.dart
+│   └── widgets
+│       ├── custom_appbar.dart
+│       ├── custom_button.dart
+│       ├── custom_form_builder_fields.dart
+│       └── row_text_fields.dart
+
+```
+
 ## Tech Stack
 - Flutter ![Static Badge](https://img.shields.io/badge/flutter_v_3.16.4-blue?logo=Flutter)
 
