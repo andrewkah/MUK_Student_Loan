@@ -60,7 +60,7 @@ class Authenticator extends GetxController{
         backgroundColor: Colors.redAccent.withOpacity(0.1),
         colorText: Colors.green,
       );
-    } on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch(_){
       // Add some code here
       Get.snackbar(
         "Authentication Error",
