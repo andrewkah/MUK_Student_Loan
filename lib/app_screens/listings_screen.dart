@@ -51,6 +51,7 @@ class ListingsScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  color: Colors.black87,
                                 ),
                               ),
                             ),
@@ -71,6 +72,7 @@ class ListingsScreen extends StatelessWidget {
                             const RowTextFields(
                               titleText: "Due:  ",
                               subTitleText: "10/01/2024",
+                              titleColor: Colors.black87,
                               textColor: Colors.red,
                               textSize: 16,
                             ),
@@ -126,6 +128,7 @@ class ListingsScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
+                            color: Colors.black87,
                           ),
                         ),
                         Row(
@@ -134,6 +137,7 @@ class ListingsScreen extends StatelessWidget {
                             const RowTextFields(
                               titleText: "Due:  ",
                               subTitleText: "31/01/2024",
+                              titleColor: Colors.black87,
                               textColor: Colors.red,
                               textSize: 16,
                             ),
@@ -181,6 +185,7 @@ class ListingsScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
+                            color: Colors.black87,
                           ),
                         ),
                         Row(
@@ -189,6 +194,7 @@ class ListingsScreen extends StatelessWidget {
                             const RowTextFields(
                               titleText: "Due:  ",
                               subTitleText: "05/01/2024",
+                              titleColor: Colors.black87,
                               textColor: Colors.red,
                               textSize: 16,
                             ),
@@ -236,6 +242,7 @@ class ListingsScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
+                            color: Colors.black87,
                           ),
                         ),
                         Row(
@@ -244,6 +251,7 @@ class ListingsScreen extends StatelessWidget {
                             const RowTextFields(
                               titleText: "Due:  ",
                               subTitleText: "05/01/2024",
+                              titleColor: Colors.black87,
                               textColor: Colors.red,
                               textSize: 16,
                             ),
