@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 import 'package:mak_scholar1/authentication_files/dependency_injection.dart';
-import 'package:mak_scholar1/authentication_files/fingerprint_setting_controller.dart';
+import 'package:mak_scholar1/authentication_files/preferences.dart';
 import 'auth_screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -16,6 +16,7 @@ Future<void> main() async {
       .then((value) => Get.put(Authenticator()));
   // Initialize fingerprint enabled value
   await FingerprintPreferences.init();
+  await LocationPreferences.init();
 
   runApp(const MyApp());
 

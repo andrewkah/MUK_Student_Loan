@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
-import 'package:mak_scholar1/authentication_files/fingerprint_setting_controller.dart';
+import 'package:mak_scholar1/authentication_files/preferences.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
 import '../authentication_files/authentication_repository.dart';
 
