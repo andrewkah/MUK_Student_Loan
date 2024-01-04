@@ -18,7 +18,7 @@ class _MapScreenState extends State<MapScreen> {
       body: OpenStreetMapSearchAndPick(
           buttonColor: const Color.fromARGB(255, 0, 147, 71),
           buttonText: 'Capture Location',
-          buttonWidth: 100,
+          buttonWidth: 200,
           locationPinIconColor: const Color.fromARGB(255, 0, 147, 71),
           locationPinTextStyle: const TextStyle(
               fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 147, 71)),
