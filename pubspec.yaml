@@ -27,6 +27,8 @@ dependencies:
   connectivity_plus: ^5.0.2
   open_street_map_search_and_pick: ^0.1.1
   shared_preferences: ^2.2.2
+  geolocator: ^10.1.0
+  geocoding: ^2.1.1
 
 
 dev_dependencies:
