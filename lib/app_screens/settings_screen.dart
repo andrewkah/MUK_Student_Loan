@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mak_scholar1/authentication_files/fingerprint_setting_controller.dart';
+import 'package:mak_scholar1/authentication_files/preferences.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 import 'package:get/get.dart';

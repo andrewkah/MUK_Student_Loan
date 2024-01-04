@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mak_scholar1/app_screens/application_screen_2.dart';
+import 'package:mak_scholar1/authentication_files/preferences.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,8 @@ class _MapScreenState extends State<MapScreen> {
           locationPinTextStyle: const TextStyle(
               fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 147, 71)),
           onPicked: (pickedData) {
-            Get.back();
+            LocationPreferences.setLocationPreference(pickedData.addressName);
+            Get.to(() => const ApplicationScreen2());
           }),
     );
   }

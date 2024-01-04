@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mak_scholar1/app_screens/application_screen_3.dart';
 import 'package:mak_scholar1/app_screens/map_screen.dart';
-
+import 'package:mak_scholar1/authentication_files/preferences.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_form_builder_fields.dart';
 
@@ -17,22 +17,26 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
   final _formKey1 = GlobalKey<FormBuilderState>();
 
   final TextEditingController villageController = TextEditingController();
-
   final TextEditingController provinceController = TextEditingController();
-
   final TextEditingController districtController = TextEditingController();
-
   final TextEditingController postalCodeController = TextEditingController();
-
   final TextEditingController addressController = TextEditingController();
-
   final TextEditingController lastSchoolController = TextEditingController();
-
   final TextEditingController schDistrictController = TextEditingController();
-
-  final TextEditingController yearCompletController = TextEditingController();
-
+  final TextEditingController yearOfCompletionController = TextEditingController();
   final TextEditingController indexController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _setAddress();
+  }
+
+  Future<void> _setAddress() async {
+    setState(() {
+      addressController.text = LocationPreferences.getLocationPreference();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +44,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
       appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(true); },),
       body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
             child: FormBuilder(
                 key: _formKey1,
                 child: Column(
@@ -54,6 +58,29 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                       ),
                     ),
                     const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: CustomTextField(
+                            name: "address",
+                            controller: addressController,
+                            fieldLabel: "Residential Address",
+                            // prefixIcon: Icons.add_home_outlined,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MapScreen()));
+                          },
+                          icon: const Icon(
+                            Icons.location_on_outlined,
+                            size: 30,
+                            color: Color.fromARGB(255, 0, 147, 71),
+                          ),
+                        ),
+                      ],
+                    ),
+
                     CustomTextField(
                       name: "village",
                       controller: villageController,
@@ -78,23 +105,8 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                         fieldLabel: "Postal Code",
                       prefixIcon: Icons.markunread_mailbox_outlined,
                     ),
-                   Row(
-                     children: [
-                       SizedBox(
-                         width: 300,
-                         child: CustomTextField(
-                             name: "address",
-                             controller: addressController,
-                             fieldLabel: "Residential Address",
-                           prefixIcon: Icons.add_home_outlined,
-                         ),
-                       ),
-                       IconButton(onPressed: (){
-                         Navigator.of(context).push(MaterialPageRoute(builder: (context) => MapScreen()));
-                       }, icon: Icon(Icons.location_on_outlined, size: 30, color: const Color.fromARGB(255, 0, 147, 71),)),
-                     ],
-                   ),
-                    SizedBox( height: 15,),
+
+                    const SizedBox( height: 15,),
                     const Text(
                       "PART III: Secondary School Information",
                       style: TextStyle(
@@ -117,7 +129,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                     ),
                     CustomNumberField(
                         name: "year of completion",
-                        controller: yearCompletController,
+                        controller: yearOfCompletionController,
                         fieldLabel: "Year of Completion"),
                     CustomTextField(
                         name: "index no",
@@ -132,22 +144,22 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                         child: const Text(
                           "ATTACH PASS-SLIP",
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 0, 147, 71),
+                            color: Color.fromARGB(255, 0, 147, 71),
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
                         ),
                       ),
                     ),
-                    SizedBox( height: 10,),
+                    const SizedBox( height: 10,),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => ApplicationScreen3()));},
+                        onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => const ApplicationScreen3()));},
                         child: const Text(
                           "NEXT",
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 0, 147, 71),
+                            color: Color.fromARGB(255, 0, 147, 71),
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
