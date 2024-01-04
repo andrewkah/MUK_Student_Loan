@@ -26,6 +26,7 @@ dependencies:
   cloud_firestore: ^4.13.6
   connectivity_plus: ^5.0.2
   open_street_map_search_and_pick: ^0.1.1
+  shared_preferences: ^2.2.2
 
 
 dev_dependencies:

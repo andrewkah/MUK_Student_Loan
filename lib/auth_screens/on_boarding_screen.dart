@@ -3,20 +3,25 @@ import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
+import 'package:mak_scholar1/authentication_files/fingerprint_setting_controller.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
 import '../authentication_files/authentication_repository.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
 
     // login button
     final loginButton = CustomButton(title: "SIGN IN", titleSize: 20, paddingHorizontal: 30, paddingVertical: 15, borderRadius: 20, onPressed: () async {
-      bool auth = await FingerprintAuthenticator.authentication();
-      if (auth) {
-        Get.offAll(() => const BottomNavBarScreen());
+      bool fingerprintEnabled = FingerprintPreferences.getPreference();
+      if(fingerprintEnabled){
+        bool auth = await FingerprintAuthenticator.authentication();
+        if (auth && fingerprintEnabled) {
+          Get.offAll(() => const BottomNavBarScreen());
+        }
       } else {
         Get.to(() => LogInScreen());
       }
