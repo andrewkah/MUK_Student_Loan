@@ -7,7 +7,7 @@ import '../widgets/custom_appbar.dart';
 import '../widgets/custom_form_builder_fields.dart';
 
 class ApplicationScreen2 extends StatefulWidget {
-  ApplicationScreen2({super.key});
+  const ApplicationScreen2({super.key});
 
   @override
   State<ApplicationScreen2> createState() => _ApplicationScreen2State();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:mak_scholar1/app_screens/application_screen_2.dart';
+import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:get/get.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -9,32 +11,21 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  GoogleMapController? mapController;
-
+  String address = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 50.0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context, true);
-          },
-          icon: const Icon(Icons.arrow_back_ios_new_rounded),
-          color: Colors.grey.shade600,
-        ),
-      ),
-      body: GoogleMap(
-        onMapCreated: (controller) {
-          setState(() {
-            mapController = controller;
-          });
-        },
-        initialCameraPosition: CameraPosition(
-          target: LatLng(37.7749, -122.4194),
-          zoom: 12.0,
-        ),
-      ),
+      body: OpenStreetMapSearchAndPick(
+          buttonColor: const Color.fromARGB(255, 0, 147, 71),
+          buttonText: 'Capture Location',
+          buttonWidth: 100,
+          locationPinIconColor: const Color.fromARGB(255, 0, 147, 71),
+          locationPinTextStyle: const TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 147, 71)),
+          onPicked: (pickedData) {
+            Get.back();
+          }),
     );
   }
 }
+
