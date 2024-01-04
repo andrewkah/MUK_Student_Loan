@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
       ).copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 147, 71)),
       ),
-      theme: ThemeData(
-        useMaterial3: true,
+      theme: ThemeData.light(
+        useMaterial3: true,).copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 147, 71)),
       ),
       home: const SplashScreen(),
