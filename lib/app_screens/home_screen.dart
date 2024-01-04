@@ -127,6 +127,7 @@ class HomeScreen extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Loan Balance: ",
                                     subTitleText: "1,977,138/=",
+                                    titleColor: Colors.black87,
                                     textColor: Color.fromARGB(255, 0, 147, 71),
                                     textSize: 16,
                                   ),
@@ -136,6 +137,7 @@ class HomeScreen extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Semester: ",
                                     subTitleText: "II",
+                                    titleColor: Colors.black87,
                                     textColor: Color.fromARGB(255, 0, 147, 71),
                                     textSize: 16,
                                   ),
@@ -145,6 +147,7 @@ class HomeScreen extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Academic Year: ",
                                     subTitleText: "2022/2023",
+                                    titleColor: Colors.black87,
                                     textColor: Color.fromARGB(255, 0, 147, 71),
                                     textSize: 16,
                                   ),
@@ -154,6 +157,7 @@ class HomeScreen extends StatelessWidget {
                                   RowTextFields(
                                     titleText: "Date due: ",
                                     subTitleText: "06/08/2023",
+                                    titleColor: Colors.black87,
                                     textColor: Colors.red,
                                     textSize: 16,
                                   ),
