@@ -21,14 +21,14 @@ class Authenticator extends GetxController{
   }
 
   _setInitialScreen(User? user){
-    user == null ? Get.offAll(() => const OnBoardingScreen()) : Get.offAll(() => BottomNavBarScreen());
+    user == null ? Get.offAll(() => const OnBoardingScreen()) : Get.offAll(() => const BottomNavBarScreen());
   }
 
   // create user
   Future<void> createUserWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword( email : email, password : password);
-      firebaseUser.value != null ? Get.offAll(() => BottomNavBarScreen()) : Get.offAll(() => const OnBoardingScreen());
+      firebaseUser.value != null ? Get.offAll(() => const BottomNavBarScreen()) : Get.offAll(() => const OnBoardingScreen());
     } on FirebaseAuthException catch(e){
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       Get.snackbar(
@@ -56,7 +56,7 @@ class Authenticator extends GetxController{
       Get.snackbar(
         "Login Successful",
         "",
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.redAccent.withOpacity(0.1),
         colorText: Colors.green,
       );

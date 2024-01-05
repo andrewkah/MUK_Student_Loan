@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/authentication_files/preferences.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 import 'package:get/get.dart';
@@ -12,11 +13,10 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool balanceSwitch = false;
-  bool fingerprintSwitch = false;
 
   @override
   Widget build(BuildContext context) =>  Scaffold(
-    appBar: CustomAppBar( title: "SETTINGS",),
+    appBar: const CustomAppBar( title: "SETTINGS",),
     body: SafeArea(
       child: ListView(
         children: <Widget>[
@@ -109,17 +109,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   Text(
-                    "Hide your balance on the Home screen",
+                    "Enable or disable fingerprint authentication.",
                     style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                 ],
               ),
               trailing: Switch(
-                  value: fingerprintSwitch,
+                  value: FingerprintPreferences.getPreference(),
                   activeColor: const Color.fromARGB(255, 0, 147, 71),
                   onChanged: (bool value) {
                     setState(() {
-                      fingerprintSwitch = value;
+                      FingerprintPreferences.setPreference(value);
                     });
                   }),
             ),
