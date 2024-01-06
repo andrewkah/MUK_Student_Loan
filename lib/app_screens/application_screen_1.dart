@@ -40,10 +40,10 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
     return Scaffold(
       appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(); },),
       body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
-            child: FormBuilder(
-              key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
+              child: FormBuilder(
+                key: _formKey,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -62,15 +62,15 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                         prefixIcon: Icons.person_outline_rounded,
                       ),
                       CustomTextField(
-                          name: "firstName",
-                          controller: firstNameController,
-                          fieldLabel: "First Name",
+                        name: "firstName",
+                        controller: firstNameController,
+                        fieldLabel: "First Name",
                         prefixIcon: Icons.person_outline_rounded,
                       ),
                       CustomTextField(
-                          name: "other_names",
-                          controller: otherNamesController,
-                          fieldLabel: "Other Names",
+                        name: "other_names",
+                        controller: otherNamesController,
+                        fieldLabel: "Other Names",
                         prefixIcon: Icons.person_outline_rounded,
                       ),
                       Row(
@@ -140,6 +140,22 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           ),
                         ],
                       ),
+                      CustomTextField(
+                        name: "nationality",
+                        controller: nationalityController,
+                        fieldLabel: "Nationality",
+                        prefixIcon: Icons.perm_contact_cal_outlined,
+                      ),
+                      CustomTextField(
+                        name: "Dob",
+                        controller: dobController,
+                        fieldLabel: "Date of Birth",
+                        prefixIcon: Icons.date_range_outlined,
+                      ),
+                      CustomTextField(name: "NationalID", controller: idController, fieldLabel: "National Id Number", prefixIcon: Icons.onetwothree_outlined,),
+                      CustomNumberField(name: "Financial Card", controller: financialCardController, fieldLabel: "Financial Card Number"),
+                      CustomTextField(name: "Country", controller: countryOfController, fieldLabel: "Country of Birth", prefixIcon: Icons.map_outlined,),
+                      const SizedBox( height: 15,),
                       const Text(
                         "NB. If you are disabled, attach a copy of the persons with disabilities Certificate.",
                         style:
@@ -159,41 +175,32 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           ),
                         ),
                       ),
-                      CustomTextField(
-                          name: "nationality",
-                          controller: nationalityController,
-                          fieldLabel: "Nationality",
-                        prefixIcon: Icons.perm_contact_cal_outlined,
-                      ),
-                      CustomTextField(
-                          name: "Dob",
-                          controller: dobController,
-                          fieldLabel: "Date of Birth",
-                        prefixIcon: Icons.date_range_outlined,
-                      ),
-                      CustomTextField(name: "NationalID", controller: idController, fieldLabel: "National Id Number", prefixIcon: Icons.onetwothree_outlined,),
-                      CustomNumberField(name: "Financial Card", controller: financialCardController, fieldLabel: "Financial Card Number"),
-                      CustomTextField(name: "Country", controller: countryOfController, fieldLabel: "Country of Birth", prefixIcon: Icons.map_outlined,),
-                      const SizedBox( height: 10,),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => const ApplicationScreen2()));},
-                          child: const Text(
-                            "NEXT",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 0, 147, 71),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]),
+                    ]
+                ),
+              ),
             ),
-
+          ),
+      floatingActionButton: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+        child: Align(
+          alignment: Alignment.bottomRight,
+          child: TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ApplicationScreen2()));
+            },
+            child: const Text(
+              "NEXT",
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 147, 71),
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
           ),
         ),
-    );
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      );
   }
 }
