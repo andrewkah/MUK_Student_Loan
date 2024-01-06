@@ -7,7 +7,7 @@ class ListingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: CustomAppBar( title: "LISTINGS",),
+    appBar: const CustomAppBar( title: "LISTINGS",),
     body: SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(

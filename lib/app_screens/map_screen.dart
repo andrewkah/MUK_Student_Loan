@@ -80,7 +80,7 @@ class _MapScreenState extends State<MapScreen> {
                     if (_currentLocation != null) {
                       String address = await getAddressFromCoordinates(currentLocation!.latitude, currentLocation.longitude);
                       LocationPreferences.setLocationPreference(address);
-                      Get.to(() => const ApplicationScreen2());
+                      Get.off(() => const ApplicationScreen2());
 
                       // For error checking
                       print('Address: $address');

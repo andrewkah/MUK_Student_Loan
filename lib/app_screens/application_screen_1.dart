@@ -178,7 +178,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => ApplicationScreen2()));},
+                          onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => const ApplicationScreen2()));},
                           child: const Text(
                             "NEXT",
                             style: TextStyle(

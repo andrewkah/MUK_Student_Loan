@@ -7,7 +7,7 @@ class TransactionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: CustomAppBar( title: "TRANSACTIONS", ),
+    appBar: const CustomAppBar( title: "TRANSACTIONS", ),
     body: SafeArea(
       child: ListView(
         children: const <Widget>[
@@ -43,7 +43,7 @@ class TransactionsScreen extends StatelessWidget {
                 "+UGX 900,000",
                 style: TextStyle(
                   fontSize: 20,
-                  color: const Color.fromARGB(255, 0, 147, 71),
+                  color: Color.fromARGB(255, 0, 147, 71),
                 ),
               ),
             ),
