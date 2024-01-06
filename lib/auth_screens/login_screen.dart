@@ -113,11 +113,15 @@ class LogInScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const TermsConditionsScreen()));
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => TermsConditionsScreen(
+                                onAgree: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ),
+                          );
                         },
                         child: const Text(
                           "T&Cs",

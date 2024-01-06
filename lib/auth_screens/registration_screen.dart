@@ -334,11 +334,15 @@ class RegisterScreen extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const TermsConditionsScreen()));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => TermsConditionsScreen(
+                                    onAgree: () {
+                                      Navigator.of(context).pop(); // Pops back to login or register
+                                    },
+                                  ),
+                                ),
+                              );
                             },
                             child: const Text(
                               "T&Cs",

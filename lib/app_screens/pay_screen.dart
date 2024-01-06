@@ -12,7 +12,7 @@ class PayScreen extends StatelessWidget {
       body: SafeArea(
           child: Column(
             children: [
-              Spacer(flex: 1,),
+              const Spacer(flex: 1,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -45,7 +45,7 @@ class PayScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(flex: 2,),
+              const Spacer(flex: 2,),
             ],
           ),
 

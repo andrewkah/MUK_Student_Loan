@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/application_screen_1.dart';
 import 'package:mak_scholar1/app_screens/pay_screen.dart';
+import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/row_text_fields.dart';
@@ -119,7 +121,9 @@ class HomeScreen extends StatelessWidget {
                                   "assets/images/icons8-coins-96.png",
                                   fit: BoxFit.contain,
                                 )),
-                            const SizedBox(width: 8,),
+                            const SizedBox(
+                              width: 8,
+                            ),
                             const SizedBox(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,14 +179,18 @@ class HomeScreen extends StatelessWidget {
                           paddingHorizontal: 25,
                           paddingVertical: 15,
                           borderRadius: 18,
-                          onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => PayScreen()));
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => const PayScreen()));
                           },
                         ),
                       )
                     ],
                   ),
                 ),
-                const Spacer(flex: 3,),
+                const Spacer(
+                  flex: 3,
+                ),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: CustomButton(
@@ -191,11 +199,23 @@ class HomeScreen extends StatelessWidget {
                     paddingHorizontal: 30,
                     paddingVertical: 15,
                     borderRadius: 30,
-                    onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => ApplicationScreen1()));
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (_) => TermsConditionsScreen(
+                                onAgree: (){
+                                  Get.off(() => const ApplicationScreen1()
+                                  );
+                                },
+                              )
+                          )
+                      );
                     },
                   ),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),

@@ -23,7 +23,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
       body: Center(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
             child: FormBuilder(
               key: _formKey2,
               child: Column(
@@ -38,7 +38,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  Text(
+                  const Text(
                     "a. Have you applied for the Makerere University Student Loan before?",
                     style: TextStyle(fontSize: 18),
                   ),
@@ -74,7 +74,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                     ],
                   ),
                   const SizedBox(height: 6),
-                  Text(
+                  const Text(
                     "b. If yes, were you awarded the Student Loan?",
                     style: TextStyle(fontSize: 18),
                   ),
@@ -117,7 +117,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  Text(
+                  const Text(
                     "Indicate the Loan category you wish to be considered for:",
                     style: TextStyle(fontSize: 18),
                   ),
