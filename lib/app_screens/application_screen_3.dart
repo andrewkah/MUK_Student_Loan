@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-
+import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
+import 'package:get/get.dart';
 import '../widgets/custom_appbar.dart';
 
 class ApplicationScreen3 extends StatefulWidget {
@@ -15,6 +16,23 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
   String? _selectedAnswer1 = 'no';
   String? _selectedAnswer2 = 'no';
   String? _selectedLoanCategory = '0';
+
+  bool _isLoading = false;
+  void _handleSubmit() {
+    setState(() {
+      _isLoading = true; // Set loading state to true when button is pressed
+    });
+
+    // Simulating some asynchronous operation, delaying for 2 seconds
+    Future.delayed(const Duration(seconds: 4), () {
+      // After the operation is done, navigate to the next screen or perform any action
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BottomNavBarScreen()));
+    }).then((_) {
+      setState(() {
+        _isLoading = false; // Set loading state back to false when operation is completed
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -189,6 +207,55 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
           ),
         ),
       ),
+      floatingActionButton: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+        child: Align(
+          alignment: Alignment.bottomRight,
+          child: TextButton(
+            onPressed: () {
+              if (!_isLoading) {
+                _handleSubmit();
+                Future.delayed(const Duration(seconds: 6), () {
+                  Get.snackbar(
+                    "Submission Successful",
+                    "Your application has been received.",
+                    snackPosition: SnackPosition.TOP,
+                    backgroundColor: Colors.redAccent.withOpacity(0.1),
+                    colorText: Colors.green,
+                  );
+                });
+              }
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Visibility(
+                  visible: !_isLoading,
+                  child: const Text(
+                    "SUBMIT",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 147, 71),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: _isLoading,
+                  child: const Padding(
+                    padding: EdgeInsets.only(right: 16.0), // Add right margin to the progress indicator
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 0, 147, 71)),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
