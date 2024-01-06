@@ -3,7 +3,9 @@ import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
 
 class TermsConditionsScreen extends StatefulWidget {
-  const TermsConditionsScreen({super.key});
+  final VoidCallback? onAgree;
+
+  const TermsConditionsScreen({super.key, this.onAgree});
 
   @override
   State<TermsConditionsScreen> createState() => _TermsConditionsScreenState();
@@ -124,8 +126,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                         borderRadius: 30,
                         onPressed: agree
                             ? () {
-                          /// Continue with the button logic
-                          Navigator.of(context).pop(true);
+                          widget.onAgree?.call();
                               }
                             : null,
                       ),
