@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_translate/components/google_translate.dart';
 import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 import 'package:mak_scholar1/authentication_files/dependency_injection.dart';
 import 'package:mak_scholar1/authentication_files/preferences.dart';
@@ -19,6 +20,10 @@ Future<void> main() async {
   // Initialize fingerprint enabled value
   await FingerprintPreferences.init();
   await LocationPreferences.init();
+  
+  GoogleTranslate.initialize(apiKey: "AIzaSyAaqIzTF_VFcaD3kGxfp2AdZNc2VqNcr-I",
+      targetLanguage: "lg",
+      sourceLanguage: "en");
 
   runApp(const MyApp());
 
