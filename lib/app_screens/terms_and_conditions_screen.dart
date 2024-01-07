@@ -1,8 +1,6 @@
 import 'dart:core';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_translate/google_translate.dart';
-import 'package:mak_scholar1/app_screens/progress.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_button.dart';
 
@@ -137,9 +135,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
       body: Stack(
         children: [
           SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
+            child: Container(
                   padding: const EdgeInsets.symmetric(
                       vertical: 15.0, horizontal: 24.0),
                   child: Column(
@@ -332,8 +328,6 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     ],
                   ),
                 ),
-              ],
-            ),
           ),
           Positioned(
             left: 0,
@@ -356,12 +350,6 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
-                    // const Divider(
-                    //   color: Colors.grey,
-                    //   thickness: 1,
-                    //   indent: 15,
-                    //   endIndent: 15,
-                    // ),
                     Row(
                       children: [
                         Checkbox(
