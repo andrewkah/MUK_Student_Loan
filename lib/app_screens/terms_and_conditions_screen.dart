@@ -139,7 +139,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                             children: <TextSpan>[
                               TextSpan(text: "2.2 "),
                               TextSpan(
-                                  text: "Account",
+                                  text: "Account: ",
                                   style:
                                       TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
                               TextSpan(
@@ -220,7 +220,18 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
             bottom: 0,
             child: Center(
               child: Container(
-                color: Theme.of(context).scaffoldBackgroundColor,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(25), // Rounded corners
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5), // Shadow color
+                      spreadRadius: 1, // Spread radius
+                      blurRadius: 2, // Blur radius
+                      offset: const Offset(0, 1), // Offset in x and y
+                    ),
+                  ],
+                ),
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
