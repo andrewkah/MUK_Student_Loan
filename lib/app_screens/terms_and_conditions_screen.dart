@@ -13,6 +13,8 @@ class TermsConditionsScreen extends StatefulWidget {
 
 class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
   bool agree = false;
+  final TextStyle? unSelectedStyle = const TextStyle(fontSize: 15,);
+  final TextStyle? selectedStyle = const TextStyle(fontSize: 15, color: Colors.grey);
 
   @override
   Widget build(BuildContext context) {
@@ -242,9 +244,16 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                                 agree = value!;
                               });
                             }),
-                        const Text(
-                          "I agree to the terms and conditions above.",
-                          style: TextStyle(fontSize: 15),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              agree = !agree;
+                            });
+                          },
+                          child: Text(
+                            "I agree to the terms and conditions above.",
+                            style: agree ? selectedStyle : unSelectedStyle,
+                          ),
                         ),
                       ],
                     ),

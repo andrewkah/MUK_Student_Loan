@@ -217,8 +217,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     middleText: 'Are you sure you want to exit?',
                     backgroundColor: Colors.white,
                     radius: 10.0,
-                    titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    middleTextStyle: const TextStyle(fontSize: 18),
+                    titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                    middleTextStyle: const TextStyle(fontSize: 18, color: Colors.black),
                     contentPadding: const EdgeInsets.all(10.0),
                     actions: [
                       TextButton(
