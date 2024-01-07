@@ -152,25 +152,32 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                       ),
                     ),
                     const SizedBox( height: 10,),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: (){ Navigator.of(context).push( MaterialPageRoute(builder: (_) => const ApplicationScreen3()));},
-                        child: const Text(
-                          "NEXT",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 0, 147, 71),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
             ),
           ),
         ),
+      floatingActionButton: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+        child: Align(
+          alignment: Alignment.bottomRight,
+          child: TextButton(
+            onPressed: () {
+              Navigator.of(context).push( MaterialPageRoute(builder: (_) => const ApplicationScreen3()));
+            },
+            child: const Text(
+              "NEXT",
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 147, 71),
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

@@ -14,7 +14,7 @@ class ThemeProvider extends ChangeNotifier {
 class MyThemes {
   static final darkTheme = ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.dark()
+    colorScheme: const ColorScheme.dark()
   );
 
   static final lightTheme = ThemeData(
