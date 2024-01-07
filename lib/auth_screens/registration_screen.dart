@@ -259,7 +259,6 @@ class RegisterScreen extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
           toolbarHeight: 50.0,
           leading: IconButton(
             onPressed: () {

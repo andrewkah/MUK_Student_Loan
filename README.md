@@ -80,7 +80,7 @@ The Student Loan Request App aims to:
 - Install Firebase_CLI
   - Install node.js
     ```bash
-    npm install mode.js
+    npm install node.js
     ```
   - Install firebase tools
     ```bash
