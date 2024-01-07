@@ -26,7 +26,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
     // Simulating some asynchronous operation, delaying for 2 seconds
     Future.delayed(const Duration(seconds: 4), () {
       // After the operation is done, navigate to the next screen or perform any action
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => const BottomNavBarScreen()));
+      Get.offAll(() => const BottomNavBarScreen());
     }).then((_) {
       setState(() {
         _isLoading = false; // Set loading state back to false when operation is completed
