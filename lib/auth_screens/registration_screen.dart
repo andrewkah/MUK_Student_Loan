@@ -4,6 +4,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/authentication_files/signup_controller.dart';
+import 'package:mak_scholar1/models/user_model.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 
@@ -242,10 +243,17 @@ class RegisterScreen extends StatelessWidget {
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           if(_registerFormKey.currentState!.validate()){
-            SignUpController.instance.registerUser(controller.email.text.trim(),
-                controller.password.text.trim());
+            // SignUpController.instance.registerUser(controller.email.text.trim(),
+            //     controller.password.text.trim());
             // Navigator.push(
             //     context, MaterialPageRoute(builder: (context) => MainScreen()));
+            final user = UserModel(firstName: controller.firstName.text.trim(),
+                lastName: controller.lastName.text.trim(),
+                email: controller.email.text.trim(),
+                password: controller.password.text.trim(),
+                studentNumber: controller.studentNumber.text.trim(),
+                college: controller.college.text.trim());
+            SignUpController.instance.createUser(user);
           }
         },
         child: const Text(

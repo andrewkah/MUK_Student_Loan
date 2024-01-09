@@ -1,4 +1,4 @@
-// This one can translate 5000 characters in a go as compared to Sunbird.
+// This one can translate 5000 characters in a go as compared to Sun bird.
 
 import 'package:google_translate/google_translate.dart';
 
