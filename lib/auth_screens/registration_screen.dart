@@ -4,6 +4,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/authentication_files/signup_controller.dart';
+import 'package:mak_scholar1/models/user_model.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 
@@ -43,27 +44,7 @@ class RegisterScreen extends StatelessWidget {
         fieldLabel: "First Name",
       prefixIcon: Icons.person_outline_rounded,
     );
-    // FormBuilderTextField(name: "firstName", autofocus: false, controller: firstNameController, keyboardType: TextInputType.text,
-    //   onSaved: (value) {
-    //     stdNoController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //   ]),
-    //   decoration: const InputDecoration(
-    //       labelText: "First name",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )
-    //   ),
-    // );
+
 
     // last name field
     final lastNameField = CustomTextField(
@@ -71,27 +52,7 @@ class RegisterScreen extends StatelessWidget {
         controller: controller.lastName,
         fieldLabel: "Last Name",
     );
-    // FormBuilderTextField(name: 'lastName', autofocus: false, controller: lastNameController, keyboardType: TextInputType.text,
-    //   onSaved: (value) {
-    //     stdNoController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //   ]),
-    //   decoration: const InputDecoration(
-    //       labelText: "Second name",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )
-    //   ),
-    // );
+
 
     // college field
     final collegeField = FormBuilderDropdown(
@@ -117,6 +78,9 @@ class RegisterScreen extends StatelessWidget {
         return DropdownMenuItem<CollegeLabel>(
             value: college, child: Text(college.label));
       }).toList(),
+      onChanged: (value) {
+        controller.college.text = value.toString();
+      },
     );
 
     // student email field
@@ -124,86 +88,20 @@ class RegisterScreen extends StatelessWidget {
         name: "studentEmail",
         controller: controller.email,
         fieldLabel: "Student Email");
-    // TextFormField( autofocus: false, controller: stdEmailController, keyboardType: TextInputType.emailAddress,
-    //   onSaved: (value) {
-    //     stdNoController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //     FormBuilderValidators.email(errorText: "Invalid email-address")
-    //   ]),
-    //   decoration: const InputDecoration(
-    //     labelText: "Student Email",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )
-    //   ),
-    // );
 
     // student number field
     final stdNoField = CustomNumberField(
         controller: controller.studentNumber,
         name: "studentNo",
         fieldLabel: "Student Number");
-    // TextFormField( autofocus: false, controller: stdNoController, keyboardType: TextInputType.number,
-    //   onSaved: (value) {
-    //     stdNoController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //     FormBuilderValidators.numeric(errorText: "Must contain integers only"),
-    //     FormBuilderValidators.minLength(10),
-    //     FormBuilderValidators.maxLength(12),
-    //   ]),
-    //   decoration: const InputDecoration(
-    //       labelText: "Student Number",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )
-    //   ),
-    // );
+
 
     // Password field
     final passwordField = CustomPasswordField(
         name: "password",
         controller: controller.password,
         fieldLabel: "Password");
-    // TextFormField( autofocus: false, obscureText: true, controller: passwordController,
-    //   onSaved: (value) {
-    //     passwordController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   autovalidateMode: AutovalidateMode.onUserInteraction,
-    //   validator: FormBuilderValidators.compose([
-    //     FormBuilderValidators.required(errorText: "Please fill out this field"),
-    //     FormBuilderValidators.minLength(6, errorText: "password length should be 6 or greater"),
-    //   ]),
-    //   decoration: const InputDecoration(
-    //       labelText: "Password",
-    //       labelStyle: TextStyle(fontSize: 20),
-    //       contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-    //       enabledBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen),
-    //       ),
-    //       focusedBorder: UnderlineInputBorder(
-    //         borderSide: BorderSide(color: Colors.primaryGreen, width: 3),
-    //       )
-    //   ),
-    // );
+
 
     // confirm password field
     final confirmPasswordField = FormBuilderTextField(
@@ -242,10 +140,17 @@ class RegisterScreen extends StatelessWidget {
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           if(_registerFormKey.currentState!.validate()){
-            SignUpController.instance.registerUser(controller.email.text.trim(),
-                controller.password.text.trim());
+            // SignUpController.instance.registerUser(controller.email.text.trim(),
+            //     controller.password.text.trim());
             // Navigator.push(
             //     context, MaterialPageRoute(builder: (context) => MainScreen()));
+            final user = UserModel(firstName: controller.firstName.text.trim(),
+                lastName: controller.lastName.text.trim(),
+                email: controller.email.text.trim(),
+                password: controller.password.text.trim(),
+                studentNumber: controller.studentNumber.text.trim(),
+                college: controller.college.text.trim());
+            SignUpController.instance.createUser(user);
           }
         },
         child: const Text(

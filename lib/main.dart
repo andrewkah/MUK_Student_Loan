@@ -49,4 +49,3 @@ class MyApp extends StatelessWidget {
   );
 }
 
-// ADD FLUTTER SPINKIT for the loading animations
