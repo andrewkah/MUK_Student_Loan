@@ -1,4 +1,6 @@
 // This maps the data to json format
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserModel {
     final String? id;
     final String firstName;
@@ -29,4 +31,15 @@ class UserModel {
       };
     }
 
+    factory UserModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document){
+      final data = document.data()!;
+      return UserModel(
+          id: document.id,
+          firstName: data["FirstName"],
+          lastName: data["LastName"],
+          email: data["Email"],
+          password: data["Password"],
+          studentNumber: data["StudentNumber"],
+          college: data["College"]);
+    }
 }
