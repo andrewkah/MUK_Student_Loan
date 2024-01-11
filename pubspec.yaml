@@ -33,12 +33,10 @@ dependencies:
   http: ^1.1.2
   google_translate: ^0.0.6
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
-
 
 flutter:
   assets:
@@ -47,5 +45,8 @@ flutter:
     - assets/images/MTN-MomoPay.jpg
     - assets/images/URA-Logo.png
     - assets/images/green.png
+    - assets/images/loan.png
+    - assets/images/cancelled4.png
+    - assets/images/user.png
   uses-material-design: true
 
