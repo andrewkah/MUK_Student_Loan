@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
 import '../widgets/custom_appbar.dart';
+import '../widgets/custom_button.dart';
 
 class ApplicationScreen3 extends StatefulWidget {
   const ApplicationScreen3({super.key});
@@ -18,6 +19,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
   String? _selectedLoanCategory = '0';
 
   bool _isLoading = false;
+
   void _handleSubmit() {
     setState(() {
       _isLoading = true; // Set loading state to true when button is pressed
@@ -29,7 +31,8 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
       Get.offAll(() => const BottomNavBarScreen());
     }).then((_) {
       setState(() {
-        _isLoading = false; // Set loading state back to false when operation is completed
+        _isLoading =
+            false; // Set loading state back to false when operation is completed
       });
     });
   }
@@ -37,11 +40,18 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(true); },),
+      appBar: CustomAppBar(
+        leadingIcon: Icons.arrow_back_ios_new_rounded,
+        title: "APPLICATION",
+        onPressed: () {
+          Navigator.of(context).pop(true);
+        },
+      ),
       body: Center(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
             child: FormBuilder(
               key: _formKey2,
               child: Column(
@@ -66,7 +76,8 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                       Row(
                         children: [
                           Radio(
-                              value: 'yes1', // Set a group value for radio buttons
+                              value: 'yes1',
+                              // Set a group value for radio buttons
                               groupValue: _selectedAnswer1,
                               onChanged: (value) {
                                 setState(() {
@@ -198,8 +209,10 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                   ),
                   const Text(
                     "Interest rate is at 15% amortised over an agreed repayment period.",
-                    style:
-                    TextStyle(color: Colors.red, fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18),
                   ),
                 ],
               ),
