@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                           SizedBox(
                               child: RowTextFields(
                                 titleText: "Hello, ",
-                                subTitleText: "${userData.lastName} ${userData.firstName}",
+                                subTitleText: "${userData.lastName.toUpperCase()} ${userData.firstName.toUpperCase()}",
                                 textColor: const Color.fromARGB(255, 0, 147, 71),
                                 textSize: 22,
                               )),
@@ -66,16 +66,16 @@ class HomeScreen extends StatelessWidget {
                         endIndent: 3,
                       ),
                       const SizedBox(height: 20),
-                      const RowTextFields(
+                      RowTextFields(
                         titleText: "COLLEGE:  ",
-                        subTitleText: "CoCIS",
-                        textColor: Color.fromARGB(255, 0, 147, 71),
+                        subTitleText: userData.college,
+                        textColor: const Color.fromARGB(255, 0, 147, 71),
                         textSize: 20,
                       ),
-                      const RowTextFields(
+                      RowTextFields(
                         titleText: "PROGRAMME: ",
-                        subTitleText: "BSSE",
-                        textColor: Color.fromARGB(255, 0, 147, 71),
+                        subTitleText: userData.programme.toUpperCase(),
+                        textColor: const Color.fromARGB(255, 0, 147, 71),
                         textSize: 20,
                       ),
                       const RowTextFields(
@@ -93,19 +93,19 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            "PRINT EXAM PERMIT",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 0, 147, 71),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
+                      // const Row(
+                      //   mainAxisAlignment: MainAxisAlignment.end,
+                      //   children: [
+                      //     Text(
+                      //       "PRINT EXAM PERMIT",
+                      //       style: TextStyle(
+                      //           color: Color.fromARGB(255, 0, 147, 71),
+                      //           fontWeight: FontWeight.bold,
+                      //           fontSize: 20),
+                      //       textAlign: TextAlign.center,
+                      //     ),
+                      //   ],
+                      // ),
                       const SizedBox(
                         height: 8,
                       ),

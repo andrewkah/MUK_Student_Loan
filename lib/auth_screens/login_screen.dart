@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
+import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/authentication_files/signin_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
@@ -108,27 +109,27 @@ class LogInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "By using this app, you agree to our",
+                        "Don't have an account?",
                         style: TextStyle(fontSize: 16),
                       ),
                       TextButton(
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (_) => TermsConditionsScreen(
-                                onAgree: () {
-                                  Navigator.of(context).pop();
-                                },
+                              builder: (_) => RegisterScreen(
+                                // onAgree: () {
+                                //   Navigator.of(context).pop();
+                                // },
                               ),
                             ),
                           );
                         },
                         child: const Text(
-                          "T&Cs",
+                          "SIGN UP",
                           style: TextStyle(
                               color: Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
+                              // decoration: TextDecoration.underline,
                               decorationColor: Color.fromARGB(255, 0, 147, 71),
                               fontSize: 18),
                         ),

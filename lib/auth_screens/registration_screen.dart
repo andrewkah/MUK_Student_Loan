@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
+import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/authentication_files/signup_controller.dart';
 import 'package:mak_scholar1/models/user_model.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
@@ -53,7 +54,11 @@ class RegisterScreen extends StatelessWidget {
         fieldLabel: "Last Name",
     );
 
-
+    final programmeField = CustomTextField(
+      name: "programme",
+      controller: controller.programme,
+      fieldLabel: "Programme Code",
+    );
     // college field
     final collegeField = FormBuilderDropdown(
       name: "college",
@@ -79,7 +84,7 @@ class RegisterScreen extends StatelessWidget {
             value: college, child: Text(college.label));
       }).toList(),
       onChanged: (value) {
-        controller.college.text = value.toString();
+        controller.college.text = value.toString().split('.').last;
       },
     );
 
@@ -136,7 +141,7 @@ class RegisterScreen extends StatelessWidget {
       borderRadius: BorderRadius.circular(30),
       color: const Color.fromARGB(255, 0, 147, 71),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           if(_registerFormKey.currentState!.validate()){
@@ -149,6 +154,7 @@ class RegisterScreen extends StatelessWidget {
                 email: controller.email.text.trim(),
                 password: controller.password.text.trim(),
                 studentNumber: controller.studentNumber.text.trim(),
+                programme: controller.programme.text.trim(),
                 college: controller.college.text.trim());
             SignUpController.instance.createUser(user);
           }
@@ -163,16 +169,16 @@ class RegisterScreen extends StatelessWidget {
     );
 
     return Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 50.0,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context, true);
-            },
-            icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            color: Colors.grey.shade600,
-          ),
-        ),
+        // appBar: AppBar(
+        //   toolbarHeight: 50.0,
+        //   leading: IconButton(
+        //     onPressed: () {
+        //       Navigator.pop(context, true);
+        //     },
+        //     icon: const Icon(Icons.arrow_back_ios_new_rounded),
+        //     color: Colors.grey.shade600,
+        //   ),
+        // ),
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -183,40 +189,75 @@ class RegisterScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    const SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                            height: 100,
-                            child: Image.asset(
-                              "assets/images/Mak-Logo.png",
-                              fit: BoxFit.contain,
-                            )),
-                        const SizedBox(
-                          width: 200,
-                          child: Text(
-                            "STUDENT FUND USER REGISTRATION",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 0, 147, 71),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22),
-                            textAlign: TextAlign.center,
+                        Image.asset(
+                          "assets/images/Mak-Logo.png",
+                          width: 100,
+                          height: 100,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        // SizedBox(
+                        //     height: 100,
+                        //     child: Image.asset(
+                        //       "assets/images/Mak-Logo.png",
+                        //       fit: BoxFit.contain,
+                        //     )),
+                        // const SizedBox(
+                        //   width: 200,
+                        //   child: Text(
+                        //     "STUDENT FUND USER REGISTRATION",
+                        //     style: TextStyle(
+                        //         color: Color.fromARGB(255, 0, 147, 71),
+                        //         fontWeight: FontWeight.bold,
+                        //         fontSize: 22),
+                        //     textAlign: TextAlign.center,
+                        //   ),
+                        // ),
+                        Text("Let's get you on board!",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 0, 147, 71),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
                           ),
                         ),
                       ],
                     ),
-                    const Divider(
-                      color: Colors.grey,
-                      thickness: 2,
-                      indent: 3,
-                      endIndent: 3,
+                    const SizedBox(height: 10),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Create your  profile to start your Journey.",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 0, 147, 71),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
                     ),
+                    const SizedBox(height: 20),
+                    // const Divider(
+                    //   color: Colors.grey,
+                    //   thickness: 2,
+                    //   indent: 3,
+                    //   endIndent: 3,
+                    // ),
                     const SizedBox(height: 22),
                     firstNameField,
                     const SizedBox(height: 10),
                     lastNameField,
                     const SizedBox(height: 10),
                     collegeField,
+                    const SizedBox(height: 10),
+                    programmeField,
                     const SizedBox(height: 10),
                     stdEmailField,
                     const SizedBox(height: 10),
@@ -232,7 +273,7 @@ class RegisterScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const Text("By signing up, you agree to our",
+                          const Text("Already have an account?",
                             style: TextStyle(
                                 fontSize: 16),
                           ),
@@ -240,20 +281,20 @@ class RegisterScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (_) => TermsConditionsScreen(
-                                    onAgree: () {
-                                      Navigator.of(context).pop(); // Pops back to login or register
-                                    },
+                                  builder: (_) => LogInScreen(
+                                    // onAgree: () {
+                                    //   Navigator.of(context).pop(); // Pops back to login or register
+                                    // },
                                   ),
                                 ),
                               );
                             },
                             child: const Text(
-                              "T&Cs",
+                              "SIGN IN",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 0, 147, 71),
                                   fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline,
+                                  // decoration: TextDecoration.underline,
                                   decorationColor: Color.fromARGB(255, 0, 147, 71),
                                   fontSize: 18),
                             ),

@@ -9,6 +9,7 @@ class UserModel {
     final String password;
     final String studentNumber;
     final String college;
+    final String programme;
 
 
     const UserModel({
@@ -19,6 +20,7 @@ class UserModel {
       required this.password,
       required this.studentNumber,
       required this.college,
+      required this.programme,
   });
     toJson(){
       return {
@@ -28,6 +30,7 @@ class UserModel {
         "Password": password,
         "StudentNumber": studentNumber,
         "College": college,
+        "Programme": programme,
       };
     }
 
@@ -40,6 +43,7 @@ class UserModel {
           email: data["Email"],
           password: data["Password"],
           studentNumber: data["StudentNumber"],
+          programme: data["Programme"],
           college: data["College"]);
     }
 }
