@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mak_scholar1/app_screens/application_screen_2.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
+
+import '../widgets/custom_button.dart';
 
 class ApplicationScreen1 extends StatefulWidget {
   const ApplicationScreen1({super.key});
@@ -164,14 +168,28 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {  },
-                          child: const Text(
-                            "ATTACH COPY",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 0, 147, 71),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                          onPressed: () {
+                            ImagePicker imagePicker = ImagePicker();
+                            imagePicker.pickImage(source: ImageSource.camera);
+                          },
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "DISABILITIES CERTIFICATE",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 147, 71),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              SizedBox(width: 8), // Adjust the spacing between text and icon
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Color.fromARGB(255, 0, 147, 71),
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -185,18 +203,15 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
         child: Align(
           alignment: Alignment.bottomRight,
-          child: TextButton(
+          child: CustomButton(
+            title: "NEXT",
+            titleSize: 18,
+            paddingHorizontal: 30,
+            paddingVertical: 15,
+            borderRadius: 30,
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ApplicationScreen2()));
+              Get.to(() => const ApplicationScreen2());
             },
-            child: const Text(
-              "NEXT",
-              style: TextStyle(
-                color: Color.fromARGB(255, 0, 147, 71),
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
           ),
         ),
       ),
