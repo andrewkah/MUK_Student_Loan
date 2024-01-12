@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:mak_scholar1/app_screens/application_screen_2.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
 import '../widgets/custom_button.dart';
+import 'Image_upload.dart';
 
 class ApplicationScreen1 extends StatefulWidget {
   const ApplicationScreen1({super.key});
@@ -38,6 +38,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
   final TextEditingController countryOfController = TextEditingController();
 
   final TextEditingController collegeController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -174,9 +175,8 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {
-                            ImagePicker imagePicker = ImagePicker();
-                            imagePicker.pickImage(source: ImageSource.camera);
+                          onPressed: () async {
+                            ImageUpload.uploadImageToStorage();
                           },
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
