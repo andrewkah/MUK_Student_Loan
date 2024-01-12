@@ -5,6 +5,7 @@ import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/authentication_files/authentication_repository.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'faq_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -170,32 +171,41 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   indent: 3,
                   endIndent: 3,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 6.0),
-                  child: ListTile(
-                    title: Text(
-                      "Other",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "FAQs",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                 Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                   child: GestureDetector(
+                     onTap: () {
+                       // Navigate to the FAQ Screen
+                       Navigator.push(
+                         context,
+                         MaterialPageRoute(builder: (context) => FAQScreen()),
+                       );
+                     },
+                     child: const ListTile(
+                       title: Text(
+                         "Other",
+                         style: TextStyle(
+                           fontSize: 18,
+                           fontWeight: FontWeight.bold,
+                         ),
+                       ),
+                       subtitle: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           SizedBox(
+                             height: 8,
+                           ),
+                           Text(
+                             "FAQs",
+                             style: TextStyle(
+                               fontSize: 20,
+                             ),
+                           ),
+                         ],
+                       ),
+                     ),
+                   ),
+                 ),
                 const Divider(
                   color: Colors.grey,
                   thickness: 2,
