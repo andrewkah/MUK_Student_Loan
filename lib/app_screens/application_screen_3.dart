@@ -225,7 +225,12 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
         child: Align(
           alignment: Alignment.bottomRight,
-          child: TextButton(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 0, 147, 71),
+              padding: const EdgeInsets.symmetric(horizontal: 22.0),
+              minimumSize: const Size(120, 50),// Change this color to your desired color
+            ),
             onPressed: () {
               if (!_isLoading) {
                 _handleSubmit();
@@ -240,30 +245,18 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                 });
               }
             },
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Visibility(
-                  visible: !_isLoading,
-                  child: const Text(
-                    "SUBMIT",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 147, 71),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-                Visibility(
-                  visible: _isLoading,
-                  child: const Padding(
-                    padding: EdgeInsets.only(right: 16.0), // Add right margin to the progress indicator
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 0, 147, 71)),
-                    ),
-                  ),
-                ),
-              ],
+            child: _isLoading ?
+            const SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(color: Colors.white),
+            ) :
+            const Text("SUBMIT",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                fontWeight: FontWeight.bold,
+                  fontSize: 20,
+              ),
             ),
           ),
         ),
