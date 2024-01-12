@@ -49,5 +49,6 @@ flutter:
     - assets/images/loan.png
     - assets/images/cancelled4.png
     - assets/images/user.png
+    - assets/images/profile.png
   uses-material-design: true
 

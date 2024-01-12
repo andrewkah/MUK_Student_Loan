@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -153,22 +152,23 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                           XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
                           print("${file?.path}");
 
-                          // if (file == null) return;
-                          // String uniqueFileName = DateTime.now().microsecondsSinceEpoch.toString();
-                          //
-                          // //References
-                          // Reference referenceRoot = FirebaseStorage.instance.ref();
-                          // Reference referenceDirImages = referenceRoot.child("images");
-                          // Reference referenceImageToUpload  = referenceDirImages.child(uniqueFileName);
-                          //
-                          // try {
-                          //   await referenceImageToUpload.putFile(File(file.path));
-                          //   imageUrl = await referenceImageToUpload.getDownloadURL();
-                          // } catch(error) {
-                          //   //handle error
-                          // }
+                          if (file == null) return;
+                          String uniqueFileName = DateTime.now().microsecondsSinceEpoch.toString();
+
+                          //References
+                          Reference referenceRoot = FirebaseStorage.instance.ref();
+                          Reference referenceDirImages = referenceRoot.child("images");
+                          Reference referenceImageToUpload  = referenceDirImages.child(uniqueFileName);
+
+                          try {
+                            await referenceImageToUpload.putFile(File(file.path));
+                            imageUrl = await referenceImageToUpload.getDownloadURL();
+                          } catch(error) {
+                            //handle error
+                          }
                         },
                         child: const Row(
+
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
