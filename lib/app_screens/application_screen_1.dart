@@ -1,14 +1,12 @@
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:mak_scholar1/app_screens/application_screen_2.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
-import 'dart:io';
 
 import '../widgets/custom_button.dart';
+import 'Image_upload.dart';
 
 class ApplicationScreen1 extends StatefulWidget {
   const ApplicationScreen1({super.key});
@@ -41,7 +39,6 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
 
   final TextEditingController collegeController = TextEditingController();
 
-  String imageUrl ="";
 
   @override
   Widget build(BuildContext context) {
@@ -173,24 +170,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () async {
-                            ImagePicker imagePicker = ImagePicker();
-                            XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
-                            print("${file?.path}");
-
-                            if (file == null) return;
-                            String uniqueFileName = DateTime.now().microsecondsSinceEpoch.toString();
-
-                            //References
-                            Reference referenceRoot = FirebaseStorage.instance.ref();
-                            Reference referenceDirImages = referenceRoot.child("images");
-                            Reference referenceImageToUpload  = referenceDirImages.child(uniqueFileName);
-
-                            try {
-                              await referenceImageToUpload.putFile(File(file.path));
-                              imageUrl = await referenceImageToUpload.getDownloadURL();
-                            } catch(error) {
-                              //handle error
-                            }
+                            ImageUpload.uploadImageToStorage();
                           },
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
