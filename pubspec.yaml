@@ -23,15 +23,16 @@ dependencies:
   bottom_nav_bar: ^1.0.3
   firebase_auth: ^4.15.3
   firebase_storage: ^11.5.6
-  cloud_firestore: ^4.13.6
+  cloud_firestore: ^4.14.0
   connectivity_plus: ^5.0.2
   open_street_map_search_and_pick: ^0.1.1
   shared_preferences: ^2.2.2
   geolocator: ^10.1.0
   geocoding: ^2.1.1
   provider: ^6.1.1
-  http: ^1.1.2
+
   google_translate: ^0.0.6
+  image_picker: ^1.0.7
 
 dev_dependencies:
   flutter_test:

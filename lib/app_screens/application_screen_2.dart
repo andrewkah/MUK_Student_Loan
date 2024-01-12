@@ -1,9 +1,15 @@
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mak_scholar1/app_screens/application_screen_3.dart';
 import 'package:mak_scholar1/app_screens/map_screen.dart';
 import 'package:mak_scholar1/authentication_files/preferences.dart';
 import '../widgets/custom_appbar.dart';
+import 'package:get/get.dart';
+import '../widgets/custom_button.dart';
 import '../widgets/custom_form_builder_fields.dart';
 
 class ApplicationScreen2 extends StatefulWidget {
@@ -25,6 +31,8 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
   final TextEditingController schDistrictController = TextEditingController();
   final TextEditingController yearOfCompletionController = TextEditingController();
   final TextEditingController indexController = TextEditingController();
+
+  String imageUrl ="";
 
   @override
   void initState() {
@@ -140,14 +148,44 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {  },
-                        child: const Text(
-                          "ATTACH PASS-SLIP",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 0, 147, 71),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
+                        onPressed: () async {
+                          ImagePicker imagePicker = ImagePicker();
+                          XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
+                          print("${file?.path}");
+
+                          // if (file == null) return;
+                          // String uniqueFileName = DateTime.now().microsecondsSinceEpoch.toString();
+                          //
+                          // //References
+                          // Reference referenceRoot = FirebaseStorage.instance.ref();
+                          // Reference referenceDirImages = referenceRoot.child("images");
+                          // Reference referenceImageToUpload  = referenceDirImages.child(uniqueFileName);
+                          //
+                          // try {
+                          //   await referenceImageToUpload.putFile(File(file.path));
+                          //   imageUrl = await referenceImageToUpload.getDownloadURL();
+                          // } catch(error) {
+                          //   //handle error
+                          // }
+                        },
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "PASS-SLIP",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 147, 71),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(width: 8), // Adjust the spacing between text and icon
+                            Icon(
+                              Icons.camera_alt_outlined,
+                              color: Color.fromARGB(255, 0, 147, 71),
+                              size: 24,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -162,18 +200,15 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
         child: Align(
           alignment: Alignment.bottomRight,
-          child: TextButton(
+          child: CustomButton(
+            title: "NEXT",
+            titleSize: 18,
+            paddingHorizontal: 30,
+            paddingVertical: 15,
+            borderRadius: 30,
             onPressed: () {
-              Navigator.of(context).push( MaterialPageRoute(builder: (_) => const ApplicationScreen3()));
+              Get.to(() => const ApplicationScreen3());
             },
-            child: const Text(
-              "NEXT",
-              style: TextStyle(
-                color: Color.fromARGB(255, 0, 147, 71),
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
           ),
         ),
       ),

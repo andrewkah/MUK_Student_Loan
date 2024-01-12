@@ -58,6 +58,14 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    lintOptions {
+        warningsAsErrors true
+        enable 'deprecation'
+        check 'deprecation'
+        enable 'unchecked'
+        check 'unchecked'
+    }
 }
 
 flutter {
