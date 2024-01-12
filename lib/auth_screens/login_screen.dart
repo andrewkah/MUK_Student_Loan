@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
 import 'package:mak_scholar1/auth_screens/forgot_password_screen.dart';
 import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/authentication_files/signin_controller.dart';

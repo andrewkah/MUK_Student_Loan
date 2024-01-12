@@ -1,8 +1,6 @@
-import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:mak_scholar1/app_screens/Image_upload.dart';
 import 'package:mak_scholar1/app_screens/application_screen_3.dart';
 import 'package:mak_scholar1/app_screens/map_screen.dart';
 import 'package:mak_scholar1/authentication_files/preferences.dart';
@@ -30,8 +28,6 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
   final TextEditingController schDistrictController = TextEditingController();
   final TextEditingController yearOfCompletionController = TextEditingController();
   final TextEditingController indexController = TextEditingController();
-
-  String imageUrl ="";
 
   @override
   void initState() {
@@ -148,24 +144,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () async {
-                          ImagePicker imagePicker = ImagePicker();
-                          XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
-                          print("${file?.path}");
-
-                          if (file == null) return;
-                          String uniqueFileName = DateTime.now().microsecondsSinceEpoch.toString();
-
-                          //References
-                          Reference referenceRoot = FirebaseStorage.instance.ref();
-                          Reference referenceDirImages = referenceRoot.child("images");
-                          Reference referenceImageToUpload  = referenceDirImages.child(uniqueFileName);
-
-                          try {
-                            await referenceImageToUpload.putFile(File(file.path));
-                            imageUrl = await referenceImageToUpload.getDownloadURL();
-                          } catch(error) {
-                            //handle error
-                          }
+                          ImageUpload.uploadImageToStorage();
                         },
                         child: const Row(
 
