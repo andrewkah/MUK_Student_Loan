@@ -131,6 +131,29 @@ class CustomEmailField extends StatelessWidget {
   }
 }
 
+class CustomRadioField extends StatelessWidget {
+  final String name;
+  final List optionList;
+  const CustomRadioField({super.key, required this.name, required this.optionList});
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderRadioGroup(
+        name: name,
+        options: optionList.map((e) => FormBuilderFieldOption(value: e)).toList(growable: false),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: FormBuilderValidators.required(errorText: "Please choose an option"),
+      decoration: const InputDecoration(
+        errorStyle: TextStyle(fontSize: 15),
+        contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+        border: InputBorder.none,
+      ),
+      wrapAlignment: WrapAlignment.spaceAround,
+    );
+  }
+
+}
+
 class CustomNumberField extends StatelessWidget {
   final String name;
   final TextEditingController controller;
