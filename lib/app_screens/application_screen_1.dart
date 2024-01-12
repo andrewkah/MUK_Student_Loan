@@ -43,7 +43,13 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(leadingIcon: Icons.arrow_back_ios_new_rounded, title: "APPLICATION", onPressed: (){ Navigator.of(context).pop(); },),
+      appBar: CustomAppBar(
+        leadingIcon: Icons.arrow_back_ios_new_rounded,
+        title: "APPLICATION",
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
       body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 22.0),
@@ -193,6 +199,7 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 50,),
                     ]
                 ),
               ),
@@ -216,6 +223,6 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      );
+    );
   }
 }
