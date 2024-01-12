@@ -36,7 +36,7 @@ class PayScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 140,
                         child: Image.asset(
-                          "assets/images/URA-Logo.png",
+                          "assets/images/airtel_money_logo.jpg",
                           fit: BoxFit.contain,
                         ),
                       ),
