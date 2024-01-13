@@ -64,6 +64,7 @@ class LoanApplicationModel {
       "LoanReference": reference,
       "FirstName": firstName,
       "LastName": lastName,
+      "OtherNames": otherNames,
       "Gender": gender,
       "Disabled": isDisabled,
       "DateOfBirth": dateOfBirth,
@@ -91,6 +92,7 @@ class LoanApplicationModel {
   factory LoanApplicationModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document){
     final data = document.data()!;
     return LoanApplicationModel(
+        id: document.id,
         reference: data["LoanReference"],
         firstName: data["FirstName"],
         lastName: data["LastName"],
