@@ -4,6 +4,7 @@ import 'package:mak_scholar1/app_screens/Image_upload.dart';
 import 'package:mak_scholar1/app_screens/application_screen_3.dart';
 import 'package:mak_scholar1/app_screens/map_screen.dart';
 import 'package:mak_scholar1/authentication_files/preferences.dart';
+import 'package:mak_scholar1/models/loan_application_repository.dart';
 import '../widgets/custom_appbar.dart';
 import 'package:get/get.dart';
 import '../widgets/custom_button.dart';
@@ -19,15 +20,7 @@ class ApplicationScreen2 extends StatefulWidget {
 class _ApplicationScreen2State extends State<ApplicationScreen2> {
   final _formKey1 = GlobalKey<FormBuilderState>();
 
-  final TextEditingController villageController = TextEditingController();
-  final TextEditingController provinceController = TextEditingController();
-  final TextEditingController districtController = TextEditingController();
-  final TextEditingController postalCodeController = TextEditingController();
-  final TextEditingController addressController = TextEditingController();
-  final TextEditingController lastSchoolController = TextEditingController();
-  final TextEditingController schDistrictController = TextEditingController();
-  final TextEditingController yearOfCompletionController = TextEditingController();
-  final TextEditingController indexController = TextEditingController();
+  final controller = Get.put(LoanApplicationRepository());
 
   @override
   void initState() {
@@ -37,7 +30,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
 
   Future<void> _setAddress() async {
     setState(() {
-      addressController.text = LocationPreferences.getLocationPreference();
+      controller.residentialAddress.text = LocationPreferences.getLocationPreference();
     });
   }
 
@@ -66,7 +59,7 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                         Expanded(
                           child: CustomTextField(
                             name: "address",
-                            controller: addressController,
+                            controller: controller.residentialAddress,
                             fieldLabel: "Residential Address",
                             // prefixIcon: Icons.add_home_outlined,
                           ),
@@ -86,25 +79,25 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
 
                     CustomTextField(
                       name: "village",
-                      controller: villageController,
+                      controller: controller.village,
                       fieldLabel: 'Village',
                       prefixIcon: Icons.holiday_village_outlined,
                     ),
                     CustomTextField(
                         name: "province",
-                        controller: provinceController,
+                        controller: controller.province,
                         fieldLabel: "Province",
                       prefixIcon: Icons.location_city_outlined,
                     ),
                     CustomTextField(
                         name: "district",
-                        controller: districtController,
+                        controller: controller.district,
                         fieldLabel: "District",
                       prefixIcon: Icons.map_outlined,
                     ),
                     CustomTextField(
                         name: "postal code",
-                        controller: postalCodeController,
+                        controller: controller.postalCode,
                         fieldLabel: "Postal Code",
                       prefixIcon: Icons.markunread_mailbox_outlined,
                     ),
@@ -120,23 +113,23 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
                     const SizedBox(height: 6),
                     CustomTextField(
                       name: "last school",
-                      controller: lastSchoolController,
+                      controller: controller.secondarySchoolAttended,
                       fieldLabel: 'Name of last school attended',
                       prefixIcon: Icons.school_outlined,
                     ),
                     CustomTextField(
                         name: "district",
-                        controller: schDistrictController,
+                        controller: controller.secondarySchoolLocation,
                         fieldLabel: "District",
                       prefixIcon: Icons.map_outlined,
                     ),
                     CustomNumberField(
                         name: "year of completion",
-                        controller: yearOfCompletionController,
+                        controller: controller.yearOfCompletion,
                         fieldLabel: "Year of Completion"),
                     CustomTextField(
                         name: "index no",
-                        controller: indexController,
+                        controller: controller.indexNumber,
                         fieldLabel: "Index Number",
                       prefixIcon: Icons.onetwothree_outlined,
                     ),
@@ -186,7 +179,20 @@ class _ApplicationScreen2State extends State<ApplicationScreen2> {
             paddingVertical: 15,
             borderRadius: 30,
             onPressed: () {
-              Get.to(() => const ApplicationScreen3());
+              if(_formKey1.currentState!.validate()){
+                controller.updateFromScreenTwo(
+                    controller.residentialAddress.text.trim(),
+                    controller.village.text.trim(),
+                    controller.province.text.trim(),
+                    controller.district.text.trim(),
+                    controller.postalCode.text.trim(),
+                    controller.secondarySchoolAttended.text.trim(),
+                    controller.secondarySchoolLocation.text.trim(),
+                    controller.yearOfCompletion.text.trim(),
+                    controller.indexNumber.text.trim());
+                Get.to(() => const ApplicationScreen3());
+                LocationPreferences.resetLocationPreference();
+              }
             },
           ),
         ),

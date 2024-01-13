@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/application_screen_2.dart';
+import 'package:mak_scholar1/models/loan_application_repository.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
-
 import '../widgets/custom_button.dart';
 import 'Image_upload.dart';
 
@@ -19,25 +19,11 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
   final _formKey = GlobalKey<FormBuilderState>();
   bool male = false;
   bool female = false;
-  String? _selectedAnswer1 = 'no';
+  bool disabilityGroupValue = true;
+  String genderGroupValue = "male";
+  String uniqueReference = "";
 
-  final TextEditingController firstNameController = TextEditingController();
-
-  final TextEditingController surNameController = TextEditingController();
-
-  final TextEditingController otherNamesController = TextEditingController();
-
-  final TextEditingController nationalityController = TextEditingController();
-
-  final TextEditingController dobController = TextEditingController();
-
-  final TextEditingController idController = TextEditingController();
-
-  final TextEditingController financialCardController = TextEditingController();
-
-  final TextEditingController countryOfController = TextEditingController();
-
-  final TextEditingController collegeController = TextEditingController();
+  final controller = Get.put(LoanApplicationRepository());
 
 
   @override
@@ -68,19 +54,19 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                       const SizedBox(height: 6),
                       CustomTextField(
                         name: "surname",
-                        controller: surNameController,
+                        controller: controller.lastName,
                         fieldLabel: 'Surname',
                         prefixIcon: Icons.person_outline_rounded,
                       ),
                       CustomTextField(
                         name: "firstName",
-                        controller: firstNameController,
+                        controller: controller.firstName,
                         fieldLabel: "First Name",
                         prefixIcon: Icons.person_outline_rounded,
                       ),
                       CustomTextField(
                         name: "other_names",
-                        controller: otherNamesController,
+                        controller: controller.otherNames,
                         fieldLabel: "Other Names",
                         prefixIcon: Icons.person_outline_rounded,
                       ),
@@ -90,11 +76,12 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           Row(
                             children: [
                               Radio(
-                                  value: 'yes1', // Set a group value for radio buttons
-                                  groupValue: _selectedAnswer1,
+                                  value: 'male', // Set a group value for radio buttons
+                                  groupValue: genderGroupValue,
                                   onChanged: (value) {
                                     setState(() {
-                                      _selectedAnswer1 = value;
+                                      genderGroupValue = "male";
+                                      controller.gender.text = value!;
                                     });
                                   }),
                               const Text("Male", style: TextStyle(fontSize: 18)),
@@ -103,11 +90,12 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                           Row(
                             children: [
                               Radio(
-                                  value: 'no1',
-                                  groupValue: _selectedAnswer1,
+                                  value: 'female',
+                                  groupValue: genderGroupValue,
                                   onChanged: (value) {
                                     setState(() {
-                                      _selectedAnswer1 = value;
+                                      genderGroupValue = "female";
+                                      controller.gender.text = value!;
                                     });
                                   }),
                               const Text("Female", style: TextStyle(fontSize: 18)),
@@ -124,11 +112,12 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                               Row(
                                 children: [
                                   Radio(
-                                      value: 'yes2', // Set a group value for radio buttons
-                                      groupValue: _selectedAnswer1,
+                                      value: true, // Set a group value for radio buttons
+                                      groupValue: disabilityGroupValue,
                                       onChanged: (value) {
                                         setState(() {
-                                          _selectedAnswer1 = value;
+                                          disabilityGroupValue = true;
+                                          controller.isDisabled.value = value!;
                                         });
                                       }),
                                   const Text("Yes", style: TextStyle(fontSize: 18)),
@@ -137,11 +126,12 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                               Row(
                                 children: [
                                   Radio(
-                                      value: 'no2',
-                                      groupValue: _selectedAnswer1,
+                                      value: false,
+                                      groupValue: disabilityGroupValue,
                                       onChanged: (value) {
                                         setState(() {
-                                          _selectedAnswer1 = value;
+                                          disabilityGroupValue = false;
+                                          controller.isDisabled.value = value!;
                                         });
                                       }),
                                   const Text("No", style: TextStyle(fontSize: 18)),
@@ -153,19 +143,19 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
                       ),
                       CustomTextField(
                         name: "nationality",
-                        controller: nationalityController,
+                        controller: controller.nationality,
                         fieldLabel: "Nationality",
                         prefixIcon: Icons.perm_contact_cal_outlined,
                       ),
                       CustomTextField(
                         name: "Dob",
-                        controller: dobController,
+                        controller: controller.dateOfBirth,
                         fieldLabel: "Date of Birth",
                         prefixIcon: Icons.date_range_outlined,
                       ),
-                      CustomTextField(name: "NationalID", controller: idController, fieldLabel: "National Id Number", prefixIcon: Icons.onetwothree_outlined,),
-                      CustomNumberField(name: "Financial Card", controller: financialCardController, fieldLabel: "Financial Card Number"),
-                      CustomTextField(name: "Country", controller: countryOfController, fieldLabel: "Country of Birth", prefixIcon: Icons.map_outlined,),
+                      CustomTextField(name: "NationalID", controller: controller.nationalIdNumber, fieldLabel: "National Id Number", prefixIcon: Icons.onetwothree_outlined,),
+                      CustomNumberField(name: "Financial Card", controller: controller.financialCardNumber, fieldLabel: "Financial Card Number"),
+                      CustomTextField(name: "Country", controller: controller.countryOfBirth, fieldLabel: "Country of Birth", prefixIcon: Icons.map_outlined,),
                       const SizedBox( height: 15,),
                       const Text(
                         "NB. If you are disabled, attach a copy of the persons with disabilities Certificate.",
@@ -217,7 +207,22 @@ class _ApplicationScreen1State extends State<ApplicationScreen1> {
             paddingVertical: 15,
             borderRadius: 30,
             onPressed: () {
-              Get.to(() => const ApplicationScreen2());
+              if(_formKey.currentState!.validate()){
+                uniqueReference = controller.generateRandomNumberWithPrefix();
+                controller.updateFromScreenOne(
+                    controller.firstName.text.trim(),
+                    controller.lastName.text.trim(),
+                    controller.otherNames.text.trim(),
+                    controller.gender.text.trim(),
+                    controller.isDisabled.value,
+                    controller.nationality.text.trim(),
+                    controller.dateOfBirth.text.trim(),
+                    controller.nationalIdNumber.text.trim(),
+                    controller.financialCardNumber.text.trim(),
+                    controller.countryOfBirth.text.trim(),
+                    uniqueReference);
+                Get.to(() => const ApplicationScreen2());
+              }
             },
           ),
         ),

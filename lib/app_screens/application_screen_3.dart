@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
+import 'package:mak_scholar1/models/loan_application_repository.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 import '../widgets/custom_appbar.dart';
 
@@ -14,6 +15,8 @@ class ApplicationScreen3 extends StatefulWidget {
 
 class _ApplicationScreen3State extends State<ApplicationScreen3> {
   final _formKey2 = GlobalKey<FormBuilderState>();
+
+  final controller = Get.put(LoanApplicationRepository());
 
   bool _isLoading = false;
 
@@ -236,18 +239,18 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
               minimumSize: const Size(120, 50),// Change this color to your desired color
             ),
             onPressed: () {
-              if (_formKey2.currentState!.validate()) {
+              if (_formKey2.currentState!.saveAndValidate()) {
+                Map<String, dynamic> formData = _formKey2.currentState!.value;
+                String hasAppliedBefore = formData['applied_before'];
+                String wasAwardedLoan = formData['awarded_loan'];
+                String loanCategory = formData['loan_category'];
+
+                controller.updateFromScreenThree(hasAppliedBefore, wasAwardedLoan, loanCategory);
+
+                controller.createApplication();
+
                 if (!_isLoading) {
                   _handleSubmit();
-                  Future.delayed(const Duration(seconds: 6), () {
-                    Get.snackbar(
-                      "Submission Successful",
-                      "Your application has been received.",
-                      snackPosition: SnackPosition.TOP,
-                      backgroundColor: Colors.redAccent.withOpacity(0.1),
-                      colorText: Colors.green,
-                    );
-                  });
                 }
               }
             },

@@ -21,7 +21,7 @@ Future<void> main() async {
   await FingerprintPreferences.init();
   await LocationPreferences.init();
   
-  GoogleTranslate.initialize(apiKey: "",
+  GoogleTranslate.initialize(apiKey: "AIzaSyAaqIzTF_VFcaD3kGxfp2AdZNc2VqNcr-I",
       targetLanguage: "lg",
       sourceLanguage: "en");
 
