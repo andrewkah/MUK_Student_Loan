@@ -14,6 +14,7 @@ class TermsConditionsScreen extends StatefulWidget {
 }
 
 class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
+  bool translationComplete = true;
   bool agree = false;
   final TextStyle? unSelectedStyle = const TextStyle(fontSize: 15,);
   final TextStyle? selectedStyle = const TextStyle(fontSize: 15, color: Colors.grey);
@@ -62,6 +63,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
           // Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AutoBlurredCircularProgress()));
           await textOneOriginal.translate().then((value) {
             setState(() {
+              translationComplete = false;
               textOneTranslated = value;
             });
           });
@@ -128,13 +130,14 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
           await textFourteenOriginal.translate().then((value) {
             setState(() {
               textFourteenTranslated = value;
+              translationComplete = true;
             });
           });
         },
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
+          translationComplete ? SingleChildScrollView(
             child: Container(
                   padding: const EdgeInsets.symmetric(
                       vertical: 15.0, horizontal: 24.0),
@@ -328,7 +331,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                     ],
                   ),
                 ),
-          ),
+          ) : const Center(child: CircularProgressIndicator()),
           Positioned(
             left: 0,
             right: 0,
