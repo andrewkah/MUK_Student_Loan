@@ -1,7 +1,11 @@
 // faq_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:mak_scholar1/app_screens/settings_screen.dart';
 
+import '../widgets/custom_appbar.dart';
 import '../widgets/row_text_fields.dart';
 
 class FAQScreen extends StatelessWidget {
@@ -10,8 +14,12 @@ class FAQScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("FAQs"),
+        appBar: CustomAppBar(
+          leadingIcon:Icons.arrow_back_ios_new_rounded,
+          title:  "FAQs",
+          onPressed: (){
+            Get.to(()=>const SettingsScreen());
+          },
         ),
         body:Padding(
           padding: const EdgeInsets.only(left: 15, top: 10, right: 15),
