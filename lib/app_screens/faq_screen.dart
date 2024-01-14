@@ -1,9 +1,6 @@
 // faq_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:mak_scholar1/app_screens/settings_screen.dart';
 
 import '../widgets/custom_appbar.dart';
 import '../widgets/row_text_fields.dart';
@@ -18,7 +15,7 @@ class FAQScreen extends StatelessWidget {
           leadingIcon:Icons.arrow_back_ios_new_rounded,
           title:  "FAQs",
           onPressed: (){
-            Get.to(()=>const SettingsScreen());
+            Navigator.of(context).pop();
           },
         ),
         body:Padding(
@@ -36,7 +33,7 @@ class FAQScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 12,
+                  itemCount: 14,
                   itemBuilder: (_, index) {
                     if (index ==0) {
                       return Card(
@@ -1187,6 +1184,7 @@ class FAQScreen extends StatelessWidget {
 
 
                     }
+                    return null;
                   },
                 ),
 

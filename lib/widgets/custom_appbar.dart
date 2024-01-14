@@ -12,20 +12,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color.fromARGB(255, 0, 147, 71),
       foregroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 0, 147, 71),
       centerTitle: true,
-      toolbarHeight: 40.0,
+      toolbarHeight: 50.0,
       leading: IconButton(
-        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+        // padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
         icon: Icon(
           leadingIcon,
-          size: 30,
         ),
         onPressed: onPressed,
-        //     () {
-        //   Navigator.of(context).pop();
-        // },
       ),
       title: Text(
         title,
@@ -39,7 +35,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: onTrailingPressed,
               icon: Icon(
                 trailingIcon,
-                size: 30,
               ),
             ),
           ),
@@ -48,5 +43,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(60.0);
+  Size get preferredSize => const Size.fromHeight(50.0);
 }
