@@ -16,6 +16,7 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool balanceSwitch = false;
+  bool notSwitch = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +49,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ],
                     ),
-                    trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.arrow_forward_ios_rounded),
-                      iconSize: 25,
-                    ),
+                    trailing: Switch.adaptive(
+                        value: notSwitch,
+                        activeColor: const Color.fromARGB(255, 0, 147, 71),
+                        onChanged: (bool value) {
+                          setState(() {
+                            notSwitch = value;
+                          });
+                        }),
                   ),
                 ),
                 const Divider(
@@ -178,7 +182,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                        // Navigate to the FAQ Screen
                        Navigator.push(
                          context,
-                         MaterialPageRoute(builder: (context) => FAQScreen()),
+                         MaterialPageRoute(builder: (context) => const FAQScreen()),
                        );
                      },
                      child: const ListTile(
