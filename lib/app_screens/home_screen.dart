@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/app_screens/application_screen_1.dart';
 import 'package:mak_scholar1/app_screens/home_screen_controller.dart';
-import 'package:mak_scholar1/app_screens/pay_screen.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
-import 'package:mak_scholar1/models/loan_application_model.dart';
 import 'package:mak_scholar1/models/user_model.dart';
 
+import '../models/loan_application_model.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/row_text_fields.dart';
 
@@ -132,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                           Image.asset(
                             "assets/images/cancelled4.png",
                             width: 250,
-                            height: 300,
+                            height: 250,
                           ),
                           const Text(
                             "You have no active loans!",
@@ -148,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                           Image.asset(
                             "assets/images/deadline.png",
                             width: 250,
-                            height: 300,
+                            height: 250,
                           ),
                           const Text(
                             "Your loan application is pending!",
@@ -160,95 +159,6 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
 
-                      // Card(
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(14.0),
-                      //     side: const BorderSide(
-                      //       color: Color.fromARGB(255, 0, 147, 71),
-                      //       width: 2.0,
-                      //     ),
-                      //   ),
-                      //   color: Colors.white,
-                      //   child: Column(
-                      //     children: [
-                      //       Padding(
-                      //         padding: const EdgeInsets.fromLTRB(10, 30, 10, 15),
-                      //         child: Row(
-                      //           mainAxisAlignment: MainAxisAlignment.start,
-                      //           children: [
-                      //             SizedBox(
-                      //                 height: 68,
-                      //                 child: Image.asset(
-                      //                   "assets/images/loan3.png",
-                      //                   fit: BoxFit.contain,
-                      //                 )),
-                      //             const SizedBox(
-                      //               width: 8,
-                      //             ),
-                      //             const SizedBox(
-                      //               child: Column(
-                      //                 crossAxisAlignment: CrossAxisAlignment.start,
-                      //                 children: [
-                      //                   RowTextFields(
-                      //                     titleText: "Loan Balance: ",
-                      //                     subTitleText: "1,977,138/=",
-                      //                     titleColor: Colors.black87,
-                      //                     textColor: Color.fromARGB(255, 0, 147, 71),
-                      //                     textSize: 16,
-                      //                   ),
-                      //                   SizedBox(
-                      //                     height: 8,
-                      //                   ),
-                      //                   RowTextFields(
-                      //                     titleText: "Semester: ",
-                      //                     subTitleText: "II",
-                      //                     titleColor: Colors.black87,
-                      //                     textColor: Color.fromARGB(255, 0, 147, 71),
-                      //                     textSize: 16,
-                      //                   ),
-                      //                   SizedBox(
-                      //                     height: 8,
-                      //                   ),
-                      //                   RowTextFields(
-                      //                     titleText: "Academic Year: ",
-                      //                     subTitleText: "2022/2023",
-                      //                     titleColor: Colors.black87,
-                      //                     textColor: Color.fromARGB(255, 0, 147, 71),
-                      //                     textSize: 16,
-                      //                   ),
-                      //                   SizedBox(
-                      //                     height: 8,
-                      //                   ),
-                      //                   RowTextFields(
-                      //                     titleText: "Date due: ",
-                      //                     subTitleText: "06/08/2023",
-                      //                     titleColor: Colors.black87,
-                      //                     textColor: Colors.red,
-                      //                     textSize: 16,
-                      //                   ),
-                      //                 ],
-                      //               ),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //       Align(
-                      //         alignment: Alignment.centerRight,
-                      //         child: CustomButton(
-                      //           title: "PAY LOAN",
-                      //           titleSize: 18,
-                      //           paddingHorizontal: 25,
-                      //           paddingVertical: 15,
-                      //           borderRadius: 18,
-                      //           onPressed: () {
-                      //             Navigator.of(context).push(MaterialPageRoute(
-                      //                 builder: (_) => const PayScreen()));
-                      //           },
-                      //         ),
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
                       const Spacer(
                         flex: 3,
                       ),

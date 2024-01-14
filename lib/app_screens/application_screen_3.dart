@@ -72,38 +72,6 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                   ),
                   CustomRadioField(
                       name: "applied_before", optionList: ['Yes', 'No']),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: 'yes1',
-                  //             // Set a group value for radio buttons
-                  //             groupValue: _selectedAnswer1,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedAnswer1 = value;
-                  //               });
-                  //             }),
-                  //         const Text("Yes", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: 'no1',
-                  //             groupValue: _selectedAnswer1,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedAnswer1 = value;
-                  //               });
-                  //             }),
-                  //         const Text("No", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
                   SizedBox(height: 6),
                   Text(
                     "b. If yes, were you awarded the Student Loan?",
@@ -111,37 +79,6 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                   ),
                   CustomRadioField(
                       name: 'awarded_loan', optionList: ['Yes', 'No']),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: 'yes2',
-                  //             groupValue: _selectedAnswer2,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedAnswer2 = value;
-                  //               });
-                  //             }),
-                  //         const Text("Yes", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: 'no2',
-                  //             groupValue: _selectedAnswer2,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedAnswer2 = value;
-                  //               });
-                  //             }),
-                  //         const Text("No", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
                   Text(
                     "PART V: Student Loan Information",
                     style: TextStyle(
@@ -157,63 +94,6 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
                   CustomRadioField(
                       name: "loan_category",
                       optionList: ["25%", "50%", "75%", "100%"]),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: '25',
-                  //             groupValue: _selectedLoanCategory,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedLoanCategory = value;
-                  //               });
-                  //             }),
-                  //         const Text("25%", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: '50',
-                  //             groupValue: _selectedLoanCategory,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedLoanCategory = value;
-                  //               });
-                  //             }),
-                  //         const Text("50%", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: '75%',
-                  //             groupValue: _selectedLoanCategory,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedLoanCategory = value;
-                  //               });
-                  //             }),
-                  //         const Text("75%", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //     Row(
-                  //       children: [
-                  //         Radio(
-                  //             value: '100',
-                  //             groupValue: _selectedLoanCategory,
-                  //             onChanged: (value) {
-                  //               setState(() {
-                  //                 _selectedLoanCategory = value;
-                  //               });
-                  //             }),
-                  //         const Text("100%", style: TextStyle(fontSize: 18)),
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
                   Text(
                     "Interest rate is at 15% amortised over an agreed repayment period.",
                     style: TextStyle(

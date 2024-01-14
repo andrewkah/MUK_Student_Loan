@@ -17,10 +17,8 @@ class ApplicationScreen1 extends StatefulWidget {
 
 class _ApplicationScreen1State extends State<ApplicationScreen1> {
   final _formKey = GlobalKey<FormBuilderState>();
-  bool male = false;
-  bool female = false;
-  bool disabilityGroupValue = true;
-  String genderGroupValue = "male";
+  bool? disabilityGroupValue;
+  String? genderGroupValue;
   String uniqueReference = "";
 
   final controller = Get.put(LoanApplicationRepository());
