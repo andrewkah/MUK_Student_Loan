@@ -252,7 +252,7 @@ class HomeScreen extends StatelessWidget {
                       const Spacer(
                         flex: 3,
                       ),
-                      Align(
+                      userApplicationData == null ? Align(
                         alignment: Alignment.bottomRight,
                         child: CustomButton(
                           title: "APPLY",
@@ -270,7 +270,7 @@ class HomeScreen extends StatelessWidget {
                                     )));
                           },
                         ),
-                      ),
+                      ) : Container(),
                       const SizedBox(
                         height: 10,
                       ),

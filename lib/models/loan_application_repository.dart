@@ -110,7 +110,7 @@ class LoanApplicationRepository extends GetxController {
       await _db.collection("LoanApplications").add(loanApplication.toJson());
       Get.snackbar(
         "Success",
-        "Your account has been created",
+        "Your application was submitted successfully.",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.green.withOpacity(0.1),
         colorText: Colors.green,
