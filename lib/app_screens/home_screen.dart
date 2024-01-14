@@ -4,6 +4,7 @@ import 'package:mak_scholar1/app_screens/application_screen_1.dart';
 import 'package:mak_scholar1/app_screens/home_screen_controller.dart';
 import 'package:mak_scholar1/app_screens/pay_screen.dart';
 import 'package:mak_scholar1/app_screens/terms_and_conditions_screen.dart';
+import 'package:mak_scholar1/models/loan_application_model.dart';
 import 'package:mak_scholar1/models/user_model.dart';
 
 import '../widgets/custom_button.dart';
@@ -44,12 +45,13 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-          child: FutureBuilder(
-            future: controller.getUserData(),
+          child: FutureBuilder<List>(
+            future: Future.wait([controller.getUserData(), controller.getUserApplicationData()]),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {
-                  UserModel userData = snapshot.data as UserModel;
+                  UserModel userData = snapshot.data![0] as UserModel;
+                  LoanApplicationModel userApplicationData =snapshot.data![1] as LoanApplicationModel;
                   return Column(
                     children: <Widget>[
                       const SizedBox(height: 5),
@@ -83,27 +85,6 @@ class HomeScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 5),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.start,
-                      //   children: [
-                      //     SizedBox(
-                      //         height: 60,
-                      //         child: Image.asset(
-                      //           "assets/images/Mak-Logo.png",
-                      //           fit: BoxFit.contain,
-                      //         )),
-                      //     const SizedBox(
-                      //       width: 15,
-                      //     ),
-                      //     SizedBox(
-                      //         child: RowTextFields(
-                      //           titleText: "Hey, ",
-                      //           subTitleText: "${userData.firstName} ${userData.lastName}",
-                      //           textColor: const Color.fromARGB(255, 0, 147, 71),
-                      //           textSize: 20,
-                      //         )),
-                      //   ],
-                      // ),
                       const Divider(
                         color: Colors.grey,
                         thickness: 1,
@@ -144,29 +125,33 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      // const Row(
-                      //   mainAxisAlignment: MainAxisAlignment.end,
-                      //   children: [
-                      //     Text(
-                      //       "PRINT EXAM PERMIT",
-                      //       style: TextStyle(
-                      //           color: Color.fromARGB(255, 0, 147, 71),
-                      //           fontWeight: FontWeight.bold,
-                      //           fontSize: 20),
-                      //       textAlign: TextAlign.center,
-                      //     ),
-                      //   ],
-                      // ),
-                      Column(
+
+                      userApplicationData == null ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
                             "assets/images/cancelled4.png",
                             width: 250,
-                            height: 350,
+                            height: 300,
                           ),
                           const Text(
                             "You have no active loans!",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
+                      ) : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/deadline.png",
+                            width: 250,
+                            height: 300,
+                          ),
+                          const Text(
+                            "Your loan application is pending!",
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 18,
@@ -292,7 +277,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   );
                 } else if (snapshot.hasError) {
-                  return Center(child: Text(snapshot.hasError.toString()));
+                  return const Center(child: Text("Snapshot has error"));
                 } else {
                   return const Center(child: Text("Something went wrong"));
                 }
