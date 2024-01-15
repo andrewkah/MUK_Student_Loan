@@ -12,7 +12,7 @@ class TransactionsScreen extends StatelessWidget {
       child: ListView(
         children: const <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
+            padding: EdgeInsets.symmetric(vertical:3.0, horizontal: 6.0),
             child: ListTile(
               title: Text(
                 "Deposit",
@@ -50,12 +50,12 @@ class TransactionsScreen extends StatelessWidget {
           ),
           Divider(
             color: Colors.grey,
-            thickness: 2,
+            thickness: 1,
             indent: 3,
             endIndent: 3,
           ),
           Padding(
-            padding: EdgeInsets.symmetric( horizontal: 4.0),
+            padding: EdgeInsets.symmetric( horizontal: 6.0, vertical:3.0),
             child: ListTile(
               title: Text(
                 "Partial Payment",
@@ -91,7 +91,7 @@ class TransactionsScreen extends StatelessWidget {
           ),
           Divider(
             color: Colors.grey,
-            thickness: 2,
+            thickness: 1,
             indent: 3,
             endIndent: 3,
           ),

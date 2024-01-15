@@ -6,12 +6,35 @@ import 'package:mak_scholar1/auth_screens/registration_screen.dart';
 import 'package:mak_scholar1/authentication_files/signin_controller.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
-class LogInScreen extends StatelessWidget {
-  LogInScreen({super.key});
+class LogInScreen extends StatefulWidget {
+  const LogInScreen({super.key});
   // form key
+  @override
+  State<LogInScreen> createState() => _LogInScreen();
+}
+
+class _LogInScreen extends State<LogInScreen>{
   final _loginFormKey = GlobalKey<FormBuilderState>();
 
   final controller = Get.put(SignInController());
+
+  bool _isLoading = false;
+
+  void _handleSubmit() {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Simulating some asynchronous operation, delaying for 2 seconds
+    Future.delayed(const Duration(seconds: 4), () {
+      // nothing here
+    }).then((_) {
+      setState(() {
+        _isLoading =
+        false; // Set loading state back to false when operation is completed
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +59,22 @@ class LogInScreen extends StatelessWidget {
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
           if(_loginFormKey.currentState!.validate()){
-              SignInController.instance.loginUser(controller.email.text.trim(),
-              controller.password.text.trim());
+            if (!_isLoading) {
+              _handleSubmit();
+            }
+            SignInController.instance.loginUser(controller.email.text.trim(),
+                controller.password.text.trim());
           }
         },
-        child: const Text(
+        child: !_isLoading ? const Text(
           "SIGN IN",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+        ): const SizedBox(
+          width: 30,
+          height: 30,
+          child: CircularProgressIndicator(color: Colors.white),
         ),
       ),
     );
@@ -53,93 +83,93 @@ class LogInScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
           child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(34.0),
-          child: FormBuilder(
-              key: _loginFormKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                      height: 220,
-                      child: Image.asset(
-                        "assets/images/Mak-Logo.png",
-                        width: 200, height: 200,
-                      )),
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: const Text(
-                      "STUDENT FUND USER LOGIN",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 0, 147, 71),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  stdEmailField,
-                  const SizedBox(height: 20),
-                  passwordField,
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      TextButton(
-                        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ForgotPasswordScreen())); },
-                        child: const Text(
-                          "Forgot Password?",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 0, 147, 71),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  loginButton,
-                  const SizedBox(height: 100),
-                  Row(
+            child: Padding(
+              padding: const EdgeInsets.all(34.0),
+              child: FormBuilder(
+                  key: _loginFormKey,
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Don't have an account?",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => RegisterScreen(
-                                // onAgree: () {
-                                //   Navigator.of(context).pop();
-                                // },
-                              ),
-                            ),
-                          );
-                        },
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                          height: 220,
+                          child: Image.asset(
+                            "assets/images/Mak-Logo.png",
+                            width: 200, height: 200,
+                          )),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: const Text(
-                          "SIGN UP",
+                          "STUDENT FUND USER LOGIN",
                           style: TextStyle(
                               color: Color.fromARGB(255, 0, 147, 71),
                               fontWeight: FontWeight.bold,
-                              // decoration: TextDecoration.underline,
-                              decorationColor: Color.fromARGB(255, 0, 147, 71),
-                              fontSize: 18),
+                              fontSize: 25),
+                          textAlign: TextAlign.center,
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 30),
+                      stdEmailField,
+                      const SizedBox(height: 20),
+                      passwordField,
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          TextButton(
+                            onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ForgotPasswordScreen())); },
+                            child: const Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 147, 71),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      loginButton,
+                      const SizedBox(height: 100),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Don't have an account?",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => RegisterScreen(
+                                    // onAgree: () {
+                                    //   Navigator.of(context).pop();
+                                    // },
+                                  ),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              "SIGN UP",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 147, 71),
+                                  fontWeight: FontWeight.bold,
+                                  // decoration: TextDecoration.underline,
+                                  decorationColor: Color.fromARGB(255, 0, 147, 71),
+                                  fontSize: 18),
+                            ),
+                          )
+                        ],
+                      ),
                     ],
-                  ),
-                ],
-              )
-          ),
-        ),
-      )
+                  )
+              ),
+            ),
+          )
       ),
     );
   }

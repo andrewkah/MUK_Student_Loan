@@ -26,9 +26,14 @@ enum CollegeLabel {
   final String label;
 }
 
-class RegisterScreen extends StatelessWidget {
-  RegisterScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
+  @override
+  State<RegisterScreen> createState() => _RegisterScreen();
+}
+
+class _RegisterScreen extends State<RegisterScreen> {
   // form key
   final _registerFormKey = GlobalKey<FormBuilderState>();
 
@@ -36,23 +41,41 @@ class RegisterScreen extends StatelessWidget {
   final controller = Get.put(SignUpController());
   final controller2 = Get.put(LoanApplicationRepository());
 
+  bool _isLoading = false;
+
+  void _handleSubmit() {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Simulating some asynchronous operation, delaying for 2 seconds
+    Future.delayed(const Duration(seconds: 4), () {
+      // nothing here
+    }).then((_) {
+      setState(() {
+        _isLoading =
+        false; // Set loading state back to false when operation is completed
+      });
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
     // first name field
     final firstNameField = CustomTextField(
-        name: "firstName",
-        controller: controller.firstName,
-        fieldLabel: "First Name",
+      name: "firstName",
+      controller: controller.firstName,
+      fieldLabel: "First Name",
       prefixIcon: Icons.person_outline_rounded,
     );
 
 
     // last name field
     final lastNameField = CustomTextField(
-        name: "lastName",
-        controller: controller.lastName,
-        fieldLabel: "Last Name",
+      name: "lastName",
+      controller: controller.lastName,
+      fieldLabel: "Last Name",
     );
 
     final programmeField = CustomTextField(
@@ -68,15 +91,15 @@ class RegisterScreen extends StatelessWidget {
         FormBuilderValidators.required(errorText: "Please pick a college"),
       ]),
       decoration: const InputDecoration(
-          labelText: "College",
-          labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
-          ),
+        labelText: "College",
+        labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
+        contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
+        ),
       ),
       menuMaxHeight: 300,
       items: CollegeLabel.values
@@ -123,15 +146,15 @@ class RegisterScreen extends StatelessWidget {
         FormBuilderValidators.required(errorText: "Please fill out this field"),
       ]),
       decoration: const InputDecoration(
-          labelText: "Confirm Password",
-          labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
-          ),
+        labelText: "Confirm Password",
+        labelStyle: TextStyle(fontSize: 18, color: Colors.grey),
+        contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71)),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Color.fromARGB(255, 0, 147, 71), width: 3),
+        ),
       ),
       name: 'confirmPassword',
     );
@@ -147,6 +170,9 @@ class RegisterScreen extends StatelessWidget {
         onPressed: () {
           //create dummy loan application
           if(_registerFormKey.currentState!.validate()){
+            if (!_isLoading) {
+              _handleSubmit();
+            }
             // then create the user
             final user = UserModel(firstName: controller.firstName.text.trim(),
                 lastName: controller.lastName.text.trim(),
@@ -160,26 +186,30 @@ class RegisterScreen extends StatelessWidget {
             controller2.createApplicationOnSignUp();
           }
         },
-        child: const Text(
+        child: !_isLoading ? const Text(
           "SIGN UP",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+        ): const SizedBox(
+          width: 30,
+          height: 30,
+          child: CircularProgressIndicator(color: Colors.white)
         ),
       ),
     );
 
     return Scaffold(
-        // appBar: AppBar(
-        //   toolbarHeight: 50.0,
-        //   leading: IconButton(
-        //     onPressed: () {
-        //       Navigator.pop(context, true);
-        //     },
-        //     icon: const Icon(Icons.arrow_back_ios_new_rounded),
-        //     color: Colors.grey.shade600,
-        //   ),
-        // ),
+      // appBar: AppBar(
+      //   toolbarHeight: 50.0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Navigator.pop(context, true);
+      //     },
+      //     icon: const Icon(Icons.arrow_back_ios_new_rounded),
+      //     color: Colors.grey.shade600,
+      //   ),
+      // ),
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -282,7 +312,7 @@ class RegisterScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (_) => LogInScreen(
+                                  builder: (_) => const LogInScreen(
                                     // onAgree: () {
                                     //   Navigator.of(context).pop(); // Pops back to login or register
                                     // },

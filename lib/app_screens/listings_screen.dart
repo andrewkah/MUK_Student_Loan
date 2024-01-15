@@ -52,12 +52,15 @@ class ListingsScreen extends StatelessWidget {
                             child: ExpansionTile(
                               iconColor: const Color.fromARGB(255, 0, 147, 71),
                               collapsedIconColor: const Color.fromARGB(255, 0, 147, 71),
-                              title: Text(
-                                listing.name,
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black87,
+                              title: Padding(
+                                padding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
+                                child: Text(
+                                  listing.name,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87,
+                                  ),
                                 ),
                               ),
                               children: [
