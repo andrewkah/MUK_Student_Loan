@@ -19,7 +19,7 @@ class ListingsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 15, top: 10, right: 15),
-        child: FutureBuilder<List<ListingsModel>>(
+        child: FutureBuilder<List>(
           future: controller.allListings(),
           builder: (context, snapshot){
             if(snapshot.connectionState == ConnectionState.done){
@@ -50,6 +50,8 @@ class ListingsScreen extends StatelessWidget {
                             ),
                             color: Colors.white,
                             child: ExpansionTile(
+                              iconColor: const Color.fromARGB(255, 0, 147, 71),
+                              collapsedIconColor: const Color.fromARGB(255, 0, 147, 71),
                               title: Text(
                                 listing.name,
                                 style: const TextStyle(
@@ -105,6 +107,9 @@ class ListingsScreen extends StatelessWidget {
                   ],
                 );
               } else if (snapshot.hasError) {
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                print(snapshot.error);
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 return const Center(child: Text("Snapshot has error"));
               } else {
                 return const Center(child: Text("Something went wrong"));

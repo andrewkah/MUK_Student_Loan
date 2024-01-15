@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mak_scholar1/app_screens/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
+import 'package:mak_scholar1/app_screens/home_screen_controller.dart';
 import 'package:mak_scholar1/models/loan_application_repository.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
+import '../authentication_files/authentication_repository.dart';
 import '../widgets/custom_appbar.dart';
 
 class ApplicationScreen3 extends StatefulWidget {
@@ -15,9 +17,8 @@ class ApplicationScreen3 extends StatefulWidget {
 
 class _ApplicationScreen3State extends State<ApplicationScreen3> {
   final _formKey2 = GlobalKey<FormBuilderState>();
-
   final controller = Get.put(LoanApplicationRepository());
-
+  final loanController = Get.put(HomeScreenController());
   bool _isLoading = false;
 
   void _handleSubmit() {
@@ -247,7 +248,7 @@ class _ApplicationScreen3State extends State<ApplicationScreen3> {
 
                 controller.updateFromScreenThree(hasAppliedBefore, wasAwardedLoan, loanCategory);
 
-                controller.createApplication();
+                loanController.updateApplicationData();
 
                 if (!_isLoading) {
                   _handleSubmit();

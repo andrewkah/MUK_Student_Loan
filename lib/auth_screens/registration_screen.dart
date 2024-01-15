@@ -4,6 +4,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:mak_scholar1/auth_screens/login_screen.dart';
 import 'package:mak_scholar1/authentication_files/signup_controller.dart';
+import 'package:mak_scholar1/models/loan_application_repository.dart';
 import 'package:mak_scholar1/models/user_model.dart';
 import 'package:mak_scholar1/widgets/custom_form_builder_fields.dart';
 
@@ -33,6 +34,7 @@ class RegisterScreen extends StatelessWidget {
 
   // Registration/ SignUp Controller
   final controller = Get.put(SignUpController());
+  final controller2 = Get.put(LoanApplicationRepository());
 
 
   @override
@@ -143,11 +145,9 @@ class RegisterScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
         minWidth: MediaQuery.of(context).size.width*0.5,
         onPressed: () {
+          //create dummy loan application
           if(_registerFormKey.currentState!.validate()){
-            // SignUpController.instance.registerUser(controller.email.text.trim(),
-            //     controller.password.text.trim());
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: (context) => MainScreen()));
+            // then create the user
             final user = UserModel(firstName: controller.firstName.text.trim(),
                 lastName: controller.lastName.text.trim(),
                 email: controller.email.text.trim(),
@@ -156,6 +156,8 @@ class RegisterScreen extends StatelessWidget {
                 programme: controller.programme.text.trim(),
                 college: controller.college.text.trim());
             SignUpController.instance.createUser(user);
+            controller2.setEmail(controller.email.text.trim());
+            controller2.createApplicationOnSignUp();
           }
         },
         child: const Text(
