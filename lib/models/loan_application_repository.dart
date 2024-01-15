@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -40,37 +41,37 @@ class LoanApplicationRepository extends GetxController {
 
   //create model that will be up
   LoanApplicationModel loanApplication = LoanApplicationModel(
-    firstName: "",
-    lastName: "",
-    gender: "",
+    firstName: "John",
+    lastName: "Die",
+    gender: "Male",
     isDisabled: false,
-    dateOfBirth: "",
-    nationalIdNumber: "",
-    financialCardNumber: "",
-    countryOfBirth: "",
-    residentialAddress: "",
-    village: "",
-    province: "",
-    district: "",
-    postalCode: "",
-    secondarySchoolAttended: "",
-    secondarySchoolLocation: "",
-    yearOfCompletion: "",
-    indexNumber: "",
-    reference: "",
-    otherNames: "",
-    nationality: "",
-    loanCategory: "",
-    appliedBefore: "",
-    awardedBefore: "",
-    email: "",
+    dateOfBirth: "01/01/1990",
+    nationalIdNumber: "CM040",
+    financialCardNumber: "CM040",
+    countryOfBirth: "Uganda",
+    residentialAddress: "Kampala",
+    village: "Kampala",
+    province: "Kampala",
+    district: "Kampala",
+    postalCode: "1000",
+    secondarySchoolAttended: "City Parents",
+    secondarySchoolLocation: "Kampala",
+    yearOfCompletion: "2020",
+    indexNumber: "21010",
+    reference: "RE199388",
+    otherNames: "Other",
+    nationality: "Ugandan",
+    loanCategory: "%0%",
+    appliedBefore: "No",
+    awardedBefore: "No",
+    email: "email@gmail.com",
     approved: false,
+    hasApplied: false,
   );
 
   void updateFromScreenOne(String firstName, String lastName, String otherNames,
       String gender, bool isDisabled, String nationality, String dateOfBirth,
       String nationalIdNumber, String financialCardNumber, String countryOfBirth, String reference){
-    final userEmail = _authRepo.firebaseUser.value?.email;
     loanApplication.firstName = firstName;
     loanApplication.lastName = lastName;
     loanApplication.otherNames = otherNames;
@@ -82,7 +83,6 @@ class LoanApplicationRepository extends GetxController {
     loanApplication.financialCardNumber = financialCardNumber;
     loanApplication.countryOfBirth = countryOfBirth;
     loanApplication.reference = reference;
-    loanApplication.email = userEmail!;
   }
 
   void updateFromScreenTwo(String residentialAddress, String village, String province,
@@ -100,9 +100,12 @@ class LoanApplicationRepository extends GetxController {
   }
 
   void updateFromScreenThree(String appliedBefore, String awardedLoan, String loanCategory){
+    final email = _authRepo.firebaseUser.value?.email;
     loanApplication.appliedBefore = appliedBefore;
     loanApplication.awardedBefore = awardedLoan;
     loanApplication.loanCategory = loanCategory;
+    loanApplication.hasApplied = true;
+    loanApplication.email = email!;
   }
 
   Future<void> createApplication() async {
@@ -127,6 +130,18 @@ class LoanApplicationRepository extends GetxController {
       // print(error.toString());
     }
   }
+
+  void setEmail(String userEmail){
+    loanApplication.email = userEmail;
+  }
+  Future<void> createApplicationOnSignUp() async {
+    try {
+      await _db.collection("LoanApplications").add(loanApplication.toJson());
+    } catch (error) {
+      print(error.toString());
+    }
+  }
+
   // Retrieve record with a specific email
   Future<LoanApplicationModel> getApplicationDetails(String email) async {
     final snapshot = await _db.collection("LoanApplications").where("Email", isEqualTo: email).get();
@@ -139,6 +154,26 @@ class LoanApplicationRepository extends GetxController {
     final snapshot = await _db.collection("LoanApplications").get();
     final loanData = snapshot.docs.map((e) => LoanApplicationModel.fromSnapshot(e)).toList();
     return loanData;
+  }
+
+  Future<void> updateLoanApplication(String email) async {
+    try {
+      final snapshot = await _db.collection("LoanApplications").where("Email", isEqualTo: email).get();
+      if (snapshot.docs.isNotEmpty) {
+        DocumentSnapshot loanDoc = snapshot.docs.first;
+        await loanDoc.reference.update(loanApplication.toJson());
+        Get.snackbar(
+          "Success",
+          "Your loan application was created successfully.",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.green.withOpacity(0.1),
+          colorText: Colors.green,
+        );
+      }
+    } catch (error) {
+      print(error.toString());
+    }
+
   }
 
   String generateRandomNumberWithPrefix() {

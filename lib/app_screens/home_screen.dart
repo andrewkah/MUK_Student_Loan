@@ -25,21 +25,21 @@ class HomeScreen extends StatelessWidget {
           'HOME',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          // You can use any icon from the Icons class
-          onPressed: () {
-            // Handle navigation icon tap
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Handle notifications icon tap
-            },
-          ),
-        ],
+        // leading: IconButton(
+        //   icon: const Icon(Icons.menu),
+        //   // You can use any icon from the Icons class
+        //   onPressed: () {
+        //     // Handle navigation icon tap
+        //   },
+        // ),
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.notifications),
+        //     onPressed: () {
+        //       // Handle notifications icon tap
+        //     },
+        //   ),
+        // ],
       ),
       body: SafeArea(
         child: Padding(
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                         height: 20,
                       ),
 
-                      userApplicationData == null ? Column(
+                      userApplicationData.hasApplied == false ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
@@ -162,7 +162,7 @@ class HomeScreen extends StatelessWidget {
                       const Spacer(
                         flex: 3,
                       ),
-                      userApplicationData == null ? Align(
+                      userApplicationData.hasApplied == false ? Align(
                         alignment: Alignment.bottomRight,
                         child: CustomButton(
                           title: "APPLY",
@@ -187,6 +187,9 @@ class HomeScreen extends StatelessWidget {
                     ],
                   );
                 } else if (snapshot.hasError) {
+                  print("==============================================================================================");
+                  print(snapshot.error);
+                  print("===============================================================================================");
                   return const Center(child: Text("Snapshot has error"));
                 } else {
                   return const Center(child: Text("Something went wrong"));
