@@ -28,6 +28,7 @@ class LoanApplicationModel {
   String loanCategory;
   String email;
   bool approved;
+  bool hasApplied;
 
 
   LoanApplicationModel({
@@ -57,6 +58,7 @@ class LoanApplicationModel {
     required this.reference,
     required this.email,
     required this.approved,
+    required this.hasApplied,
   });
 
   toJson(){
@@ -86,6 +88,7 @@ class LoanApplicationModel {
       "AppliedBefore": appliedBefore,
       "Email": email,
       "Approved": approved,
+      "HasApplied": hasApplied,
     };
   }
 
@@ -118,6 +121,7 @@ class LoanApplicationModel {
         loanCategory: data["LoanCategory"],
         email: data["Email"],
         approved: data["Approved"],
+        hasApplied: data["HasApplied"]
     );
   }
 }

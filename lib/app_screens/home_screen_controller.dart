@@ -30,5 +30,15 @@ class HomeScreenController extends GetxController{
     }
   }
 
+  updateApplicationData() {
+    final userEmail = _authRepo.firebaseUser.value?.email;
+
+    if (userEmail != null){
+      return _applicationRepo.updateLoanApplication(userEmail);
+    } else{
+      Get.snackbar("Error", "Login to continue");
+    }
+  }
+
 
 }
