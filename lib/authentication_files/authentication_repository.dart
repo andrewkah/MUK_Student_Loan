@@ -53,13 +53,13 @@ class Authenticator extends GetxController{
   Future<void> signInWithEmailAndPassword({required String email, required String password}) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.snackbar(
-        "Login Successful",
-        "",
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: Colors.redAccent.withOpacity(0.1),
-        colorText: Colors.green,
-      );
+      // Get.snackbar(
+      //   "Login Successful",
+      //   "",
+      //   snackPosition: SnackPosition.TOP,
+      //   backgroundColor: Colors.redAccent.withOpacity(0.1),
+      //   colorText: Colors.green,
+      // );
     } on FirebaseAuthException catch(_){
       // Add some code here
       Get.snackbar(

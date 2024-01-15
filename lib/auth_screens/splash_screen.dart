@@ -20,9 +20,9 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     _controller = AnimationController(
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 5),
       vsync: this,
-    )..forward();
+    );
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -33,6 +33,10 @@ class _SplashScreenState extends State<SplashScreen>
         }
       }
     });
+    Future.delayed(const Duration(seconds: 4), () {
+      _controller.forward();
+    });
+
   }
 
   @override
