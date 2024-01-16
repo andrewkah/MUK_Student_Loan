@@ -133,6 +133,7 @@ class HomeScreen extends StatelessWidget {
                             width: 250,
                             height: 250,
                           ),
+                          const SizedBox(height: 10),
                           const Text(
                             "You have no active loans!",
                             style: TextStyle(
@@ -149,6 +150,7 @@ class HomeScreen extends StatelessWidget {
                             width: 250,
                             height: 250,
                           ),
+                          const SizedBox(height: 25),
                           const Text(
                             "Your loan application is pending!",
                             style: TextStyle(

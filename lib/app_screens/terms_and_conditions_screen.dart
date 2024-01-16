@@ -340,7 +340,10 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.circular(25), // Rounded corners
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(25.0),   // Adjust the radius as needed
+                    topRight: Radius.circular(25.0),
+                  ), // Rounded corners
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5), // Shadow color
@@ -353,6 +356,7 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
+                    const SizedBox(height: 10),
                     Row(
                       children: [
                         Checkbox(

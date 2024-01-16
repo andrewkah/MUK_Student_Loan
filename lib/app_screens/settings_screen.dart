@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mak_scholar1/auth_screens/on_boarding_screen.dart';
 import 'package:mak_scholar1/authentication_files/preferences.dart';
 import 'package:mak_scholar1/provider/theme_provider.dart';
 import 'package:mak_scholar1/widgets/custom_appbar.dart';
@@ -29,7 +30,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: ListView(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
+                  padding: const EdgeInsets.symmetric(vertical: 2.5, horizontal: 4.0),
                   child: ListTile(
                     title: const Text(
                       "Notifications",
@@ -61,12 +62,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const Divider(
                   color: Colors.grey,
-                  thickness: 2,
+                  thickness: 1,
                   indent: 3,
                   endIndent: 3,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical:3.0),
                   child: ListTile(
                     title: const Text(
                       "Privacy & Settings",
@@ -103,12 +104,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const Divider(
                   color: Colors.grey,
-                  thickness: 2,
+                  thickness: 1,
                   indent: 3,
                   endIndent: 3,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical:3.0),
                   child: ListTile(
                     subtitle: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,12 +138,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const Divider(
                   color: Colors.grey,
-                  thickness: 2,
+                  thickness: 1,
                   indent: 3,
                   endIndent: 3,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical:3.0),
                   child: ListTile(
                     subtitle: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,12 +172,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const Divider(
                   color: Colors.grey,
-                  thickness: 2,
+                  thickness: 1,
                   indent: 3,
                   endIndent: 3,
                 ),
                  Padding(
-                   padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                   padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical:3.0),
                    child: GestureDetector(
                      onTap: () {
                        // Navigate to the FAQ Screen
@@ -212,7 +213,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                  ),
                 const Divider(
                   color: Colors.grey,
-                  thickness: 2,
+                  thickness: 1,
                   indent: 3,
                   endIndent: 3,
                 ),
@@ -238,7 +239,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       TextButton(
                         onPressed: () {
                           Future.delayed(const Duration(seconds: 2), (){
-                            Authenticator.instance.logout();
+                            // Authenticator.instance.logout();
+                            Get.offAll(() => const OnBoardingScreen());
                           });
 
                         },
