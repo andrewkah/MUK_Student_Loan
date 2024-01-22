@@ -56,17 +56,6 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // const Image(image: AssetImage("assets/images/Mak-Logo.png"),
-            // width: 300,),
-            // const SizedBox(
-            //   height: 30,
-            // ),
-            // Container(
-            //   margin: const EdgeInsets.all(15),
-            //     child: const Text("MAKERERE UNIVERSITY STUDENT FUND",
-            //       textAlign: TextAlign.center,
-            //       style: TextStyle(color: Colors.white, fontSize: 28),)
-            // ),
             Image.asset(
               'assets/images/green.png',
               width: 280,

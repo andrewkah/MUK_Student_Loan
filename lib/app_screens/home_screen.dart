@@ -25,21 +25,21 @@ class HomeScreen extends StatelessWidget {
           'HOME',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        // leading: IconButton(
-        //   icon: const Icon(Icons.menu),
-        //   // You can use any icon from the Icons class
-        //   onPressed: () {
-        //     // Handle navigation icon tap
-        //   },
-        // ),
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(Icons.notifications),
-        //     onPressed: () {
-        //       // Handle notifications icon tap
-        //     },
-        //   ),
-        // ],
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          // You can use any icon from the Icons class
+          onPressed: () {
+            // Handle navigation icon tap
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Handle notifications icon tap
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
