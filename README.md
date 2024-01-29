@@ -78,10 +78,7 @@ app_screens
 ```
 
 ## Tech Stack
-- Flutter ![Static Badge](https://img.shields.io/badge/flutter_v_3.16.4-blue?logo=Flutter)
-
-- Firebase  ![Static Badge](https://img.shields.io/badge/firebase_CLI_v_13.0.2-orange?logo=Firebase)
-
+ <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a>
 
 ## Install this project
   ```bash
